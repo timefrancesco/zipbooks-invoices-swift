@@ -31,6 +31,7 @@
 		AF7C96301C4B82EF00FAA81C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C962F1C4B82EF00FAA81C /* LoginViewController.swift */; };
 		AF7C96331C4B830A00FAA81C /* APIservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C96311C4B830A00FAA81C /* APIservice.swift */; };
 		AF7C96341C4B830A00FAA81C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C96321C4B830A00FAA81C /* Utilities.swift */; };
+		AF7C96361C4B885400FAA81C /* InvoiceItemTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C96351C4B885400FAA81C /* InvoiceItemTC.swift */; };
 		AFBF52BA1C434FDF00865594 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBF52B91C434FDF00865594 /* AppDelegate.swift */; };
 		AFBF52BF1C434FDF00865594 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBF52BD1C434FDF00865594 /* Main.storyboard */; };
 		AFBF52C11C434FDF00865594 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFBF52C01C434FDF00865594 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		AF7C962F1C4B82EF00FAA81C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		AF7C96311C4B830A00FAA81C /* APIservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIservice.swift; path = Services/APIservice.swift; sourceTree = "<group>"; };
 		AF7C96321C4B830A00FAA81C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = Services/Utilities.swift; sourceTree = "<group>"; };
+		AF7C96351C4B885400FAA81C /* InvoiceItemTC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvoiceItemTC.swift; path = ViewControllers/InvoiceItemTC.swift; sourceTree = "<group>"; };
 		AFBF52B61C434FDF00865594 /* zipbooks-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zipbooks-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFBF52B91C434FDF00865594 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFBF52BE1C434FDF00865594 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				AF13F8D21C478B9500F7F833 /* InvoiceOneLineTC.xib */,
 				AF7C962D1C4B801B00FAA81C /* InvoiceOneLineTC.swift */,
 				AF13F8D41C478C8300F7F833 /* InvoiceTextViewTC.xib */,
+				AF7C96351C4B885400FAA81C /* InvoiceItemTC.swift */,
 				AF13F8E21C4AF3EE00F7F833 /* InvoiceItemTC.xib */,
 				AF13F8E41C4AF4FB00F7F833 /* InovoiceSubTotalTC.xib */,
 				AF13F8E61C4AF53C00F7F833 /* InvoiceTotalTC.xib */,
@@ -137,6 +140,9 @@
 		AF0EC09A1C4355D300E71DC0 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				AFBF52C01C434FDF00865594 /* Assets.xcassets */,
+				AFBF52C21C434FDF00865594 /* LaunchScreen.storyboard */,
+				AFBF52C51C434FDF00865594 /* Info.plist */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -178,13 +184,10 @@
 			isa = PBXGroup;
 			children = (
 				AF0EC09D1C4364AF00E71DC0 /* Models */,
-				AF0EC09A1C4355D300E71DC0 /* SupportingFiles */,
 				AF0EC0991C4355C500E71DC0 /* ViewControllers */,
 				AF0EC0981C4355B500E71DC0 /* Services */,
 				AFBF52B91C434FDF00865594 /* AppDelegate.swift */,
-				AFBF52C01C434FDF00865594 /* Assets.xcassets */,
-				AFBF52C21C434FDF00865594 /* LaunchScreen.storyboard */,
-				AFBF52C51C434FDF00865594 /* Info.plist */,
+				AF0EC09A1C4355D300E71DC0 /* SupportingFiles */,
 			);
 			path = "zipbooks-ios";
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				AF7C96301C4B82EF00FAA81C /* LoginViewController.swift in Sources */,
 				AF13F8D71C486A1100F7F833 /* SingleInvoiceViewController.swift in Sources */,
 				AF13F8BD1C44B17C00F7F833 /* InvoicesViewController.swift in Sources */,
+				AF7C96361C4B885400FAA81C /* InvoiceItemTC.swift in Sources */,
 				AF13F8C51C44BB1600F7F833 /* TimeEntry.swift in Sources */,
 				AF0EC09F1C43691800E71DC0 /* User.swift in Sources */,
 				AF13F8BB1C443EE800F7F833 /* Invoice.swift in Sources */,

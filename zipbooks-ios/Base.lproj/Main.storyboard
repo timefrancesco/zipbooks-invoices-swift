@@ -100,6 +100,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="kqq-fz-de2" kind="show" identifier="showInvoice" id="1J0-o2-HbR"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

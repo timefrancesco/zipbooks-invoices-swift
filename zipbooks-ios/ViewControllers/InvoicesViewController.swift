@@ -86,6 +86,19 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-    
+        self.performSegueWithIdentifier("showInvoice", sender: self)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showInvoice" {
+            if let destination = segue.destinationViewController as? SingleInvoiceViewController {
+                if let indx = invoicesTableView.indexPathForSelectedRow?.row {
+                    destination.currentInvoice = invoices[indx]
+                }
+
+            }
+        }
+    }
+
 }

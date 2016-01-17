@@ -104,19 +104,19 @@ class Action: Object,Mappable {
 }
 
 class Item: Object,Mappable {
-    var id: Int?
-    var name: String?
-    var created_at: String?
-    var notes: String?
-    var tax_id: Int?
-    var taxes: Taxes? //it should be an array but it's not, ?!
-    var type: String?
-    var deleted_at: String?
-    var rate: String?
-    var updated_at: String?
+    dynamic var id: Int = 0
+    dynamic var name: String?
+    dynamic var created_at: String?
+    dynamic var notes: String?
+    dynamic var tax_id: Int = 0
+    dynamic var taxes: Taxes? //it should be an array but it's not, ?!
+    dynamic var type: String?
+    dynamic var deleted_at: String?
+    dynamic var rate: String?
+    dynamic var updated_at: String?
     //var invoice: invoice? I don't think it's needed, we have the info above
-    var quantity: String?
-    var invoice_id: Int?
+    dynamic var quantity: String?
+    dynamic var invoice_id: Int = 0
     
     // MARK: Mappable
     required convenience init?(_ map: Map) {

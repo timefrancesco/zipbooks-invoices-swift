@@ -34,4 +34,11 @@ class Utility {
         return  NSUserDefaults.standardUserDefaults().valueForKey("username") as! String
     }
     
+    class func calculateTotal(quantity:String, rate:String) -> String {
+        let quantityN = Double(quantity)
+        let rateN = Double(rate)
+        
+        let total = rateN! * quantityN!
+        return String(format:"%2f",total)
+    }
 }

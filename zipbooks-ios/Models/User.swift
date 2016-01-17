@@ -18,7 +18,6 @@ class User : Object, Mappable {
     
     required convenience init?(_ map: Map) {
         self.init()
-        // mapping(map) ??TO TEST
     }
     
     /*override static func primaryKey() -> String? {

@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="IMv-rd-IdU">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="IMv-rd-IdU" customClass="InvoiceItemTC" customModule="zipbooks_ios" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IMv-rd-IdU" id="Dnf-6S-Sdg">
@@ -40,6 +40,12 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="notesLbl" destination="NsY-8R-TOp" id="ORI-AR-V5R"/>
+                <outlet property="quantityLbl" destination="1bD-bu-mr1" id="wLG-u5-OjF"/>
+                <outlet property="taskLbl" destination="K2Q-jH-2zN" id="Z6T-Dv-2Z4"/>
+                <outlet property="totalPriceLbl" destination="9Ib-C3-2uT" id="yTn-xi-7V9"/>
+            </connections>
             <point key="canvasLocation" x="500" y="546"/>
         </tableViewCell>
     </objects>
