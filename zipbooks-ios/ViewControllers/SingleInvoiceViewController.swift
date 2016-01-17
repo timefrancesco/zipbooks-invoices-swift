@@ -23,7 +23,8 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
 
     @IBOutlet weak var invoiceTableView: UITableView!
     var currentInvoice = Invoice()
-
+    var expenses = [Item]()
+    var items = [Item]()
     
     override func viewDidLoad() {
         invoiceTableView.delegate = self
@@ -34,6 +35,11 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
         invoiceTableView.registerNib(UINib(nibName: "InvoiceSubTotalTC", bundle: nil), forCellReuseIdentifier: "SubTotalCell")
         invoiceTableView.registerNib(UINib(nibName: "InvoiceTotalTC", bundle: nil), forCellReuseIdentifier: "TotalCell")
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        expenses = currentInvoice.items.filter( {$0.type == "item"}) //Apparently Expenses are marked at item?
+        items = currentInvoice.items.filter( {$0.type != "item"})
     }
     
     //MARK: TableView Delegate Functions
@@ -93,15 +99,18 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
             
         case InvoiceSection.ITEMS.rawValue:
             let currentCell = tableView.dequeueReusableCellWithIdentifier("ItemCell", forIndexPath: indexPath) as! InvoiceItemTC
-            currentCell.updateData(currentInvoice.items[indexPath.row])
+            currentCell.updateData(items[indexPath.row])
             cell = currentCell
             break
             
         case InvoiceSection.EXPENSES.rawValue:
-            cell = UITableViewCell() //temp
+            let currentCell = tableView.dequeueReusableCellWithIdentifier("ItemCell", forIndexPath: indexPath) as! InvoiceItemTC
+            currentCell.updateData(expenses[indexPath.row])
+            cell = currentCell
             break
             
         case InvoiceSection.TERMS.rawValue:
+           // cell = UITableViewCell()
             let currentCell = tableView.dequeueReusableCellWithIdentifier("TextCell", forIndexPath: indexPath) as! InvoiceTextViewTC
             currentCell.updateData(currentInvoice.terms!)
             cell = currentCell
@@ -141,11 +150,11 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
             num = 1
             break
         case InvoiceSection.ITEMS.rawValue:
-            num = currentInvoice.items.count
+            num = items.count
             break
             
         case InvoiceSection.EXPENSES.rawValue:
-            //TODO: arent expenses different than items?
+            num = expenses.count
             break
             
         case InvoiceSection.TERMS.rawValue:

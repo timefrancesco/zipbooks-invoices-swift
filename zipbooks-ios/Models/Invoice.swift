@@ -110,7 +110,7 @@ class Item: Object,Mappable {
     dynamic var notes: String?
     dynamic var tax_id: Int = 0
     dynamic var taxes: Taxes? //it should be an array but it's not, ?!
-    dynamic var type: String?
+    dynamic var type: String = ""
     dynamic var deleted_at: String?
     dynamic var rate: String?
     dynamic var updated_at: String?

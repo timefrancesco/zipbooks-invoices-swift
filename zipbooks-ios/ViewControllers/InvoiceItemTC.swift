@@ -20,5 +20,7 @@ class InvoiceItemTC: UITableViewCell {
         notesLbl.text = value.notes
         taskLbl.text = value.name
         quantityLbl.text = value.quantity
+        
+        print (value.type)
     }
 }

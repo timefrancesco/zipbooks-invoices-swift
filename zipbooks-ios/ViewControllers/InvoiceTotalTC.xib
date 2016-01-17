@@ -11,16 +11,21 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="utK-Sb-3AT" id="sWg-gM-G3B">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$45785464" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOf-HL-ETo">
-                        <rect key="frame" x="177" y="11" width="135" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$45785464" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOf-HL-ETo">
+                        <rect key="frame" x="8" y="11" width="304" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="TOf-HL-ETo" firstAttribute="centerY" secondItem="sWg-gM-G3B" secondAttribute="centerY" id="CQz-mT-f6c"/>
+                    <constraint firstItem="TOf-HL-ETo" firstAttribute="leading" secondItem="sWg-gM-G3B" secondAttribute="leading" constant="8" id="KOs-OY-42E"/>
+                    <constraint firstAttribute="trailing" secondItem="TOf-HL-ETo" secondAttribute="trailing" constant="8" id="xzY-rb-fdt"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="totalLbl" destination="TOf-HL-ETo" id="crw-RV-PRw"/>

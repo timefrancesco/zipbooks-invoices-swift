@@ -11,22 +11,30 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hLw-vL-PQE" id="WPc-fe-6AK">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJX-go-Cg5">
-                        <rect key="frame" x="8" y="11" width="88" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJX-go-Cg5">
+                        <rect key="frame" x="8" y="11" width="149" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$458745" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Et-7E-u5x">
-                        <rect key="frame" x="231" y="11" width="81" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="$458745" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Et-7E-u5x">
+                        <rect key="frame" x="165" y="11" width="147" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="2Et-7E-u5x" firstAttribute="centerY" secondItem="WPc-fe-6AK" secondAttribute="centerY" id="7yQ-7D-Ygy"/>
+                    <constraint firstItem="2Et-7E-u5x" firstAttribute="leading" secondItem="fJX-go-Cg5" secondAttribute="trailing" constant="8" id="BTQ-ct-yQd"/>
+                    <constraint firstAttribute="trailing" secondItem="2Et-7E-u5x" secondAttribute="trailing" constant="8" id="Lbl-72-5eA"/>
+                    <constraint firstItem="fJX-go-Cg5" firstAttribute="centerY" secondItem="WPc-fe-6AK" secondAttribute="centerY" id="WLm-ly-zpV"/>
+                    <constraint firstItem="2Et-7E-u5x" firstAttribute="leading" secondItem="fJX-go-Cg5" secondAttribute="trailing" constant="8" id="wcH-1G-awV"/>
+                    <constraint firstItem="fJX-go-Cg5" firstAttribute="leading" secondItem="WPc-fe-6AK" secondAttribute="leading" constant="8" id="zrK-bl-vDq"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="descriptionLbl" destination="fJX-go-Cg5" id="YsH-P3-luc"/>
