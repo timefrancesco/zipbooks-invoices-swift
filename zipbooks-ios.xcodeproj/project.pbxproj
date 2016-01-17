@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		632CA24CC8F4159784D6DACC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB4AA5E61DB4E2409D4F317D /* Pods.framework */; };
+		AF0EC09C1C43565100E71DC0 /* APIservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0EC09B1C43565100E71DC0 /* APIservice.swift */; };
+		AF0EC09F1C43691800E71DC0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0EC09E1C43691800E71DC0 /* User.swift */; };
+		AF13F8B91C436CF500F7F833 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8B81C436CF500F7F833 /* Utilities.swift */; };
+		AF13F8BB1C443EE800F7F833 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8BA1C443EE800F7F833 /* Invoice.swift */; };
+		AF13F8BD1C44B17C00F7F833 /* InvoicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8BC1C44B17C00F7F833 /* InvoicesViewController.swift */; };
+		AF13F8BF1C44B4FB00F7F833 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8BE1C44B4FB00F7F833 /* Customer.swift */; };
+		AF13F8C11C44B87100F7F833 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8C01C44B87100F7F833 /* Project.swift */; };
+		AF13F8C31C44B90B00F7F833 /* TeamUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8C21C44B90B00F7F833 /* TeamUser.swift */; };
+		AF13F8C51C44BB1600F7F833 /* TimeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8C41C44BB1600F7F833 /* TimeEntry.swift */; };
+		AF13F8C71C44BC6600F7F833 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8C61C44BC6600F7F833 /* Task.swift */; };
+		AF13F8C91C44BCD100F7F833 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8C81C44BCD100F7F833 /* Expense.swift */; };
+		AF13F8CB1C44F43300F7F833 /* InvoiceTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF13F8CA1C44F43300F7F833 /* InvoiceTableCell.xib */; };
+		AF13F8CD1C44F46F00F7F833 /* InvoiceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8CC1C44F46F00F7F833 /* InvoiceTableCell.swift */; };
+		AF13F8CF1C45CAFA00F7F833 /* DBservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8CE1C45CAFA00F7F833 /* DBservice.swift */; };
+		AF13F8D11C46E91E00F7F833 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8D01C46E91E00F7F833 /* Extensions.swift */; };
+		AF13F8D31C478B9500F7F833 /* InvoiceOneLineTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF13F8D21C478B9500F7F833 /* InvoiceOneLineTC.xib */; };
+		AF13F8D51C478C8300F7F833 /* InvoiceTextViewTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF13F8D41C478C8300F7F833 /* InvoiceTextViewTC.xib */; };
+		AF13F8D71C486A1100F7F833 /* SingleInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8D61C486A1100F7F833 /* SingleInvoiceViewController.swift */; };
+		AF13F8E31C4AF3EE00F7F833 /* InvoiceItemTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF13F8E21C4AF3EE00F7F833 /* InvoiceItemTC.xib */; };
+		AF13F8E51C4AF4FB00F7F833 /* InovoiceSubTotalTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF13F8E41C4AF4FB00F7F833 /* InovoiceSubTotalTC.xib */; };
+		AF13F8E71C4AF53C00F7F833 /* InvoiceTotalTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF13F8E61C4AF53C00F7F833 /* InvoiceTotalTC.xib */; };
+		AFBF52BA1C434FDF00865594 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBF52B91C434FDF00865594 /* AppDelegate.swift */; };
+		AFBF52BC1C434FDF00865594 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBF52BB1C434FDF00865594 /* LoginViewController.swift */; };
+		AFBF52BF1C434FDF00865594 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBF52BD1C434FDF00865594 /* Main.storyboard */; };
+		AFBF52C11C434FDF00865594 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFBF52C01C434FDF00865594 /* Assets.xcassets */; };
+		AFBF52C41C434FDF00865594 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBF52C21C434FDF00865594 /* LaunchScreen.storyboard */; };
+		AFBF52CC1C43510200865594 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AFBF52CB1C43510200865594 /* Podfile */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1BE071A4DB55DC1B0FC4255C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AF0EC09B1C43565100E71DC0 /* APIservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIservice.swift; sourceTree = "<group>"; };
+		AF0EC09E1C43691800E71DC0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		AF13F8B81C436CF500F7F833 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		AF13F8BA1C443EE800F7F833 /* Invoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Invoice.swift; path = Models/Invoice.swift; sourceTree = "<group>"; };
+		AF13F8BC1C44B17C00F7F833 /* InvoicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvoicesViewController.swift; path = ViewControllers/InvoicesViewController.swift; sourceTree = "<group>"; };
+		AF13F8BE1C44B4FB00F7F833 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Customer.swift; path = Models/Customer.swift; sourceTree = "<group>"; };
+		AF13F8C01C44B87100F7F833 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Models/Project.swift; sourceTree = "<group>"; };
+		AF13F8C21C44B90B00F7F833 /* TeamUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamUser.swift; path = Models/TeamUser.swift; sourceTree = "<group>"; };
+		AF13F8C41C44BB1600F7F833 /* TimeEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeEntry.swift; path = Models/TimeEntry.swift; sourceTree = "<group>"; };
+		AF13F8C61C44BC6600F7F833 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = Models/Task.swift; sourceTree = "<group>"; };
+		AF13F8C81C44BCD100F7F833 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Expense.swift; path = Models/Expense.swift; sourceTree = "<group>"; };
+		AF13F8CA1C44F43300F7F833 /* InvoiceTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InvoiceTableCell.xib; path = ViewControllers/InvoiceTableCell.xib; sourceTree = "<group>"; };
+		AF13F8CC1C44F46F00F7F833 /* InvoiceTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvoiceTableCell.swift; path = ViewControllers/InvoiceTableCell.swift; sourceTree = "<group>"; };
+		AF13F8CE1C45CAFA00F7F833 /* DBservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBservice.swift; path = Services/DBservice.swift; sourceTree = "<group>"; };
+		AF13F8D01C46E91E00F7F833 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Services/Extensions.swift; sourceTree = "<group>"; };
+		AF13F8D21C478B9500F7F833 /* InvoiceOneLineTC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InvoiceOneLineTC.xib; path = ViewControllers/InvoiceOneLineTC.xib; sourceTree = "<group>"; };
+		AF13F8D41C478C8300F7F833 /* InvoiceTextViewTC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InvoiceTextViewTC.xib; path = ViewControllers/InvoiceTextViewTC.xib; sourceTree = "<group>"; };
+		AF13F8D61C486A1100F7F833 /* SingleInvoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingleInvoiceViewController.swift; path = ViewControllers/SingleInvoiceViewController.swift; sourceTree = "<group>"; };
+		AF13F8E21C4AF3EE00F7F833 /* InvoiceItemTC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InvoiceItemTC.xib; path = ViewControllers/InvoiceItemTC.xib; sourceTree = "<group>"; };
+		AF13F8E41C4AF4FB00F7F833 /* InovoiceSubTotalTC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InovoiceSubTotalTC.xib; path = ViewControllers/InovoiceSubTotalTC.xib; sourceTree = "<group>"; };
+		AF13F8E61C4AF53C00F7F833 /* InvoiceTotalTC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InvoiceTotalTC.xib; path = ViewControllers/InvoiceTotalTC.xib; sourceTree = "<group>"; };
+		AFBF52B61C434FDF00865594 /* zipbooks-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zipbooks-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFBF52B91C434FDF00865594 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AFBF52BB1C434FDF00865594 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AFBF52BE1C434FDF00865594 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AFBF52C01C434FDF00865594 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AFBF52C31C434FDF00865594 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AFBF52C51C434FDF00865594 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFBF52CB1C43510200865594 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BB4AA5E61DB4E2409D4F317D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE5F755511FB27CAF6F60FAB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AFBF52B31C434FDF00865594 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				632CA24CC8F4159784D6DACC /* Pods.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A60FB3615C20FEFE783E0FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB4AA5E61DB4E2409D4F317D /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		51498F2639CBDBE7A87C476D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AFBF52CB1C43510200865594 /* Podfile */,
+				CE5F755511FB27CAF6F60FAB /* Pods.debug.xcconfig */,
+				1BE071A4DB55DC1B0FC4255C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AF0EC0981C4355B500E71DC0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AF0EC09B1C43565100E71DC0 /* APIservice.swift */,
+				AF13F8B81C436CF500F7F833 /* Utilities.swift */,
+				AF13F8CE1C45CAFA00F7F833 /* DBservice.swift */,
+				AF13F8D01C46E91E00F7F833 /* Extensions.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		AF0EC0991C4355C500E71DC0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AFBF52BD1C434FDF00865594 /* Main.storyboard */,
+				AFBF52BB1C434FDF00865594 /* LoginViewController.swift */,
+				AF13F8BC1C44B17C00F7F833 /* InvoicesViewController.swift */,
+				AF13F8D61C486A1100F7F833 /* SingleInvoiceViewController.swift */,
+				AF13F8CA1C44F43300F7F833 /* InvoiceTableCell.xib */,
+				AF13F8CC1C44F46F00F7F833 /* InvoiceTableCell.swift */,
+				AF13F8D21C478B9500F7F833 /* InvoiceOneLineTC.xib */,
+				AF13F8D41C478C8300F7F833 /* InvoiceTextViewTC.xib */,
+				AF13F8E21C4AF3EE00F7F833 /* InvoiceItemTC.xib */,
+				AF13F8E41C4AF4FB00F7F833 /* InovoiceSubTotalTC.xib */,
+				AF13F8E61C4AF53C00F7F833 /* InvoiceTotalTC.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AF0EC09A1C4355D300E71DC0 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		AF0EC09D1C4364AF00E71DC0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AF13F8C81C44BCD100F7F833 /* Expense.swift */,
+				AF13F8C61C44BC6600F7F833 /* Task.swift */,
+				AF13F8C41C44BB1600F7F833 /* TimeEntry.swift */,
+				AF13F8C21C44B90B00F7F833 /* TeamUser.swift */,
+				AF13F8C01C44B87100F7F833 /* Project.swift */,
+				AF13F8BE1C44B4FB00F7F833 /* Customer.swift */,
+				AF13F8BA1C443EE800F7F833 /* Invoice.swift */,
+				AF0EC09E1C43691800E71DC0 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		AFBF52AD1C434FDF00865594 = {
+			isa = PBXGroup;
+			children = (
+				AFBF52B81C434FDF00865594 /* zipbooks-ios */,
+				AFBF52B71C434FDF00865594 /* Products */,
+				51498F2639CBDBE7A87C476D /* Pods */,
+				4A60FB3615C20FEFE783E0FD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AFBF52B71C434FDF00865594 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AFBF52B61C434FDF00865594 /* zipbooks-ios.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AFBF52B81C434FDF00865594 /* zipbooks-ios */ = {
+			isa = PBXGroup;
+			children = (
+				AF0EC09D1C4364AF00E71DC0 /* Models */,
+				AF0EC09A1C4355D300E71DC0 /* SupportingFiles */,
+				AF0EC0991C4355C500E71DC0 /* ViewControllers */,
+				AF0EC0981C4355B500E71DC0 /* Services */,
+				AFBF52B91C434FDF00865594 /* AppDelegate.swift */,
+				AFBF52C01C434FDF00865594 /* Assets.xcassets */,
+				AFBF52C21C434FDF00865594 /* LaunchScreen.storyboard */,
+				AFBF52C51C434FDF00865594 /* Info.plist */,
+			);
+			path = "zipbooks-ios";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AFBF52B51C434FDF00865594 /* zipbooks-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFBF52C81C434FDF00865594 /* Build configuration list for PBXNativeTarget "zipbooks-ios" */;
+			buildPhases = (
+				F341822682DF2F1972E12D16 /* Check Pods Manifest.lock */,
+				AFBF52B21C434FDF00865594 /* Sources */,
+				AFBF52B31C434FDF00865594 /* Frameworks */,
+				AFBF52B41C434FDF00865594 /* Resources */,
+				53627107E2E439DE7D9CF283 /* Embed Pods Frameworks */,
+				AAECD66AEE695E1B2FDDD0DB /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "zipbooks-ios";
+			productName = "zipbooks-ios";
+			productReference = AFBF52B61C434FDF00865594 /* zipbooks-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AFBF52AE1C434FDF00865594 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Francesco Pretelli";
+				TargetAttributes = {
+					AFBF52B51C434FDF00865594 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = AFBF52B11C434FDF00865594 /* Build configuration list for PBXProject "zipbooks-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AFBF52AD1C434FDF00865594;
+			productRefGroup = AFBF52B71C434FDF00865594 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AFBF52B51C434FDF00865594 /* zipbooks-ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AFBF52B41C434FDF00865594 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFBF52C41C434FDF00865594 /* LaunchScreen.storyboard in Resources */,
+				AF13F8CB1C44F43300F7F833 /* InvoiceTableCell.xib in Resources */,
+				AFBF52C11C434FDF00865594 /* Assets.xcassets in Resources */,
+				AF13F8E51C4AF4FB00F7F833 /* InovoiceSubTotalTC.xib in Resources */,
+				AF13F8D51C478C8300F7F833 /* InvoiceTextViewTC.xib in Resources */,
+				AF13F8E71C4AF53C00F7F833 /* InvoiceTotalTC.xib in Resources */,
+				AF13F8D31C478B9500F7F833 /* InvoiceOneLineTC.xib in Resources */,
+				AF13F8E31C4AF3EE00F7F833 /* InvoiceItemTC.xib in Resources */,
+				AFBF52CC1C43510200865594 /* Podfile in Resources */,
+				AFBF52BF1C434FDF00865594 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		53627107E2E439DE7D9CF283 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAECD66AEE695E1B2FDDD0DB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F341822682DF2F1972E12D16 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AFBF52B21C434FDF00865594 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF13F8D71C486A1100F7F833 /* SingleInvoiceViewController.swift in Sources */,
+				AF13F8BD1C44B17C00F7F833 /* InvoicesViewController.swift in Sources */,
+				AF13F8C51C44BB1600F7F833 /* TimeEntry.swift in Sources */,
+				AF0EC09F1C43691800E71DC0 /* User.swift in Sources */,
+				AF13F8BB1C443EE800F7F833 /* Invoice.swift in Sources */,
+				AF13F8CD1C44F46F00F7F833 /* InvoiceTableCell.swift in Sources */,
+				AF13F8C71C44BC6600F7F833 /* Task.swift in Sources */,
+				AF13F8BF1C44B4FB00F7F833 /* Customer.swift in Sources */,
+				AF0EC09C1C43565100E71DC0 /* APIservice.swift in Sources */,
+				AFBF52BC1C434FDF00865594 /* LoginViewController.swift in Sources */,
+				AF13F8B91C436CF500F7F833 /* Utilities.swift in Sources */,
+				AFBF52BA1C434FDF00865594 /* AppDelegate.swift in Sources */,
+				AF13F8D11C46E91E00F7F833 /* Extensions.swift in Sources */,
+				AF13F8C11C44B87100F7F833 /* Project.swift in Sources */,
+				AF13F8CF1C45CAFA00F7F833 /* DBservice.swift in Sources */,
+				AF13F8C91C44BCD100F7F833 /* Expense.swift in Sources */,
+				AF13F8C31C44B90B00F7F833 /* TeamUser.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AFBF52BD1C434FDF00865594 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AFBF52BE1C434FDF00865594 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AFBF52C21C434FDF00865594 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AFBF52C31C434FDF00865594 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AFBF52C61C434FDF00865594 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AFBF52C71C434FDF00865594 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AFBF52C91C434FDF00865594 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE5F755511FB27CAF6F60FAB /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "zipbooks-ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.timelabs.zipbooks-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AFBF52CA1C434FDF00865594 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BE071A4DB55DC1B0FC4255C /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "zipbooks-ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.timelabs.zipbooks-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AFBF52B11C434FDF00865594 /* Build configuration list for PBXProject "zipbooks-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFBF52C61C434FDF00865594 /* Debug */,
+				AFBF52C71C434FDF00865594 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFBF52C81C434FDF00865594 /* Build configuration list for PBXNativeTarget "zipbooks-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFBF52C91C434FDF00865594 /* Debug */,
+				AFBF52CA1C434FDF00865594 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AFBF52AE1C434FDF00865594 /* Project object */;
+}
