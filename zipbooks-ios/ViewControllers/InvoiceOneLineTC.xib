@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="NAR-jq-Mnt">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="NAR-jq-Mnt" customClass="InvoiceTableCellOneLineTC" customModule="zipbooks_ios" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NAR-jq-Mnt" id="4Mn-hY-Ue0">
@@ -28,6 +28,9 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="lineValue" destination="jyW-CJ-Q0T" id="MU0-lX-PSy"/>
+            </connections>
             <point key="canvasLocation" x="596" y="544"/>
         </tableViewCell>
     </objects>

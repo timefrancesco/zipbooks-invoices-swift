@@ -19,38 +19,37 @@ enum InvoiceSection:Int{
     case TOTAL = 6
 }
 
-class SingleInvoiceViewController: UIViewController/*, UITableViewDataSource, UITableViewDelegate*/  {
+class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
     @IBOutlet weak var invoiceTableView: UITableView!
     var currentInvoice = Invoice()
 
     
     override func viewDidLoad() {
-       // invoiceTableView.delegate = self
-        //invoiceTableView.dataSource = self
-        //invoiceTableView.registerNib(UINib(nibName: "InvoiceOneLineTC", bundle: nil), forCellReuseIdentifier: "OneLine")
+       invoiceTableView.delegate = self
+       invoiceTableView.dataSource = self
+       invoiceTableView.registerNib(UINib(nibName: "InvoiceOneLineTC", bundle: nil), forCellReuseIdentifier: "OneLine")
         
     }
     
     //MARK: TableView Delegate Functions
     
-    /*func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 7
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-       /* let cell = tableView.dequeueReusableCellWithIdentifier("InvoiceCell", forIndexPath: indexPath) as! InvoiceTableCell
-        let invoice = invoices[indexPath.row]
-        cell.updateData(invoice)
-        return cell*/
+        let cell = tableView.dequeueReusableCellWithIdentifier("OneLine", forIndexPath: indexPath) as! InvoiceTableCellOneLineTC
+       // cell.updateData(invoice)
+        return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        return 1
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         
     }
-    */
+    
 }
