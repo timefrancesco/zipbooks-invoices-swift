@@ -25,13 +25,16 @@
 		AF13F8D51C478C8300F7F833 /* InvoiceTextViewTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF13F8D41C478C8300F7F833 /* InvoiceTextViewTC.xib */; };
 		AF13F8D71C486A1100F7F833 /* SingleInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8D61C486A1100F7F833 /* SingleInvoiceViewController.swift */; };
 		AF13F8E31C4AF3EE00F7F833 /* InvoiceItemTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF13F8E21C4AF3EE00F7F833 /* InvoiceItemTC.xib */; };
-		AF13F8E51C4AF4FB00F7F833 /* InovoiceSubTotalTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF13F8E41C4AF4FB00F7F833 /* InovoiceSubTotalTC.xib */; };
+		AF13F8E51C4AF4FB00F7F833 /* InvoiceSubTotalTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF13F8E41C4AF4FB00F7F833 /* InvoiceSubTotalTC.xib */; };
 		AF13F8E71C4AF53C00F7F833 /* InvoiceTotalTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF13F8E61C4AF53C00F7F833 /* InvoiceTotalTC.xib */; };
 		AF7C962E1C4B801B00FAA81C /* InvoiceOneLineTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C962D1C4B801B00FAA81C /* InvoiceOneLineTC.swift */; };
 		AF7C96301C4B82EF00FAA81C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C962F1C4B82EF00FAA81C /* LoginViewController.swift */; };
 		AF7C96331C4B830A00FAA81C /* APIservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C96311C4B830A00FAA81C /* APIservice.swift */; };
 		AF7C96341C4B830A00FAA81C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C96321C4B830A00FAA81C /* Utilities.swift */; };
 		AF7C96361C4B885400FAA81C /* InvoiceItemTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C96351C4B885400FAA81C /* InvoiceItemTC.swift */; };
+		AF7C96381C4B912600FAA81C /* InvoiceSubTotalTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C96371C4B912600FAA81C /* InvoiceSubTotalTC.swift */; };
+		AF7C963A1C4B914300FAA81C /* InvoiceTextViewTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C96391C4B914300FAA81C /* InvoiceTextViewTC.swift */; };
+		AF7C963C1C4B961D00FAA81C /* InvoiceTotalTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C963B1C4B961D00FAA81C /* InvoiceTotalTC.swift */; };
 		AFBF52BA1C434FDF00865594 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBF52B91C434FDF00865594 /* AppDelegate.swift */; };
 		AFBF52BF1C434FDF00865594 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBF52BD1C434FDF00865594 /* Main.storyboard */; };
 		AFBF52C11C434FDF00865594 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFBF52C01C434FDF00865594 /* Assets.xcassets */; };
@@ -58,13 +61,16 @@
 		AF13F8D41C478C8300F7F833 /* InvoiceTextViewTC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InvoiceTextViewTC.xib; path = ViewControllers/InvoiceTextViewTC.xib; sourceTree = "<group>"; };
 		AF13F8D61C486A1100F7F833 /* SingleInvoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingleInvoiceViewController.swift; path = ViewControllers/SingleInvoiceViewController.swift; sourceTree = "<group>"; };
 		AF13F8E21C4AF3EE00F7F833 /* InvoiceItemTC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InvoiceItemTC.xib; path = ViewControllers/InvoiceItemTC.xib; sourceTree = "<group>"; };
-		AF13F8E41C4AF4FB00F7F833 /* InovoiceSubTotalTC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InovoiceSubTotalTC.xib; path = ViewControllers/InovoiceSubTotalTC.xib; sourceTree = "<group>"; };
+		AF13F8E41C4AF4FB00F7F833 /* InvoiceSubTotalTC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InvoiceSubTotalTC.xib; path = ViewControllers/InvoiceSubTotalTC.xib; sourceTree = "<group>"; };
 		AF13F8E61C4AF53C00F7F833 /* InvoiceTotalTC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InvoiceTotalTC.xib; path = ViewControllers/InvoiceTotalTC.xib; sourceTree = "<group>"; };
 		AF7C962D1C4B801B00FAA81C /* InvoiceOneLineTC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvoiceOneLineTC.swift; path = ViewControllers/InvoiceOneLineTC.swift; sourceTree = "<group>"; };
 		AF7C962F1C4B82EF00FAA81C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		AF7C96311C4B830A00FAA81C /* APIservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIservice.swift; path = Services/APIservice.swift; sourceTree = "<group>"; };
 		AF7C96321C4B830A00FAA81C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = Services/Utilities.swift; sourceTree = "<group>"; };
 		AF7C96351C4B885400FAA81C /* InvoiceItemTC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvoiceItemTC.swift; path = ViewControllers/InvoiceItemTC.swift; sourceTree = "<group>"; };
+		AF7C96371C4B912600FAA81C /* InvoiceSubTotalTC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvoiceSubTotalTC.swift; path = ViewControllers/InvoiceSubTotalTC.swift; sourceTree = "<group>"; };
+		AF7C96391C4B914300FAA81C /* InvoiceTextViewTC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvoiceTextViewTC.swift; path = ViewControllers/InvoiceTextViewTC.swift; sourceTree = "<group>"; };
+		AF7C963B1C4B961D00FAA81C /* InvoiceTotalTC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvoiceTotalTC.swift; path = ViewControllers/InvoiceTotalTC.swift; sourceTree = "<group>"; };
 		AFBF52B61C434FDF00865594 /* zipbooks-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zipbooks-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFBF52B91C434FDF00865594 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFBF52BE1C434FDF00865594 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,10 +135,13 @@
 				AF13F8D21C478B9500F7F833 /* InvoiceOneLineTC.xib */,
 				AF7C962D1C4B801B00FAA81C /* InvoiceOneLineTC.swift */,
 				AF13F8D41C478C8300F7F833 /* InvoiceTextViewTC.xib */,
-				AF7C96351C4B885400FAA81C /* InvoiceItemTC.swift */,
+				AF7C96391C4B914300FAA81C /* InvoiceTextViewTC.swift */,
 				AF13F8E21C4AF3EE00F7F833 /* InvoiceItemTC.xib */,
-				AF13F8E41C4AF4FB00F7F833 /* InovoiceSubTotalTC.xib */,
+				AF7C96351C4B885400FAA81C /* InvoiceItemTC.swift */,
+				AF13F8E41C4AF4FB00F7F833 /* InvoiceSubTotalTC.xib */,
+				AF7C96371C4B912600FAA81C /* InvoiceSubTotalTC.swift */,
 				AF13F8E61C4AF53C00F7F833 /* InvoiceTotalTC.xib */,
+				AF7C963B1C4B961D00FAA81C /* InvoiceTotalTC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -256,7 +265,7 @@
 				AFBF52C41C434FDF00865594 /* LaunchScreen.storyboard in Resources */,
 				AF13F8CB1C44F43300F7F833 /* InvoiceTableCell.xib in Resources */,
 				AFBF52C11C434FDF00865594 /* Assets.xcassets in Resources */,
-				AF13F8E51C4AF4FB00F7F833 /* InovoiceSubTotalTC.xib in Resources */,
+				AF13F8E51C4AF4FB00F7F833 /* InvoiceSubTotalTC.xib in Resources */,
 				AF13F8D51C478C8300F7F833 /* InvoiceTextViewTC.xib in Resources */,
 				AF13F8E71C4AF53C00F7F833 /* InvoiceTotalTC.xib in Resources */,
 				AF13F8D31C478B9500F7F833 /* InvoiceOneLineTC.xib in Resources */,
@@ -333,9 +342,12 @@
 				AF13F8C71C44BC6600F7F833 /* Task.swift in Sources */,
 				AF13F8BF1C44B4FB00F7F833 /* Customer.swift in Sources */,
 				AF7C962E1C4B801B00FAA81C /* InvoiceOneLineTC.swift in Sources */,
+				AF7C96381C4B912600FAA81C /* InvoiceSubTotalTC.swift in Sources */,
+				AF7C963C1C4B961D00FAA81C /* InvoiceTotalTC.swift in Sources */,
 				AFBF52BA1C434FDF00865594 /* AppDelegate.swift in Sources */,
 				AF7C96331C4B830A00FAA81C /* APIservice.swift in Sources */,
 				AF13F8D11C46E91E00F7F833 /* Extensions.swift in Sources */,
+				AF7C963A1C4B914300FAA81C /* InvoiceTextViewTC.swift in Sources */,
 				AF13F8C11C44B87100F7F833 /* Project.swift in Sources */,
 				AF13F8CF1C45CAFA00F7F833 /* DBservice.swift in Sources */,
 				AF13F8C91C44BCD100F7F833 /* Expense.swift in Sources */,

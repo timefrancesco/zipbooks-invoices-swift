@@ -30,6 +30,9 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
         invoiceTableView.dataSource = self
         invoiceTableView.registerNib(UINib(nibName: "InvoiceOneLineTC", bundle: nil), forCellReuseIdentifier: "OneLineCell")
         invoiceTableView.registerNib(UINib(nibName: "InvoiceItemTC", bundle: nil), forCellReuseIdentifier: "ItemCell")
+        invoiceTableView.registerNib(UINib(nibName: "InvoiceTextViewTC", bundle: nil), forCellReuseIdentifier: "TextCell")
+        invoiceTableView.registerNib(UINib(nibName: "InvoiceSubTotalTC", bundle: nil), forCellReuseIdentifier: "SubTotalCell")
+        invoiceTableView.registerNib(UINib(nibName: "InvoiceTotalTC", bundle: nil), forCellReuseIdentifier: "TotalCell")
         
     }
     
@@ -47,21 +50,27 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
             title = "Details" //TODO: localization
             break
         case InvoiceSection.ITEMS.rawValue:
+            title = "Items" //TODO: localization
             break
             
         case InvoiceSection.EXPENSES.rawValue:
+            title = "Expenses" //TODO: localization
             break
             
         case InvoiceSection.TERMS.rawValue:
+            title = "Terms" //TODO: localization
             break
             
         case InvoiceSection.NOTES.rawValue:
+            title = "Notes" //TODO: localization
             break
             
         case InvoiceSection.SUBTOTAL.rawValue:
+            title = "Subtotal" //TODO: localization
             break
             
         case InvoiceSection.TOTAL.rawValue:
+            title = "Total" //TODO: localization
             break
             
         default:
@@ -93,29 +102,34 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
             break
             
         case InvoiceSection.TERMS.rawValue:
-            cell = UITableViewCell() //temp
+            let currentCell = tableView.dequeueReusableCellWithIdentifier("TextCell", forIndexPath: indexPath) as! InvoiceTextViewTC
+            currentCell.updateData(currentInvoice.terms!)
+            cell = currentCell
             break
             
         case InvoiceSection.NOTES.rawValue:
-            cell = UITableViewCell() //temp
+            let currentCell = tableView.dequeueReusableCellWithIdentifier("TextCell", forIndexPath: indexPath) as! InvoiceTextViewTC
+            currentCell.updateData(currentInvoice.notes!)
+            cell = currentCell
             break
             
         case InvoiceSection.SUBTOTAL.rawValue:
-            cell = UITableViewCell() //temp
+            let currentCell = tableView.dequeueReusableCellWithIdentifier("SubTotalCell", forIndexPath: indexPath) as! InvoiceSubTotalTC
+            currentCell.updateData(currentInvoice.total!, description: "Subtotal") //TODO: check taxes here
+            cell = currentCell
             break
             
         case InvoiceSection.TOTAL.rawValue:
-            cell = UITableViewCell() //temp
+            let currentCell = tableView.dequeueReusableCellWithIdentifier("TotalCell", forIndexPath: indexPath) as! InvoiceTotalTC
+            currentCell.updateData(currentInvoice.total!) 
+            cell = currentCell
+
             break
             
         default:
             break
-         
-            
         }
-        
         return cell as! UITableViewCell
-        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -160,5 +174,10 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         
     }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 75 //TODO: return proper value
+    }
+    
     
 }
