@@ -19,6 +19,6 @@ class InvoiceItemTC: UITableViewCell {
         totalPriceLbl.text = "$" + Utility.calculateTotal(value.quantity, rate: value.rate!)
         notesLbl.text = value.notes
         taskLbl.text = value.name
-        quantityLbl.text = String(format:"%d",Int(Double(value.quantity)!)) //I'm sure there must be a better way to do this!
+        quantityLbl.text = String(format:"%d",Int(Double(value.quantity)!)) + "*" + value.rate! //I'm sure there must be a better way to do this!
     }
 }

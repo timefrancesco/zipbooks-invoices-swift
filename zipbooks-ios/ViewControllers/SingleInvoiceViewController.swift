@@ -143,7 +143,6 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         var num = 1
         
         switch(section){
@@ -182,11 +181,45 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 75 //TODO: return proper value
+        var num:CGFloat = 1
+        
+        switch(indexPath.section){
+        case InvoiceSection.DETAILS.rawValue:
+            num = 60
+            break
+        case InvoiceSection.ITEMS.rawValue:
+            num = 50
+            break
+            
+        case InvoiceSection.EXPENSES.rawValue:
+            num = 50
+            break
+            
+        case InvoiceSection.TERMS.rawValue:
+            num = 120
+            break
+            
+        case InvoiceSection.NOTES.rawValue:
+            num = 120
+            break
+            
+        case InvoiceSection.SUBTOTAL.rawValue:
+            num = 44
+            break
+            
+        case InvoiceSection.TOTAL.rawValue:
+            num = 44
+            break
+            
+        default:
+            break
+        }
+        
+        return num
     }
     
     
