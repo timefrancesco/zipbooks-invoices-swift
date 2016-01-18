@@ -115,7 +115,7 @@ class Item: Object,Mappable {
     dynamic var rate: String?
     dynamic var updated_at: String?
     //var invoice: invoice? I don't think it's needed, we have the info above
-    dynamic var quantity: String?
+    dynamic var quantity: String = ""
     dynamic var invoice_id: Int = 0
     
     // MARK: Mappable

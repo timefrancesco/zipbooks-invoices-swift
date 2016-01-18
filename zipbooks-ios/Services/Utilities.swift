@@ -39,6 +39,6 @@ class Utility {
         let rateN = Double(rate)
         
         let total = rateN! * quantityN!
-        return String(format:"%2f",total)
+        return String(format:"%.2f",total)
     }
 }

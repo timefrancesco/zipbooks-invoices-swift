@@ -40,6 +40,7 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
     override func viewWillAppear(animated: Bool) {
         expenses = currentInvoice.items.filter( {$0.type == "item"}) //Apparently Expenses are marked at item?
         items = currentInvoice.items.filter( {$0.type != "item"})
+        title = currentInvoice.number
     }
     
     //MARK: TableView Delegate Functions

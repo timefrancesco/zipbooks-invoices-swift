@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IMv-rd-IdU" id="Dnf-6S-Sdg">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2Q-jH-2zN">
@@ -40,7 +40,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$5415" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ib-C3-2uT">
-                        <rect key="frame" x="77.5" y="14.5" width="234.5" height="20.5"/>
+                        <rect key="frame" x="78" y="15" width="234" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="95" id="Z0F-o0-xwl"/>
                         </constraints>
