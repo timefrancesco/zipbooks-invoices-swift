@@ -18,6 +18,7 @@
                         <rect key="frame" x="17" y="8" width="201" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="201" id="0wy-Z6-8t7"/>
+                            <constraint firstAttribute="height" constant="20" id="Yaf-Cw-aYy"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -27,6 +28,7 @@
                         <rect key="frame" x="230" y="29" width="82" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="82" id="Mas-0L-Gor"/>
+                            <constraint firstAttribute="height" constant="16" id="Xku-hb-wIZ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,6 +37,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$5415" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ib-C3-2uT">
                         <rect key="frame" x="230" y="8" width="82" height="20"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="20" id="LrU-Ce-81Q"/>
                             <constraint firstAttribute="width" constant="82" id="uMj-Fc-mg4"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -44,7 +47,8 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsY-8R-TOp">
                         <rect key="frame" x="17" y="29" width="201" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="201" id="Msn-xO-Vy0"/>
+                            <constraint firstAttribute="height" constant="16" id="Bco-Ed-TSu"/>
+                            <constraint firstAttribute="width" constant="201" id="rwY-cB-JPe"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,23 +56,15 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="9Ib-C3-2uT" firstAttribute="leading" secondItem="K2Q-jH-2zN" secondAttribute="trailing" constant="12" id="2dq-ix-vcx"/>
-                    <constraint firstItem="NsY-8R-TOp" firstAttribute="leading" secondItem="K2Q-jH-2zN" secondAttribute="leading" id="3rK-bl-0Ar"/>
-                    <constraint firstItem="9Ib-C3-2uT" firstAttribute="top" secondItem="Dnf-6S-Sdg" secondAttribute="top" constant="8" id="7Cn-pX-ZME"/>
-                    <constraint firstItem="NsY-8R-TOp" firstAttribute="top" secondItem="K2Q-jH-2zN" secondAttribute="bottom" constant="1" id="94a-5w-BhA"/>
-                    <constraint firstAttribute="trailing" secondItem="9Ib-C3-2uT" secondAttribute="trailing" constant="8" id="Do6-Yg-aiB"/>
-                    <constraint firstItem="NsY-8R-TOp" firstAttribute="width" secondItem="K2Q-jH-2zN" secondAttribute="width" id="FJ8-q2-MPG"/>
-                    <constraint firstItem="1bD-bu-mr1" firstAttribute="top" secondItem="NsY-8R-TOp" secondAttribute="top" id="ONo-4i-yZD"/>
-                    <constraint firstItem="1bD-bu-mr1" firstAttribute="trailing" secondItem="9Ib-C3-2uT" secondAttribute="trailing" id="Xm8-0K-Mhy"/>
-                    <constraint firstItem="K2Q-jH-2zN" firstAttribute="leading" secondItem="Dnf-6S-Sdg" secondAttribute="leading" constant="17" id="bTz-CF-dhY"/>
-                    <constraint firstItem="9Ib-C3-2uT" firstAttribute="leading" secondItem="K2Q-jH-2zN" secondAttribute="trailing" constant="12" id="uT6-Hb-whV"/>
-                    <constraint firstItem="K2Q-jH-2zN" firstAttribute="top" secondItem="Dnf-6S-Sdg" secondAttribute="top" constant="8" id="wfQ-G3-qCF"/>
+                    <constraint firstItem="9Ib-C3-2uT" firstAttribute="top" secondItem="Dnf-6S-Sdg" secondAttribute="top" constant="8" id="8x3-F5-Sjs"/>
+                    <constraint firstItem="K2Q-jH-2zN" firstAttribute="leading" secondItem="Dnf-6S-Sdg" secondAttribute="leading" constant="17" id="P2H-OY-jwU"/>
+                    <constraint firstItem="NsY-8R-TOp" firstAttribute="leading" secondItem="Dnf-6S-Sdg" secondAttribute="leading" constant="17" id="hlc-ze-hK0"/>
+                    <constraint firstItem="NsY-8R-TOp" firstAttribute="top" secondItem="K2Q-jH-2zN" secondAttribute="bottom" constant="1" id="mdf-1t-ufO"/>
+                    <constraint firstAttribute="trailing" secondItem="9Ib-C3-2uT" secondAttribute="trailing" constant="8" id="miR-Xy-XDk"/>
+                    <constraint firstItem="1bD-bu-mr1" firstAttribute="top" secondItem="9Ib-C3-2uT" secondAttribute="bottom" constant="1" id="pl8-QG-zom"/>
+                    <constraint firstAttribute="trailing" secondItem="1bD-bu-mr1" secondAttribute="trailing" constant="8" id="sDr-5f-SwR"/>
+                    <constraint firstItem="K2Q-jH-2zN" firstAttribute="top" secondItem="Dnf-6S-Sdg" secondAttribute="top" constant="8" id="uJV-Mz-CVr"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="FJ8-q2-MPG"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="notesLbl" destination="NsY-8R-TOp" id="ORI-AR-V5R"/>

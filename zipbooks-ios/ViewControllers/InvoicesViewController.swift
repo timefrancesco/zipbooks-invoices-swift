@@ -19,8 +19,8 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      print(  Realm.Configuration.defaultConfiguration.path)
-        
+        //print(  Realm.Configuration.defaultConfiguration.path)
+        title = "Invoices" //TODO: Localization
         invoicesTableView.delegate = self
         invoicesTableView.dataSource = self
         invoicesTableView.registerNib(UINib(nibName: "InvoiceTableCell", bundle: nil), forCellReuseIdentifier: "InvoiceCell")
