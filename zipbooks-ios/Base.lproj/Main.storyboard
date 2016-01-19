@@ -89,7 +89,7 @@
                                         <rect key="frame" x="0.0" y="1" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bTp-86-nd3" id="Zzf-Kr-lvm">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -97,7 +97,7 @@
                                         <rect key="frame" x="0.0" y="81" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oRT-OG-qgr" id="zxf-0c-mZN">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -123,6 +123,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1HJ-9w-H7E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="406" y="1318"/>
+        </scene>
+        <!--Add View Controller-->
+        <scene sceneID="2xE-NY-PaM">
+            <objects>
+                <viewController id="mte-CA-NLu" customClass="AddViewController" customModule="zipbooks_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Agc-ZB-vC5"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pov-4G-3g4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OYo-G2-z74">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jH-58-XbB">
+                                <rect key="frame" x="0.0" y="79" width="600" height="521"/>
+                                <connections>
+                                    <segue destination="WBU-wb-oYx" kind="embed" id="gmw-LI-b8m"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MC1-pr-h0i">
+                                <rect key="frame" x="0.0" y="79" width="600" height="521"/>
+                                <connections>
+                                    <segue destination="Dwc-pi-ERo" kind="embed" id="BUM-ZZ-pyu"/>
+                                </connections>
+                            </containerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4r5-PQ-ojB">
+                                <rect key="frame" x="52" y="28" width="497" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="s8N-A3-SYw"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Time Entry"/>
+                                    <segment title="Expense"/>
+                                </segments>
+                                <connections>
+                                    <action selector="typeSelectorChanged:" destination="mte-CA-NLu" eventType="valueChanged" id="SiR-OK-QXS"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4r5-PQ-ojB" firstAttribute="top" secondItem="Agc-ZB-vC5" secondAttribute="bottom" constant="8" id="3Ox-68-3RJ"/>
+                            <constraint firstAttribute="trailing" secondItem="MC1-pr-h0i" secondAttribute="trailing" id="5R6-or-W2t"/>
+                            <constraint firstItem="Pov-4G-3g4" firstAttribute="top" secondItem="MC1-pr-h0i" secondAttribute="bottom" id="Dtj-dm-fxS"/>
+                            <constraint firstItem="MC1-pr-h0i" firstAttribute="top" secondItem="4r5-PQ-ojB" secondAttribute="bottom" constant="23" id="Dzc-Pw-WGl"/>
+                            <constraint firstAttribute="trailing" secondItem="3jH-58-XbB" secondAttribute="trailing" id="PwV-a8-Ghk"/>
+                            <constraint firstItem="MC1-pr-h0i" firstAttribute="leading" secondItem="OYo-G2-z74" secondAttribute="leading" id="Uai-Ic-Eta"/>
+                            <constraint firstAttribute="trailing" secondItem="4r5-PQ-ojB" secondAttribute="trailing" constant="51" id="WbJ-v7-MHh"/>
+                            <constraint firstItem="Pov-4G-3g4" firstAttribute="top" secondItem="3jH-58-XbB" secondAttribute="bottom" id="Y7o-al-I3v"/>
+                            <constraint firstItem="3jH-58-XbB" firstAttribute="leading" secondItem="OYo-G2-z74" secondAttribute="leading" id="ZrR-Db-0JW"/>
+                            <constraint firstItem="4r5-PQ-ojB" firstAttribute="leading" secondItem="OYo-G2-z74" secondAttribute="leading" constant="52" id="y2S-hT-YqR"/>
+                            <constraint firstItem="3jH-58-XbB" firstAttribute="top" secondItem="4r5-PQ-ojB" secondAttribute="bottom" constant="23" id="y4j-SC-iJE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addTypeSelector" destination="4r5-PQ-ojB" id="st7-il-cvP"/>
+                        <outlet property="expenseContainer" destination="3jH-58-XbB" id="cga-88-omV"/>
+                        <outlet property="timeEntryContainer" destination="MC1-pr-h0i" id="Bzq-3d-lcc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7cR-fa-0MH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="1318"/>
         </scene>
         <!--Single Invoice View Controller-->
         <scene sceneID="FxN-yi-BVG">
@@ -189,6 +252,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iaN-N5-snK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-103" y="549"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Z9v-y4-baI">
+            <objects>
+                <viewController id="WBU-wb-oYx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="boW-cc-ypt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="521"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XTr-ji-BmJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="2090"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4QF-KN-YKI">
+            <objects>
+                <viewController id="Dwc-pi-ERo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oaZ-Mc-gYQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="521"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rOh-y3-Uc1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1693" y="2094.5"/>
         </scene>
     </scenes>
 </document>
