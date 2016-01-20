@@ -17,9 +17,12 @@ class AddViewController: UIViewController {
     @IBOutlet weak var expenseContainer: UIView!
     
     @IBAction func typeSelectorChanged(sender: AnyObject) {
+        timeEntryContainer.hidden = true
+        
     }
     
     @IBAction func onCancelBtnTouchUpInside(sender: AnyObject) {
         navigationController?.dismissViewControllerAnimated(true, completion:nil)
     }
+
 }

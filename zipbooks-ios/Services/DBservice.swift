@@ -48,6 +48,10 @@ class DBservice{
         return getArray(returnType: Project.self)
     }
     
+    func getCustomersAll() -> [Customer]{
+        return getArray(returnType: Customer.self)
+    }
+    
     func getCustomerIdFromName(customerName:String) -> Int {
         return getArray(filter: "name = " + customerName, returnType: Customer.self)[0].id
     }

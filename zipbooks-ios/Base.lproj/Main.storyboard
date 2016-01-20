@@ -301,6 +301,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="723-nT-R4J">
                                 <rect key="frame" x="35" y="70" width="44" height="30"/>
                                 <state key="normal" title="Select"/>
+                                <connections>
+                                    <segue destination="Cib-4w-icB" kind="show" identifier="displayCustomersSegue" id="VC5-pz-v6u"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GR5-4S-6WM">
                                 <rect key="frame" x="26" y="108" width="36" height="21"/>
@@ -360,10 +363,50 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="amountTextField" destination="0lI-Xd-fS8" id="qRt-jR-JwT"/>
+                        <outlet property="categoryTextField" destination="aDs-5q-sTn" id="4tN-81-kqS"/>
+                        <outlet property="dateTextField" destination="FBX-Hb-cBa" id="LZ1-Vj-pVp"/>
+                        <outlet property="nameTextField" destination="EVh-Tm-qZz" id="2ko-Ff-Qjl"/>
+                        <outlet property="noteTextField" destination="43x-Vz-SCd" id="u6E-VL-3hk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XTr-ji-BmJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1051" y="2089.5"/>
+        </scene>
+        <!--Generic List View Controller-->
+        <scene sceneID="31l-26-AM3">
+            <objects>
+                <viewController id="Cib-4w-icB" customClass="GenericListViewController" customModule="zipbooks_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OV0-Gc-sVu"/>
+                        <viewControllerLayoutGuide type="bottom" id="LJQ-qg-xVN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1E4-Wj-vf0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="453"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="okK-y4-4lI">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="453"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="okK-y4-4lI" firstAttribute="leading" secondItem="1E4-Wj-vf0" secondAttribute="leading" id="AjY-CJ-QKC"/>
+                            <constraint firstAttribute="trailing" secondItem="okK-y4-4lI" secondAttribute="trailing" id="Jec-CS-ev5"/>
+                            <constraint firstItem="LJQ-qg-xVN" firstAttribute="top" secondItem="okK-y4-4lI" secondAttribute="bottom" id="lbF-7a-OHf"/>
+                            <constraint firstItem="okK-y4-4lI" firstAttribute="top" secondItem="OV0-Gc-sVu" secondAttribute="bottom" id="yWM-bv-E5J"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="listTableView" destination="okK-y4-4lI" id="eeV-g4-76K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z3g-yQ-4R9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="2719.5"/>
         </scene>
         <!--Add Time Entry View Controller-->
         <scene sceneID="4QF-KN-YKI">

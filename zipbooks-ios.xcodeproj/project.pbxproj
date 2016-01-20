@@ -43,6 +43,7 @@
 		AFE3FE531C4ECBAA00C57534 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3FE521C4ECBAA00C57534 /* AddViewController.swift */; };
 		AFE3FE551C4ED60B00C57534 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3FE541C4ED60B00C57534 /* AddExpenseViewController.swift */; };
 		AFE3FE571C4ED63000C57534 /* AddTimeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3FE561C4ED63000C57534 /* AddTimeEntryViewController.swift */; };
+		AFE3FE591C4F10C500C57534 /* GenericListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3FE581C4F10C500C57534 /* GenericListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		AFE3FE521C4ECBAA00C57534 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = ViewControllers/AddViewController.swift; sourceTree = "<group>"; };
 		AFE3FE541C4ED60B00C57534 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddExpenseViewController.swift; path = ViewControllers/AddExpenseViewController.swift; sourceTree = "<group>"; };
 		AFE3FE561C4ED63000C57534 /* AddTimeEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTimeEntryViewController.swift; path = ViewControllers/AddTimeEntryViewController.swift; sourceTree = "<group>"; };
+		AFE3FE581C4F10C500C57534 /* GenericListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenericListViewController.swift; path = ViewControllers/GenericListViewController.swift; sourceTree = "<group>"; };
 		BB4AA5E61DB4E2409D4F317D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5F755511FB27CAF6F60FAB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +142,7 @@
 				AFE3FE521C4ECBAA00C57534 /* AddViewController.swift */,
 				AFE3FE541C4ED60B00C57534 /* AddExpenseViewController.swift */,
 				AFE3FE561C4ED63000C57534 /* AddTimeEntryViewController.swift */,
+				AFE3FE581C4F10C500C57534 /* GenericListViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				AF13F8C71C44BC6600F7F833 /* Task.swift in Sources */,
 				AF13F8BF1C44B4FB00F7F833 /* Customer.swift in Sources */,
 				AFE3FE531C4ECBAA00C57534 /* AddViewController.swift in Sources */,
+				AFE3FE591C4F10C500C57534 /* GenericListViewController.swift in Sources */,
 				AF7C962E1C4B801B00FAA81C /* InvoiceOneLineTC.swift in Sources */,
 				AF7C96381C4B912600FAA81C /* InvoiceSubTotalTC.swift in Sources */,
 				AF7C963C1C4B961D00FAA81C /* InvoiceTotalTC.swift in Sources */,
