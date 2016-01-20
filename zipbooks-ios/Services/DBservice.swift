@@ -48,6 +48,10 @@ class DBservice{
         return getArray(returnType: Project.self)
     }
     
+    func getTasksAll() -> [Task]{
+        return getArray(returnType: Task.self)
+    }
+    
     func getCustomersAll() -> [Customer]{
         return getArray(returnType: Customer.self)
     }

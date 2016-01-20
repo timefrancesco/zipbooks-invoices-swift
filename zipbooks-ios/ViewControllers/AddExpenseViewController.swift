@@ -10,11 +10,11 @@ import Foundation
 import Foundation
 import UIKit
 
-protocol CustomerSelectionDelegate{
-    func selectedCustomer(indexpathRow:Int)
+protocol GenericTableSelectionDelegate{
+    func selectedRow(indexpathRow:Int, value:String)
 }
 
-class AddExpenseViewController: UIViewController, CustomerSelectionDelegate {
+class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate {
 
     @IBOutlet weak var selectCustomerBtn: UIButton!
     @IBOutlet weak var noteTextField: UITextField!
@@ -45,7 +45,7 @@ class AddExpenseViewController: UIViewController, CustomerSelectionDelegate {
         }
     }
     
-    func selectedCustomer(indexpathRow:Int){
+    func selectedRow(indexpathRow:Int, value:String){
         selectedCustomer = customers[indexpathRow]
         selectCustomerBtn.setTitle(selectedCustomer!.name, forState: .Normal)
     }

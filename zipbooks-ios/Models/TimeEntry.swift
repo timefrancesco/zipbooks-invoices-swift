@@ -55,3 +55,22 @@ class TimeEntry: Object,Mappable {
 		user <- map["user"]
 	}
 }
+
+class TimeEntryPost: Object,Mappable {
+    dynamic var taskId: Int = 0
+    dynamic var duration: Int = 0 //in seconds
+    dynamic var date: String?
+    dynamic var note: String?
+    
+    // MARK: Mappable
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        taskId <- map["taskId"]
+        date <- map["date"]
+        duration <- map["duration"]
+        note <- map["note"]
+    }
+}

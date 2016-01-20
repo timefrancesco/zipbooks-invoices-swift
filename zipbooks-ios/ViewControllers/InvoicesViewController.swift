@@ -64,7 +64,6 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         APIservice.sharedInstance.getTimeEntries(){ (result:[TimeEntry]?) in
             DBservice.sharedInstance.saveArray(result!)
-            
         }
     }
     

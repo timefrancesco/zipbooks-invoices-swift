@@ -14,7 +14,7 @@ class GenericListViewController: UIViewController, UITableViewDataSource, UITabl
 
     @IBOutlet weak var listTableView: UITableView!
     var source = [String]()
-    var listSelectedDelegate: CustomerSelectionDelegate?
+    var listSelectedDelegate: GenericTableSelectionDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class GenericListViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        listSelectedDelegate?.selectedCustomer(indexPath.row)
+        listSelectedDelegate?.selectedRow(indexPath.row, value:source[indexPath.row])
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         navigationController?.popViewControllerAnimated(true)
     }
