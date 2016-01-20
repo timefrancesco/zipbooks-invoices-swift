@@ -41,6 +41,8 @@
 		AFBF52C41C434FDF00865594 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBF52C21C434FDF00865594 /* LaunchScreen.storyboard */; };
 		AFBF52CC1C43510200865594 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AFBF52CB1C43510200865594 /* Podfile */; };
 		AFE3FE531C4ECBAA00C57534 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3FE521C4ECBAA00C57534 /* AddViewController.swift */; };
+		AFE3FE551C4ED60B00C57534 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3FE541C4ED60B00C57534 /* AddExpenseViewController.swift */; };
+		AFE3FE571C4ED63000C57534 /* AddTimeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3FE561C4ED63000C57534 /* AddTimeEntryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		AFBF52C51C434FDF00865594 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFBF52CB1C43510200865594 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AFE3FE521C4ECBAA00C57534 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = ViewControllers/AddViewController.swift; sourceTree = "<group>"; };
+		AFE3FE541C4ED60B00C57534 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddExpenseViewController.swift; path = ViewControllers/AddExpenseViewController.swift; sourceTree = "<group>"; };
+		AFE3FE561C4ED63000C57534 /* AddTimeEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTimeEntryViewController.swift; path = ViewControllers/AddTimeEntryViewController.swift; sourceTree = "<group>"; };
 		BB4AA5E61DB4E2409D4F317D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5F755511FB27CAF6F60FAB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +138,8 @@
 				AF13F8BC1C44B17C00F7F833 /* InvoicesViewController.swift */,
 				AF13F8D61C486A1100F7F833 /* SingleInvoiceViewController.swift */,
 				AFE3FE521C4ECBAA00C57534 /* AddViewController.swift */,
+				AFE3FE541C4ED60B00C57534 /* AddExpenseViewController.swift */,
+				AFE3FE561C4ED63000C57534 /* AddTimeEntryViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -341,7 +347,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFE3FE571C4ED63000C57534 /* AddTimeEntryViewController.swift in Sources */,
 				AF7C96301C4B82EF00FAA81C /* LoginViewController.swift in Sources */,
+				AFE3FE551C4ED60B00C57534 /* AddExpenseViewController.swift in Sources */,
 				AF13F8D71C486A1100F7F833 /* SingleInvoiceViewController.swift in Sources */,
 				AF13F8BD1C44B17C00F7F833 /* InvoicesViewController.swift in Sources */,
 				AF7C96361C4B885400FAA81C /* InvoiceItemTC.swift in Sources */,

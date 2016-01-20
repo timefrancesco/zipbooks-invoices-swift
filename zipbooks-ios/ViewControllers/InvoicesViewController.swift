@@ -68,6 +68,7 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    
     //MARK: TableView Delegate Functions
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

@@ -18,4 +18,8 @@ class AddViewController: UIViewController {
     
     @IBAction func typeSelectorChanged(sender: AnyObject) {
     }
+    
+    @IBAction func onCancelBtnTouchUpInside(sender: AnyObject) {
+        navigationController?.dismissViewControllerAnimated(true, completion:nil)
+    }
 }
