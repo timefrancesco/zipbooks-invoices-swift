@@ -369,6 +369,7 @@
                         <outlet property="dateTextField" destination="FBX-Hb-cBa" id="LZ1-Vj-pVp"/>
                         <outlet property="nameTextField" destination="EVh-Tm-qZz" id="2ko-Ff-Qjl"/>
                         <outlet property="noteTextField" destination="43x-Vz-SCd" id="u6E-VL-3hk"/>
+                        <outlet property="selectCustomerBtn" destination="723-nT-R4J" id="2vg-WR-1yW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XTr-ji-BmJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
