@@ -89,7 +89,7 @@
                                         <rect key="frame" x="0.0" y="1" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bTp-86-nd3" id="Zzf-Kr-lvm">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -97,7 +97,7 @@
                                         <rect key="frame" x="0.0" y="81" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oRT-OG-qgr" id="zxf-0c-mZN">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -206,7 +206,11 @@
                                 <action selector="onCancelBtnTouchUpInside:" destination="mte-CA-NLu" id="Kcz-iA-yf0"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ta6-6o-BSn"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ta6-6o-BSn">
+                            <connections>
+                                <action selector="onSaveBtnTouchUpInside:" destination="mte-CA-NLu" id="uUi-Bg-PVY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addTypeSelector" destination="4r5-PQ-ojB" id="st7-il-cvP"/>
@@ -287,7 +291,11 @@
         <!--Add Expense View Controller-->
         <scene sceneID="Z9v-y4-baI">
             <objects>
-                <viewController id="WBU-wb-oYx" customClass="AddExpenseViewController" customModule="zipbooks_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="expenseVC" id="WBU-wb-oYx" customClass="AddExpenseViewController" customModule="zipbooks_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3U6-yk-rck"/>
+                        <viewControllerLayoutGuide type="bottom" id="hGh-ru-Dla"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="boW-cc-ypt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="453"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -413,6 +421,10 @@
         <scene sceneID="4QF-KN-YKI">
             <objects>
                 <viewController id="Dwc-pi-ERo" customClass="AddTimeEntryViewController" customModule="zipbooks_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UUf-a9-2DP"/>
+                        <viewControllerLayoutGuide type="bottom" id="NBe-h3-DV1"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oaZ-Mc-gYQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="453"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

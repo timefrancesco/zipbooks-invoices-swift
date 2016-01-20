@@ -98,7 +98,26 @@ class APIservice {
         }
     }
     
+    //MARK: Post Functions
     
+    func setExpense(expense: ExpensePost, callback: (data: Expense?) -> Void ){
+        sendPostRequest(Expense.self, endpoint: EXPENSES_ENDPOINT, method: Alamofire.Method.POST, parameters: Mapper().toJSON(expense)){ (result: Expense?) in
+            callback(data: result)
+        }
+    }
+    
+    func sendPostRequest<T: Mappable>(obj: T.Type, endpoint:String, method:Alamofire.Method, parameters: [String : AnyObject], callback: (result: T?) -> Void ) {
+        Alamofire.request(method, endpoint, headers:authHeaders, parameters: parameters, encoding: .JSON).responseObject { (response: Response<T, NSError>) in
+            guard response.result.error == nil
+                else {
+                    // got an error in getting the data, need to handle it
+                    print("error in API object request -> " + String(response.result.error!))
+                    callback(result: nil)
+                    return
+            }
+            callback (result: response.result.value!)
+        }
+    }
     
     func sendRequestObject<T: Mappable>(obj: T.Type, endpoint:String, method:Alamofire.Method, callback: (result: T?) -> Void ) {
         Alamofire.request(method, endpoint, headers:authHeaders).responseObject { (response: Response<T, NSError>) in

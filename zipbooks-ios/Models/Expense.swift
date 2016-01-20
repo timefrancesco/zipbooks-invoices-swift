@@ -71,3 +71,26 @@ class Expense: Object,Mappable {
 		category_id <- map["category_id"]
 	}
 }
+
+class ExpensePost: Object,Mappable {
+    dynamic var amount: Int = 0
+    dynamic var date: String?
+    dynamic var customer_id: Int = 0
+    dynamic var name: String?
+    dynamic var category: String?
+    dynamic var note: String?
+        
+    // MARK: Mappable
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        amount <- map["amount"]
+        date <- map["date"]
+        customer_id <- map["customer_id"]
+        name <- map["name"]
+        category <- map["category"]
+        note <- map["note"]
+    }
+}

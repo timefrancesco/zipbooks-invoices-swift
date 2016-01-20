@@ -24,6 +24,7 @@ class AddExpenseViewController: UIViewController, CustomerSelectionDelegate {
     @IBOutlet weak var amountTextField: UITextField!
     
     var customers = [Customer]()
+    var selectedCustomer:Customer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,8 @@ class AddExpenseViewController: UIViewController, CustomerSelectionDelegate {
     }
     
     func selectedCustomer(indexpathRow:Int){
-        selectCustomerBtn.setTitle(customers[indexpathRow].name, forState: .Normal)
+        selectedCustomer = customers[indexpathRow]
+        selectCustomerBtn.setTitle(selectedCustomer!.name, forState: .Normal)
     }
     
 }

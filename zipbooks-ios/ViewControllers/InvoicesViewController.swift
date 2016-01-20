@@ -26,7 +26,7 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
         invoicesTableView.registerNib(UINib(nibName: "InvoiceTableCell", bundle: nil), forCellReuseIdentifier: "InvoiceCell")
         setupPullToRefresh()
         updateInvoices(nil)
-        updateAdditionalData()
+        updateAdditionalData()        
     }
    
     
