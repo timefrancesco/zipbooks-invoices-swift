@@ -20,6 +20,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         usernameTextField.delegate = self
         passwordTextField.delegate = self
         activityView.hidden = true
+        
+        let str = NSAttributedString(string: "email", attributes: [NSForegroundColorAttributeName:UIColor.lightGrayColor()])
+        usernameTextField.attributedPlaceholder = str
+        
+        let str2 = NSAttributedString(string: "password", attributes: [NSForegroundColorAttributeName:UIColor.lightGrayColor()])
+        passwordTextField.attributedPlaceholder = str2
     }
 
     override func didReceiveMemoryWarning() {

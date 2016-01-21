@@ -27,6 +27,8 @@
 		AF13F8E31C4AF3EE00F7F833 /* InvoiceItemTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF13F8E21C4AF3EE00F7F833 /* InvoiceItemTC.xib */; };
 		AF13F8E51C4AF4FB00F7F833 /* InvoiceSubTotalTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF13F8E41C4AF4FB00F7F833 /* InvoiceSubTotalTC.xib */; };
 		AF13F8E71C4AF53C00F7F833 /* InvoiceTotalTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF13F8E61C4AF53C00F7F833 /* InvoiceTotalTC.xib */; };
+		AF5484DF1C518DDE0080EE67 /* AddTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5484DE1C518DDE0080EE67 /* AddTableCell.swift */; };
+		AF5484E11C518E010080EE67 /* AddTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF5484E01C518E010080EE67 /* AddTableCell.xib */; };
 		AF7C962E1C4B801B00FAA81C /* InvoiceOneLineTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C962D1C4B801B00FAA81C /* InvoiceOneLineTC.swift */; };
 		AF7C96301C4B82EF00FAA81C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C962F1C4B82EF00FAA81C /* LoginViewController.swift */; };
 		AF7C96331C4B830A00FAA81C /* APIservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C96311C4B830A00FAA81C /* APIservice.swift */; };
@@ -67,6 +69,8 @@
 		AF13F8E21C4AF3EE00F7F833 /* InvoiceItemTC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InvoiceItemTC.xib; path = ViewControllers/InvoiceItemTC.xib; sourceTree = "<group>"; };
 		AF13F8E41C4AF4FB00F7F833 /* InvoiceSubTotalTC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InvoiceSubTotalTC.xib; path = ViewControllers/InvoiceSubTotalTC.xib; sourceTree = "<group>"; };
 		AF13F8E61C4AF53C00F7F833 /* InvoiceTotalTC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InvoiceTotalTC.xib; path = ViewControllers/InvoiceTotalTC.xib; sourceTree = "<group>"; };
+		AF5484DE1C518DDE0080EE67 /* AddTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTableCell.swift; path = ViewControllers/AddTableCell.swift; sourceTree = "<group>"; };
+		AF5484E01C518E010080EE67 /* AddTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddTableCell.xib; path = ViewControllers/AddTableCell.xib; sourceTree = "<group>"; };
 		AF7C962D1C4B801B00FAA81C /* InvoiceOneLineTC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvoiceOneLineTC.swift; path = ViewControllers/InvoiceOneLineTC.swift; sourceTree = "<group>"; };
 		AF7C962F1C4B82EF00FAA81C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		AF7C96311C4B830A00FAA81C /* APIservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIservice.swift; path = Services/APIservice.swift; sourceTree = "<group>"; };
@@ -217,6 +221,8 @@
 				AF7C96371C4B912600FAA81C /* InvoiceSubTotalTC.swift */,
 				AF13F8E61C4AF53C00F7F833 /* InvoiceTotalTC.xib */,
 				AF7C963B1C4B961D00FAA81C /* InvoiceTotalTC.swift */,
+				AF5484DE1C518DDE0080EE67 /* AddTableCell.swift */,
+				AF5484E01C518E010080EE67 /* AddTableCell.xib */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -284,6 +290,7 @@
 			files = (
 				AFBF52C41C434FDF00865594 /* LaunchScreen.storyboard in Resources */,
 				AF13F8CB1C44F43300F7F833 /* InvoiceTableCell.xib in Resources */,
+				AF5484E11C518E010080EE67 /* AddTableCell.xib in Resources */,
 				AFBF52C11C434FDF00865594 /* Assets.xcassets in Resources */,
 				AF13F8E51C4AF4FB00F7F833 /* InvoiceSubTotalTC.xib in Resources */,
 				AF13F8D51C478C8300F7F833 /* InvoiceTextViewTC.xib in Resources */,
@@ -351,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFE3FE571C4ED63000C57534 /* AddTimeEntryViewController.swift in Sources */,
+				AF5484DF1C518DDE0080EE67 /* AddTableCell.swift in Sources */,
 				AF7C96301C4B82EF00FAA81C /* LoginViewController.swift in Sources */,
 				AFE3FE551C4ED60B00C57534 /* AddExpenseViewController.swift in Sources */,
 				AF13F8D71C486A1100F7F833 /* SingleInvoiceViewController.swift in Sources */,
