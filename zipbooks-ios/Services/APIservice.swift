@@ -48,12 +48,23 @@ class APIservice {
                     return
                 }
             //handling the data
-             let data = response.result.value! as AuthObject
-            Utility.setToken(data.token)
-            Utility.setUserEmail((data.user?.email)!)
-            Utility.setUserName((data.user?.name)!)
-        
-            callback (result: true)
+            do {
+                let data = response.result.value! as AuthObject
+                
+                if data.token == "" || data.user?.email == nil || data.user?.name == nil {
+                    callback (result: false)
+                }
+                else{
+                    try Utility.setToken(data.token)
+                    try Utility.setUserEmail((data.user?.email)!)
+                    try Utility.setUserName((data.user?.name)!)
+                
+                    callback (result: true)
+                }
+            }
+            catch  {
+                 callback (result: false)
+            }
         }
        
     }

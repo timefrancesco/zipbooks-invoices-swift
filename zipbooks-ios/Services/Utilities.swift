@@ -9,7 +9,7 @@
 import Foundation
 class Utility {
 
-    class func setToken(token:String){
+    class func setToken(token:String) throws {
         NSUserDefaults.standardUserDefaults().setObject(token, forKey: "token")
     }
     
@@ -18,11 +18,11 @@ class Utility {
         return token == nil ?  "" :  token!
     }
     
-    class func setUserEmail(email:String){
+    class func setUserEmail(email:String) throws {
         NSUserDefaults.standardUserDefaults().setObject(email, forKey: "email")
     }
     
-    class func setUserName(username:String){
+    class func setUserName(username:String) throws {
         NSUserDefaults.standardUserDefaults().setObject(username, forKey: "username")
     }
 
