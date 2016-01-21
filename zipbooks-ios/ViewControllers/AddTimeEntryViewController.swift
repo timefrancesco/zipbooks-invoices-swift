@@ -29,7 +29,9 @@ class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegat
     
     override func viewWillAppear(animated: Bool) {
         projects = DBservice.sharedInstance.getProjectsAll()
-        tasks = DBservice.sharedInstance.getTasksAll()
+        if (selectedProject == nil){
+            tasks = DBservice.sharedInstance.getTasksAll()
+        }
     }
     
     
@@ -61,9 +63,10 @@ class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegat
         if projects[indexpathRow].name == value{
             selectedProject = projects[indexpathRow]
             projectBtn.setTitle(selectedProject!.name, forState: .Normal)
+            tasks = DBservice.sharedInstance.getTasksForProject((selectedProject?.id)!)
         }
         
-        if tasks[indexpathRow].name == value{
+        if tasks.count > indexpathRow && tasks[indexpathRow].name == value{
             selectedTask = tasks[indexpathRow]
             taskBtn.setTitle(selectedTask!.name, forState: .Normal)
         }

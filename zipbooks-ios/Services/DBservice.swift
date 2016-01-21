@@ -52,6 +52,10 @@ class DBservice{
         return getArray(returnType: Task.self)
     }
     
+    func getTasksForProject(projectID:Int) -> [Task] {
+        return getArray(filter: "project_id = " + String(projectID), returnType: Task.self )
+    }
+    
     func getCustomersAll() -> [Customer]{
         return getArray(returnType: Customer.self)
     }
