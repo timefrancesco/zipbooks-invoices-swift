@@ -25,13 +25,10 @@ enum ExpenseTableRows:Int{
 
 class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var tableview: UITableView!/*
-    @IBOutlet weak var selectCustomerBtn: UIButton!
-    @IBOutlet weak var noteTextField: UITextField!
-    @IBOutlet weak var categoryTextField: UITextField!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var dateTextField: UITextField!
-    @IBOutlet weak var amountTextField: UITextField!*/
+    @IBOutlet weak var tableview: UITableView!
+    //let datePicker:UIDatePicker = UIDatePicker()
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var dateToolbar: UIToolbar!
     
     var customers = [Customer]()
     var selectedCustomer:Customer?
@@ -42,6 +39,9 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
         tableview.delegate = self
         tableview.dataSource = self
         tableview.tableFooterView = UIView()
+        datePicker.hidden = true
+        dateToolbar.hidden = true
+        
         tableview.registerNib(UINib(nibName: "AddTableCell", bundle: nil), forCellReuseIdentifier: "TextFieldCell")
     }
     
@@ -59,11 +59,23 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
         }
     }
     
+    @IBAction func onDateChanged(sender: AnyObject) {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        let strDate = dateFormatter.stringFromDate(datePicker.date)
+        currentExpense.date = strDate
+        // tableview.reloadRowsAtIndexPaths(<#T##indexPaths: [NSIndexPath]##[NSIndexPath]#>, withRowAnimation: <#T##UITableViewRowAnimation#>)
+        tableview.reloadData()
+    }
     func selectedRow(indexpathRow:Int, value:String){
         selectedCustomer = customers[indexpathRow]
         tableview.reloadData()
     }
     
+    @IBAction func onDoneDateSelected(sender: AnyObject) {
+        datePicker.hidden = true
+        dateToolbar.hidden = true
+    }
     
     //MARK: TableView Delegate Functions
     
@@ -110,6 +122,8 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
             performSegueWithIdentifier("DisplayCustomersSegue", sender: nil)
             break;
         case ExpenseTableRows.DATE.rawValue:
+            datePicker.hidden = false
+            dateToolbar.hidden = false
             break;
         default:
             break;

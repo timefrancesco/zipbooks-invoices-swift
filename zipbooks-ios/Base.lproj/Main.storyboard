@@ -332,16 +332,53 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Vs-Th-lQx">
+                                <rect key="frame" x="0.0" y="219" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="txQ-wf-ph9"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Done" width="59.5" id="7B3-ox-lMq">
+                                        <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="onDoneDateSelected:" destination="WBU-wb-oYx" id="ddr-nK-HoX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZZJ-8r-cHR">
+                                <rect key="frame" x="0.0" y="263" width="600" height="190"/>
+                                <color key="backgroundColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="PtY-US-zez"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="475120765.30500102">
+                                    <!--2016-01-22 01:59:25 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="onDateChanged:" destination="WBU-wb-oYx" eventType="valueChanged" id="MpR-x5-Yx0"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="poS-BO-mvc" firstAttribute="leading" secondItem="boW-cc-ypt" secondAttribute="leading" id="A8a-aF-Ju4"/>
                             <constraint firstItem="hGh-ru-Dla" firstAttribute="top" secondItem="poS-BO-mvc" secondAttribute="bottom" id="BLb-jA-Ht4"/>
                             <constraint firstAttribute="trailing" secondItem="poS-BO-mvc" secondAttribute="trailing" id="KOL-NZ-4o9"/>
+                            <constraint firstItem="hGh-ru-Dla" firstAttribute="top" secondItem="ZZJ-8r-cHR" secondAttribute="bottom" id="aIa-Oi-R8h"/>
+                            <constraint firstItem="8Vs-Th-lQx" firstAttribute="leading" secondItem="boW-cc-ypt" secondAttribute="leading" id="b7g-zj-ueS"/>
                             <constraint firstItem="poS-BO-mvc" firstAttribute="top" secondItem="3U6-yk-rck" secondAttribute="bottom" id="bL6-mx-08E"/>
+                            <constraint firstAttribute="trailing" secondItem="ZZJ-8r-cHR" secondAttribute="trailing" id="dBD-xA-1lX"/>
+                            <constraint firstItem="ZZJ-8r-cHR" firstAttribute="leading" secondItem="boW-cc-ypt" secondAttribute="leading" id="jZH-uy-zMu"/>
+                            <constraint firstItem="ZZJ-8r-cHR" firstAttribute="top" secondItem="8Vs-Th-lQx" secondAttribute="bottom" id="k4g-Sg-rnh"/>
+                            <constraint firstAttribute="trailing" secondItem="8Vs-Th-lQx" secondAttribute="trailing" id="rIa-NV-gds"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="datePicker" destination="ZZJ-8r-cHR" id="rnA-MS-q31"/>
+                        <outlet property="dateToolbar" destination="8Vs-Th-lQx" id="Ufq-4i-IXY"/>
                         <outlet property="tableview" destination="poS-BO-mvc" id="mOW-aC-1VF"/>
                     </connections>
                 </viewController>
