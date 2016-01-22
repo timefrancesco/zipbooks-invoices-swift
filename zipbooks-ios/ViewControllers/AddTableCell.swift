@@ -71,7 +71,7 @@ class AddTableCell: UITableViewCell, UITextFieldDelegate {
             valueLbl.hidden = true
             descriptionLbl.text = "Hours:"
             valueTextField.keyboardType = .NumbersAndPunctuation
-            valueTextField.placeholder = "Optional"
+            valueTextField.placeholder = "Mandatory"
             valueTextField.returnKeyType = .Done
             descriptionImg.image = (UIImage(named: "HoursIcon"))
             break

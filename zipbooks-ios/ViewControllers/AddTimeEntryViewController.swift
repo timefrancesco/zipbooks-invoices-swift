@@ -91,7 +91,20 @@ class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegat
             currentEntry.taskId = (selectedTask?.id)!
             tableview.reloadData()
         }
+    }
+    
+    func generateApiData() -> TimeEntryPost{
+        let nameCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: TimeEntryTableRows.NOTES.rawValue, inSection: 0)) as! AddTableCell
+        currentEntry.note = nameCell.valueTextField.text
         
+        let amountCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: TimeEntryTableRows.HOURS.rawValue, inSection: 0)) as! AddTableCell
+        let amount = amountCell.valueTextField.text
+        if let myNumber = NSNumberFormatter().numberFromString(amount!) {
+            currentEntry.duration = Int (myNumber.doubleValue * 3600)
+        } else {
+            currentEntry.duration = 0
+        }
+        return currentEntry
     }
     
     func dismissKeyboard(){

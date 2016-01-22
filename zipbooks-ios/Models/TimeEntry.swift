@@ -69,8 +69,8 @@ class TimeEntryPost: Object,Mappable {
     
     func mapping(map: Map) {
         taskId <- map["taskId"]
-        date <- map["date"]
         duration <- map["duration"]
+        date <- map["date"]
         note <- map["note"]
     }
 }

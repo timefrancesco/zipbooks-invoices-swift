@@ -117,6 +117,12 @@ class APIservice {
         }
     }
     
+    func setTimeEntry(expense: TimeEntryPost, callback: (data: TimeEntry?) -> Void ){
+        sendPostRequest(TimeEntry.self, endpoint: TIME_ENTRIES_ENDPOINT, method: Alamofire.Method.POST, parameters: Mapper().toJSON(expense)){ (result: TimeEntry?) in
+            callback(data: result)
+        }
+    }
+    
     func sendPostRequest<T: Mappable>(obj: T.Type, endpoint:String, method:Alamofire.Method, parameters: [String : AnyObject], callback: (result: T?) -> Void ) {
         Alamofire.request(method, endpoint, headers:authHeaders, parameters: parameters, encoding: .JSON).responseObject { (response: Response<T, NSError>) in
             guard response.result.error == nil
@@ -126,6 +132,11 @@ class APIservice {
                     callback(result: nil)
                     return
             }
+            print(response.result.description)
+            print (response.result.error)
+            print (response.result.debugDescription)
+            print (response.result.value)
+            print (response.description)
             callback (result: response.result.value!)
         }
     }
