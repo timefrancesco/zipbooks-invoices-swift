@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0uS-yh-nZG" id="B1h-Be-V2H">
-                <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="287" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clz-rB-8Jg">
@@ -20,7 +20,7 @@
                             <constraint firstAttribute="width" constant="81" id="AN6-hF-AXF"/>
                             <constraint firstAttribute="height" constant="21" id="ESw-jZ-Ejh"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -33,15 +33,15 @@
                     </imageView>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="type" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UPy-H8-FaS">
                         <rect key="frame" x="124" y="1" width="139" height="42"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="type here" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLk-8Y-DzV">
-                        <rect key="frame" x="124" y="9" width="163" height="23"/>
+                        <rect key="frame" x="124" y="9" width="139" height="23"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="23" id="aaG-JR-Lqv"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -57,7 +57,7 @@
                     <constraint firstItem="clz-rB-8Jg" firstAttribute="leading" secondItem="kSh-fp-ItE" secondAttribute="trailing" constant="8" id="iHJ-Wk-6QW"/>
                     <constraint firstItem="LLk-8Y-DzV" firstAttribute="leading" secondItem="clz-rB-8Jg" secondAttribute="trailing" constant="8" id="mws-kC-Spq"/>
                     <constraint firstItem="LLk-8Y-DzV" firstAttribute="top" secondItem="B1h-Be-V2H" secondAttribute="top" constant="9" id="uUw-ob-XkD"/>
-                    <constraint firstAttribute="trailing" secondItem="LLk-8Y-DzV" secondAttribute="trailing" id="xxW-Yn-whA"/>
+                    <constraint firstAttribute="trailing" secondItem="LLk-8Y-DzV" secondAttribute="trailing" constant="24" id="xxW-Yn-whA"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

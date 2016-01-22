@@ -49,7 +49,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if result{
                 APIservice.sharedInstance.generateHeaderAfterAuth()
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainAuthorized")
+                appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainAuth")
 
             }
             else {

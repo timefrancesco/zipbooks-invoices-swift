@@ -68,3 +68,13 @@ extension UINavigationController {
         return self.topViewController
     }
 }
+
+extension NSDate {
+
+    func toString() -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.stringFromDate(self)
+    }
+}

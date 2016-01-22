@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AddTableCell: UITableViewCell {
+class AddTableCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var descriptionImg: UIImageView!
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var valueTextField: UITextField!
@@ -26,7 +26,12 @@ class AddTableCell: UITableViewCell {
         case .DATE:
             valueTextField.hidden = true
             valueLbl.hidden = false
+            if data != nil{
             valueLbl.text = data
+            }
+            else {
+                valueLbl.text = NSDate().toString()
+            }
             descriptionLbl.text = "Date:"
             break
         case .NOTES:
@@ -34,26 +39,46 @@ class AddTableCell: UITableViewCell {
             valueLbl.hidden = true
             descriptionLbl.text = "Notes:"
             valueTextField.keyboardType = .Default
+            valueTextField.placeholder = "Optional"
+            valueTextField.returnKeyType = .Done
             break
         case .AMOUNT:
             valueTextField.hidden = false
             valueLbl.hidden = true
             descriptionLbl.text = "Amount:"
-            valueTextField.keyboardType = .NumberPad
+            valueTextField.placeholder = "Mandatory"
+            valueTextField.keyboardType = .NumbersAndPunctuation
+            valueTextField.returnKeyType = .Done
             break
         case .CATEGORY:
             valueTextField.hidden = false
             valueLbl.hidden = true
             descriptionLbl.text = "Category:"
             valueTextField.keyboardType = .Default
+            valueTextField.placeholder = "Optional"
+            valueTextField.returnKeyType = .Done
             break
         case .NAME:
             valueTextField.hidden = false
             valueLbl.hidden = true
             descriptionLbl.text = "Name:"
             valueTextField.keyboardType = .Default
+            valueTextField.placeholder = "Optional"
+            valueTextField.returnKeyType = .Done
+
             break
             
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        valueTextField.delegate = self
+    }
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
+        valueTextField.resignFirstResponder()
+        return true
     }
 }

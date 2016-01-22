@@ -15,11 +15,18 @@ class AddViewController: UIViewController {
     @IBOutlet weak var timeEntryContainer: UIView!
     @IBOutlet weak var expenseContainer: UIView!
     
+    @IBOutlet weak var errorLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeNavBar()
         addTypeSelector.selectedSegmentIndex = 0
         title = "Add"
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        errorLbl.hidden = true
+        
     }
     
     func customizeNavBar(){
@@ -39,29 +46,41 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func onSaveBtnTouchUpInside(sender: AnyObject) {
-        /*if addTypeSelector.selectedSegmentIndex == 1 {
-           let expVC = childViewControllers[0] as! AddExpenseViewController //I don't really like this way to access it, looking for a better solution
-           if expVC.amountTextField.text != "" && expVC.selectedCustomer != nil {
-                let currentExpense = ExpensePost()
-                currentExpense.amount = Int(expVC.amountTextField.text!)!
-                currentExpense.name = expVC.nameTextField.text
-                currentExpense.note = expVC.noteTextField.text
-                currentExpense.date = expVC.dateTextField.text
-                currentExpense.category = expVC.categoryTextField.text
-                currentExpense.customer_id = (expVC.selectedCustomer?.id)!
-                
-                
-                APIservice.sharedInstance.setExpense(currentExpense){ (data:Expense?) in
+        self.errorLbl.hidden = true
+        
+        if addTypeSelector.selectedSegmentIndex == 1 {
+            let expVC = childViewControllers[0] as! AddExpenseViewController //I don't really like this way to access it, looking for a better solution
+            expVC.dismissKeyboard()
+            let expense = expVC.generateApiData()
+            if checkData(expense) {
+                APIservice.sharedInstance.setExpense(expense){ (data:Expense?) in
                     if data == nil {
-                        //error
+                        self.errorLbl.text = "Error saving expense, please check your internet"
+                        self.errorLbl.hidden = false
+                    }
+                    else {
+                        self.dismissViewControllerAnimated(true, completion: nil)
                     }
                 }
             }
-        }*/
+            else {
+                self.errorLbl.text = "Wrong input"
+                self.errorLbl.hidden = false
+            }
+        }
     }
     
     @IBAction func onCancelBtnTouchUpInside(sender: AnyObject) {
         navigationController?.dismissViewControllerAnimated(true, completion:nil)
     }
 
+
+    
+    func checkData(data:ExpensePost) -> Bool {
+        if data.customer_id == 0 || data.date == "" || data.amount == 0 || data.date == nil{
+            return false
+        }
+        return true
+    }
+    
 }

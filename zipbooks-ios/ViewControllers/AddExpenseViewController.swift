@@ -60,21 +60,43 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
     }
     
     @IBAction func onDateChanged(sender: AnyObject) {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        let strDate = dateFormatter.stringFromDate(datePicker.date)
-        currentExpense.date = strDate
-        // tableview.reloadRowsAtIndexPaths(<#T##indexPaths: [NSIndexPath]##[NSIndexPath]#>, withRowAnimation: <#T##UITableViewRowAnimation#>)
+        currentExpense.date = datePicker.date.toString()
         tableview.reloadData()
     }
     func selectedRow(indexpathRow:Int, value:String){
         selectedCustomer = customers[indexpathRow]
+        currentExpense.customer_id = (selectedCustomer?.id)!
         tableview.reloadData()
     }
     
     @IBAction func onDoneDateSelected(sender: AnyObject) {
         datePicker.hidden = true
         dateToolbar.hidden = true
+    }
+    
+    func dismissKeyboard(){
+        UIApplication.sharedApplication().sendAction("resignFirstResponder", to:nil, from:nil, forEvent:nil)
+    }
+    
+    func generateApiData() -> ExpensePost{
+
+        let nameCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.NAME.rawValue, inSection: 0)) as! AddTableCell
+        currentExpense.name = nameCell.valueTextField.text
+        
+        let categoryCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.CATEGORY.rawValue, inSection: 0)) as! AddTableCell
+        currentExpense.category = categoryCell.valueTextField.text
+        
+        let notesCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.NOTES.rawValue, inSection: 0)) as! AddTableCell
+        currentExpense.note = notesCell.valueTextField.text
+     
+        let amountCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.AMOUNT.rawValue, inSection: 0)) as! AddTableCell
+        let amount = amountCell.valueTextField.text
+        if let myNumber = NSNumberFormatter().numberFromString(amount!) {
+            currentExpense.amount = myNumber.doubleValue
+        } else {
+            currentExpense.amount = 0
+        }
+        return currentExpense
     }
     
     //MARK: TableView Delegate Functions
@@ -119,13 +141,19 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         switch(indexPath.row){
         case ExpenseTableRows.CUSTOMER.rawValue:
+            dismissKeyboard()
+            datePicker.hidden = true
+            dateToolbar.hidden = true
             performSegueWithIdentifier("DisplayCustomersSegue", sender: nil)
             break;
         case ExpenseTableRows.DATE.rawValue:
+            dismissKeyboard()
             datePicker.hidden = false
             dateToolbar.hidden = false
             break;
         default:
+            datePicker.hidden = true
+            dateToolbar.hidden = true
             break;
         }
     }

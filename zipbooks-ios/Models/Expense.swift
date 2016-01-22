@@ -73,7 +73,7 @@ class Expense: Object,Mappable {
 }
 
 class ExpensePost: Object,Mappable {
-    dynamic var amount: Int = 0
+    dynamic var amount: Double = 0
     dynamic var date: String?
     dynamic var customer_id: Int = 0
     dynamic var name: String?
