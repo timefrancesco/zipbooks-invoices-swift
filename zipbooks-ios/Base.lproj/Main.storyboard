@@ -442,7 +442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3g-yQ-4R9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1353" y="2855.5"/>
+            <point key="canvasLocation" x="1384" y="2849.5"/>
         </scene>
         <!--Add Time Entry View Controller-->
         <scene sceneID="4QF-KN-YKI">
@@ -456,76 +456,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="453"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbs-bC-Gts">
-                                <rect key="frame" x="99" y="55" width="55" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eB8-hr-AGP">
-                                <rect key="frame" x="100" y="79" width="249" height="30"/>
-                                <state key="normal" title="Select"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hHf-gu-6Aj">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="453"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="uGe-a6-dyl">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uGe-a6-dyl" id="gsc-jh-waN">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Cib-4w-icB" kind="show" identifier="SelectTaskSegue" id="ZUw-GS-LAP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="W80-zl-ANc">
+                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W80-zl-ANc" id="8g4-k7-kq7">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Cib-4w-icB" kind="show" identifier="SelectProjectSegue" id="kX0-N7-J7U"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="zoB-x7-hVc">
+                                <rect key="frame" x="0.0" y="263" width="600" height="190"/>
+                                <color key="backgroundColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="VaD-UI-GiI"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="475120765.30500102">
+                                    <!--2016-01-22 01:59:25 +0000-->
+                                </date>
                                 <connections>
-                                    <action selector="onSelectProjectTouchUpInside:" destination="Dwc-pi-ERo" eventType="touchUpInside" id="4EC-kT-avB"/>
-                                    <segue destination="Cib-4w-icB" kind="show" identifier="SelectProjectSegue" id="sGf-tU-njK"/>
+                                    <action selector="onDateChanged:" destination="Dwc-pi-ERo" eventType="valueChanged" id="62R-0u-Edu"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFf-fJ-AWx">
-                                <rect key="frame" x="95" y="140" width="254" height="30"/>
-                                <state key="normal" title="Select"/>
-                                <connections>
-                                    <action selector="onSelectTaskTouchUpInside:" destination="Dwc-pi-ERo" eventType="touchUpInside" id="8Lc-9x-Ebb"/>
-                                    <segue destination="Cib-4w-icB" kind="show" identifier="SelectTaskSegue" id="Hgn-IY-Jpr"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcb-rY-ZHP">
-                                <rect key="frame" x="99" y="110" width="36" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S78-BP-jgt">
-                                <rect key="frame" x="50" y="191" width="46" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dk2-J0-u9z">
-                                <rect key="frame" x="36" y="213" width="175" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yG-HT-ZKu">
-                                <rect key="frame" x="37" y="248" width="46" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n7F-yx-1hG">
-                                <rect key="frame" x="23" y="270" width="342" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMc-fc-FSv">
-                                <rect key="frame" x="29" y="308" width="36" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1KY-AW-VqJ">
-                                <rect key="frame" x="23" y="332" width="295" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </datePicker>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGg-sr-qpA">
+                                <rect key="frame" x="0.0" y="219" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="2NO-u4-pnt"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Done" width="59.5" id="xaC-yp-k8O">
+                                        <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="onDoneDateSelected:" destination="Dwc-pi-ERo" id="2SG-si-mv1"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NBe-h3-DV1" firstAttribute="top" secondItem="hHf-gu-6Aj" secondAttribute="bottom" id="CLM-nD-LTN"/>
+                            <constraint firstItem="hHf-gu-6Aj" firstAttribute="leading" secondItem="oaZ-Mc-gYQ" secondAttribute="leading" id="DYF-Pi-n4g"/>
+                            <constraint firstItem="hHf-gu-6Aj" firstAttribute="top" secondItem="UUf-a9-2DP" secondAttribute="bottom" id="Dmg-Kv-y10"/>
+                            <constraint firstItem="zoB-x7-hVc" firstAttribute="leading" secondItem="oaZ-Mc-gYQ" secondAttribute="leading" id="Hv2-mB-mP8"/>
+                            <constraint firstItem="zoB-x7-hVc" firstAttribute="top" secondItem="bGg-sr-qpA" secondAttribute="bottom" id="VQC-Xz-E0F"/>
+                            <constraint firstItem="bGg-sr-qpA" firstAttribute="leading" secondItem="oaZ-Mc-gYQ" secondAttribute="leading" id="Xbm-og-V0W"/>
+                            <constraint firstAttribute="trailing" secondItem="zoB-x7-hVc" secondAttribute="trailing" id="cQA-gM-Vfn"/>
+                            <constraint firstAttribute="trailing" secondItem="bGg-sr-qpA" secondAttribute="trailing" id="eCN-di-YiZ"/>
+                            <constraint firstAttribute="trailing" secondItem="hHf-gu-6Aj" secondAttribute="trailing" id="fLb-Aq-rVO"/>
+                            <constraint firstItem="NBe-h3-DV1" firstAttribute="top" secondItem="zoB-x7-hVc" secondAttribute="bottom" id="okX-O4-jV4"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="dateTextField" destination="1KY-AW-VqJ" id="M3R-XC-dmu"/>
-                        <outlet property="hoursTextField" destination="Dk2-J0-u9z" id="YES-nQ-5Tt"/>
-                        <outlet property="notesTextField" destination="n7F-yx-1hG" id="KDx-g7-7Tn"/>
-                        <outlet property="projectBtn" destination="eB8-hr-AGP" id="2Ul-G0-iWR"/>
-                        <outlet property="taskBtn" destination="zFf-fJ-AWx" id="dK8-YD-hWF"/>
+                        <outlet property="datePicker" destination="zoB-x7-hVc" id="aIB-NM-drX"/>
+                        <outlet property="dateToolbar" destination="bGg-sr-qpA" id="4Kk-t5-kbl"/>
+                        <outlet property="tableview" destination="hHf-gu-6Aj" id="UHb-f2-8T3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rOh-y3-Uc1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -537,6 +543,6 @@
         <image name="Add-Time-Expense" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rZ4-jH-4df"/>
+        <segue reference="ZUw-GS-LAP"/>
     </inferredMetricsTieBreakers>
 </document>

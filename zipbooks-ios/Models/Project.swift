@@ -62,4 +62,6 @@ class Project: Object,Mappable {
 		archived_at <- map["archived_at"]
 		billing_method <- map["billing_method"]
 	}
+    
+    
 }

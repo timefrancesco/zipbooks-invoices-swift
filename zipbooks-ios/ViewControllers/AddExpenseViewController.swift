@@ -64,6 +64,7 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
         currentExpense.date = datePicker.date.toString()
         tableview.reloadData()
     }
+    
     func selectedRow(indexpathRow:Int, value:String){
         selectedCustomer = customers[indexpathRow]
         currentExpense.customer_id = (selectedCustomer?.id)!
@@ -112,19 +113,19 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
         case ExpenseTableRows.CUSTOMER.rawValue :
              cell.accessoryType = .DisclosureIndicator
              if selectedCustomer == nil{
-                cell.updateData(.CUSTOMER, data: "")
+                cell.updateData(ExpenseTableRows.CUSTOMER.rawValue, entryType: .EXPENSE, data: "")
              }
              else{
-                cell.updateData(.CUSTOMER, data: selectedCustomer?.name)
+                cell.updateData(ExpenseTableRows.CUSTOMER.rawValue, entryType: .EXPENSE, data: selectedCustomer?.name)
              }
             break;
         case ExpenseTableRows.DATE.rawValue:
             cell.accessoryType = .None
-            cell.updateData(.DATE, data: currentExpense.date)
+            cell.updateData(ExpenseTableRows.DATE.rawValue,  entryType: .EXPENSE, data: currentExpense.date)
             break;
         default:
             cell.accessoryType = .None
-            cell.updateData(ExpenseTableRows(rawValue: indexPath.row)!, data: currentExpense.date)
+            cell.updateData(indexPath.row, entryType: .EXPENSE )
             break
         }
         return cell

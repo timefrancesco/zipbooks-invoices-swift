@@ -9,13 +9,76 @@
 import Foundation
 import UIKit
 
+enum EntryType:Int{
+    case EXPENSE = 0
+    case TIME = 1
+}
+
 class AddTableCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var descriptionImg: UIImageView!
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var valueTextField: UITextField!
     @IBOutlet weak var valueLbl: UILabel!
     
-    func updateData(type: ExpenseTableRows, data:String?="" ){
+    func updateData(type: Int, entryType:EntryType, data:String?="" ){
+        if entryType == .EXPENSE{
+            updateExpenseData(ExpenseTableRows(rawValue: type)!, data:data)
+        }
+        else{
+            updateTimeEntryData(TimeEntryTableRows(rawValue: type)!, data:data)
+        }        
+    }
+    
+    func updateTimeEntryData(type: TimeEntryTableRows, data:String?=""){
+        switch(type){
+        case .PROJECT:
+            valueTextField.hidden = true
+            valueLbl.hidden = false
+            valueLbl.text = data
+            descriptionLbl.text = "Project:"
+            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            break
+        case .DATE:
+            valueTextField.hidden = true
+            valueLbl.hidden = false
+            if data != nil{
+                valueLbl.text = data
+            }
+            else {
+                valueLbl.text = NSDate().toString()
+            }
+            descriptionLbl.text = "Date:"
+            descriptionImg.image = (UIImage(named: "DateIcon"))
+            break
+        case .NOTES:
+            valueTextField.hidden = false
+            valueLbl.hidden = true
+            descriptionLbl.text = "Notes:"
+            valueTextField.keyboardType = .Default
+            valueTextField.placeholder = "Optional"
+            valueTextField.returnKeyType = .Done
+            descriptionImg.image = (UIImage(named: "NotesIcon"))
+            break
+        case .TASK:
+            valueTextField.hidden = true
+            valueLbl.hidden = false
+            valueLbl.text = data
+            descriptionLbl.text = "Task:"
+            descriptionImg.image = (UIImage(named: "TaskIcon"))
+            break
+        case .HOURS:
+            valueTextField.hidden = false
+            valueLbl.hidden = true
+            descriptionLbl.text = "Hours:"
+            valueTextField.keyboardType = .NumbersAndPunctuation
+            valueTextField.placeholder = "Optional"
+            valueTextField.returnKeyType = .Done
+            descriptionImg.image = (UIImage(named: "HoursIcon"))
+            break
+        }
+    }
+    
+    func updateExpenseData(type: ExpenseTableRows, data:String?=""){
         switch(type){
         case .CUSTOMER:
             valueTextField.hidden = true
@@ -23,12 +86,12 @@ class AddTableCell: UITableViewCell, UITextFieldDelegate {
             valueLbl.text = data
             descriptionLbl.text = "Customer:"
             descriptionImg.image = (UIImage(named: "CustomerIcon"))
-        break
+            break
         case .DATE:
             valueTextField.hidden = true
             valueLbl.hidden = false
             if data != nil{
-            valueLbl.text = data
+                valueLbl.text = data
             }
             else {
                 valueLbl.text = NSDate().toString()
@@ -71,7 +134,7 @@ class AddTableCell: UITableViewCell, UITextFieldDelegate {
             valueTextField.placeholder = "Optional"
             valueTextField.returnKeyType = .Done
             descriptionImg.image = (UIImage(named: "NameIcon"))
-
+            
             break
             
         }
