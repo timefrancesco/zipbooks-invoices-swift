@@ -19,9 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(Utility.getToken())
         
-        if Utility.getToken() != ""{
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("MainAuthorized")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if Utility.getToken() == ""{
+            self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("Auth")
+        }
+        else {
+            self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("MainAuth")
         }
         
         return true

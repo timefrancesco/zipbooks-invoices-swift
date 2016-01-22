@@ -23,12 +23,24 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
         title = "Invoices" //TODO: Localization
         invoicesTableView.delegate = self
         invoicesTableView.dataSource = self
+        invoicesTableView.tableFooterView = UIView()
         invoicesTableView.registerNib(UINib(nibName: "InvoiceTableCell", bundle: nil), forCellReuseIdentifier: "InvoiceCell")
         setupPullToRefresh()
         updateInvoices(nil)
-        updateAdditionalData()        
+        updateAdditionalData()
+        customizeNavBar()
     }
    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
+    func customizeNavBar(){
+        //1A708F
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 18)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
+        navigationController?.navigationBar.barTintColor = UIColor (hex: 0x3D3D3D)
+        navigationController?.navigationBar.translucent = false
+    }
     
     func setupPullToRefresh(){
         pullToRefresh.attributedTitle = NSAttributedString(string: NSLocalizedString("Updating posts", comment: ""))

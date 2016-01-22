@@ -57,3 +57,14 @@ extension UIColor {
         )
     }
 }
+
+extension UINavigationController {
+    
+    public override func childViewControllerForStatusBarHidden() -> UIViewController? {
+        return self.topViewController
+    }
+    
+    public override func childViewControllerForStatusBarStyle() -> UIViewController? {
+        return self.topViewController
+    }
+}

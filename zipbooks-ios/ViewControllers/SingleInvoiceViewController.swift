@@ -43,6 +43,8 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
         title = currentInvoice.number
     }
     
+    
+    
     //MARK: TableView Delegate Functions
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

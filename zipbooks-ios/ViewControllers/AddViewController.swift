@@ -25,7 +25,7 @@ class AddViewController: UIViewController {
     func customizeNavBar(){
         //1A708F
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue-Light", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
-        navigationController?.navigationBar.barTintColor = UIColor (hex: 0x1A708F)
+        navigationController?.navigationBar.barTintColor = UIColor (hex: 0x3D3D3D)
         navigationController?.navigationBar.translucent = false
     }
     
