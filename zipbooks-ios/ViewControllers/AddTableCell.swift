@@ -22,6 +22,7 @@ class AddTableCell: UITableViewCell, UITextFieldDelegate {
             valueLbl.hidden = false
             valueLbl.text = data
             descriptionLbl.text = "Customer:"
+            descriptionImg.image = (UIImage(named: "CustomerIcon"))
         break
         case .DATE:
             valueTextField.hidden = true
@@ -33,6 +34,7 @@ class AddTableCell: UITableViewCell, UITextFieldDelegate {
                 valueLbl.text = NSDate().toString()
             }
             descriptionLbl.text = "Date:"
+            descriptionImg.image = (UIImage(named: "DateIcon"))
             break
         case .NOTES:
             valueTextField.hidden = false
@@ -41,6 +43,7 @@ class AddTableCell: UITableViewCell, UITextFieldDelegate {
             valueTextField.keyboardType = .Default
             valueTextField.placeholder = "Optional"
             valueTextField.returnKeyType = .Done
+            descriptionImg.image = (UIImage(named: "NotesIcon"))
             break
         case .AMOUNT:
             valueTextField.hidden = false
@@ -49,6 +52,7 @@ class AddTableCell: UITableViewCell, UITextFieldDelegate {
             valueTextField.placeholder = "Mandatory"
             valueTextField.keyboardType = .NumbersAndPunctuation
             valueTextField.returnKeyType = .Done
+            descriptionImg.image = (UIImage(named: "AmountIcon"))
             break
         case .CATEGORY:
             valueTextField.hidden = false
@@ -57,6 +61,7 @@ class AddTableCell: UITableViewCell, UITextFieldDelegate {
             valueTextField.keyboardType = .Default
             valueTextField.placeholder = "Optional"
             valueTextField.returnKeyType = .Done
+            descriptionImg.image = (UIImage(named: "CategoryIcon"))
             break
         case .NAME:
             valueTextField.hidden = false
@@ -65,6 +70,7 @@ class AddTableCell: UITableViewCell, UITextFieldDelegate {
             valueTextField.keyboardType = .Default
             valueTextField.placeholder = "Optional"
             valueTextField.returnKeyType = .Done
+            descriptionImg.image = (UIImage(named: "NameIcon"))
 
             break
             

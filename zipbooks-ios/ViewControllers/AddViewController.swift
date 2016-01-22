@@ -15,6 +15,8 @@ class AddViewController: UIViewController {
     @IBOutlet weak var timeEntryContainer: UIView!
     @IBOutlet weak var expenseContainer: UIView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var saveBtn: UIBarButtonItem!
     @IBOutlet weak var errorLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,8 @@ class AddViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         errorLbl.hidden = true
-        
+        saveBtn.enabled = true
+        activityIndicator.hidden = true
     }
     
     func customizeNavBar(){
@@ -47,6 +50,9 @@ class AddViewController: UIViewController {
     
     @IBAction func onSaveBtnTouchUpInside(sender: AnyObject) {
         self.errorLbl.hidden = true
+        saveBtn.enabled = false
+        activityIndicator.hidden = false
+        activityIndicator.startAnimating()
         
         if addTypeSelector.selectedSegmentIndex == 1 {
             let expVC = childViewControllers[0] as! AddExpenseViewController //I don't really like this way to access it, looking for a better solution
@@ -60,12 +66,17 @@ class AddViewController: UIViewController {
                     }
                     else {
                         self.dismissViewControllerAnimated(true, completion: nil)
-                    }
+                    }                    
+                    self.saveBtn.enabled = true
+                    self.activityIndicator.hidden = true
+                    self.activityIndicator.stopAnimating()
                 }
             }
             else {
-                self.errorLbl.text = "Wrong input"
-                self.errorLbl.hidden = false
+                errorLbl.text = "Wrong input"
+                errorLbl.hidden = false
+                saveBtn.enabled = true
+                activityIndicator.hidden = true
             }
         }
     }
@@ -74,8 +85,6 @@ class AddViewController: UIViewController {
         navigationController?.dismissViewControllerAnimated(true, completion:nil)
     }
 
-
-    
     func checkData(data:ExpensePost) -> Bool {
         if data.customer_id == 0 || data.date == "" || data.amount == 0 || data.date == nil{
             return false

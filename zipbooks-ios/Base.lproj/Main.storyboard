@@ -182,7 +182,7 @@
                                 </connections>
                             </containerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4r5-PQ-ojB">
-                                <rect key="frame" x="20" y="89" width="560" height="29"/>
+                                <rect key="frame" x="20" y="78" width="560" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="s8N-A3-SYw"/>
                                 </constraints>
@@ -196,7 +196,7 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6EU-1i-lrn">
-                                <rect key="frame" x="20" y="125" width="560" height="21"/>
+                                <rect key="frame" x="20" y="114" width="560" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Gys-PO-N5j"/>
                                 </constraints>
@@ -204,15 +204,25 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZVd-wC-6Yz">
+                                <rect key="frame" x="290" y="115" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Rnq-WP-X1t"/>
+                                    <constraint firstAttribute="width" constant="20" id="SJA-zw-IEK"/>
+                                </constraints>
+                                <color key="color" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4r5-PQ-ojB" firstAttribute="top" secondItem="Agc-ZB-vC5" secondAttribute="bottom" constant="25" id="3Ox-68-3RJ"/>
+                            <constraint firstItem="4r5-PQ-ojB" firstAttribute="top" secondItem="Agc-ZB-vC5" secondAttribute="bottom" constant="14" id="3Ox-68-3RJ"/>
                             <constraint firstAttribute="trailing" secondItem="MC1-pr-h0i" secondAttribute="trailing" id="5R6-or-W2t"/>
                             <constraint firstItem="6EU-1i-lrn" firstAttribute="leading" secondItem="OYo-G2-z74" secondAttribute="leading" constant="20" id="6AT-69-Ctd"/>
                             <constraint firstItem="Pov-4G-3g4" firstAttribute="top" secondItem="MC1-pr-h0i" secondAttribute="bottom" id="Dtj-dm-fxS"/>
-                            <constraint firstItem="MC1-pr-h0i" firstAttribute="top" secondItem="4r5-PQ-ojB" secondAttribute="bottom" constant="30" id="Dzc-Pw-WGl"/>
+                            <constraint firstItem="MC1-pr-h0i" firstAttribute="top" secondItem="4r5-PQ-ojB" secondAttribute="bottom" constant="41" id="Dzc-Pw-WGl"/>
+                            <constraint firstItem="ZVd-wC-6Yz" firstAttribute="top" secondItem="4r5-PQ-ojB" secondAttribute="bottom" constant="9" id="Lzy-ZJ-bXJ"/>
                             <constraint firstAttribute="trailing" secondItem="6EU-1i-lrn" secondAttribute="trailing" constant="20" id="MR2-wh-kMN"/>
+                            <constraint firstItem="ZVd-wC-6Yz" firstAttribute="centerX" secondItem="OYo-G2-z74" secondAttribute="centerX" id="NXn-A4-0eU"/>
                             <constraint firstAttribute="trailing" secondItem="3jH-58-XbB" secondAttribute="trailing" id="PwV-a8-Ghk"/>
                             <constraint firstItem="MC1-pr-h0i" firstAttribute="leading" secondItem="OYo-G2-z74" secondAttribute="leading" id="Uai-Ic-Eta"/>
                             <constraint firstAttribute="trailing" secondItem="4r5-PQ-ojB" secondAttribute="trailing" constant="20" id="WbJ-v7-MHh"/>
@@ -220,7 +230,7 @@
                             <constraint firstItem="3jH-58-XbB" firstAttribute="leading" secondItem="OYo-G2-z74" secondAttribute="leading" id="ZrR-Db-0JW"/>
                             <constraint firstItem="6EU-1i-lrn" firstAttribute="top" secondItem="4r5-PQ-ojB" secondAttribute="bottom" constant="8" id="i0f-eO-sZD"/>
                             <constraint firstItem="4r5-PQ-ojB" firstAttribute="leading" secondItem="OYo-G2-z74" secondAttribute="leading" constant="20" id="y2S-hT-YqR"/>
-                            <constraint firstItem="3jH-58-XbB" firstAttribute="top" secondItem="4r5-PQ-ojB" secondAttribute="bottom" constant="30" id="y4j-SC-iJE"/>
+                            <constraint firstItem="3jH-58-XbB" firstAttribute="top" secondItem="4r5-PQ-ojB" secondAttribute="bottom" constant="41" id="y4j-SC-iJE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tvt-Zv-hj8">
@@ -238,9 +248,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="ZVd-wC-6Yz" id="Scc-my-UpT"/>
                         <outlet property="addTypeSelector" destination="4r5-PQ-ojB" id="st7-il-cvP"/>
                         <outlet property="errorLbl" destination="6EU-1i-lrn" id="BaL-l5-9Od"/>
                         <outlet property="expenseContainer" destination="3jH-58-XbB" id="cga-88-omV"/>
+                        <outlet property="saveBtn" destination="Ta6-6o-BSn" id="NhZ-Aw-p1u"/>
                         <outlet property="timeEntryContainer" destination="MC1-pr-h0i" id="Bzq-3d-lcc"/>
                     </connections>
                 </viewController>

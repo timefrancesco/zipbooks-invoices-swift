@@ -47,6 +47,7 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
     
     override func viewWillAppear(animated: Bool) {
         customers = DBservice.sharedInstance.getCustomersAll()
+        currentExpense.date = NSDate().toString()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -79,7 +80,6 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
     }
     
     func generateApiData() -> ExpensePost{
-
         let nameCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.NAME.rawValue, inSection: 0)) as! AddTableCell
         currentExpense.name = nameCell.valueTextField.text
         
@@ -106,9 +106,7 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-
         let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell", forIndexPath: indexPath) as! AddTableCell
-       
         
         switch(indexPath.row){
         case ExpenseTableRows.CUSTOMER.rawValue :
@@ -129,7 +127,6 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
             cell.updateData(ExpenseTableRows(rawValue: indexPath.row)!, data: currentExpense.date)
             break
         }
-        
         return cell
     }
     
