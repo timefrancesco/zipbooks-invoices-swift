@@ -132,11 +132,6 @@ class APIservice {
                     callback(result: nil)
                     return
             }
-            print(response.result.description)
-            print (response.result.error)
-            print (response.result.debugDescription)
-            print (response.result.value)
-            print (response.description)
             callback (result: response.result.value!)
         }
     }
