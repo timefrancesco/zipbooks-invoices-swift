@@ -25,7 +25,8 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
         invoicesTableView.tableFooterView = UIView()
         invoicesTableView.registerNib(UINib(nibName: "InvoiceTableCell", bundle: nil), forCellReuseIdentifier: "InvoiceCell")
         setupPullToRefresh()
-        updateInvoices(nil)
+        //updateInvoices(nil)
+        startupUpdate()
         updateAdditionalData()
         customizeNavBar()
     }
@@ -65,8 +66,15 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.invoicesTableView.reloadData()
                 
                 DBservice.sharedInstance.saveArray(resultCustomer!)
+                self.pullToRefresh.endRefreshing()
             }
         }
+    }
+    
+    func startupUpdate(){
+        pullToRefresh.beginRefreshing()
+        invoicesTableView.setContentOffset(CGPoint(x: 0, y: -pullToRefresh.frame.size.height), animated: true)
+        updateInvoices(nil)
     }
     
     func updateAdditionalData(){
