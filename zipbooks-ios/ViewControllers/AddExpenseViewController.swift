@@ -56,6 +56,7 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
                 let customersStr = customers.map {$0.name! as String}
                 destination.populateSource(customersStr)
                 destination.listSelectedDelegate = self
+                destination.setViewTitle("Customers")
             }
         }
     }

@@ -20,7 +20,6 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         
         //print(  Realm.Configuration.defaultConfiguration.path)
-        title = "Invoices" //TODO: Localization
         invoicesTableView.delegate = self
         invoicesTableView.dataSource = self
         invoicesTableView.tableFooterView = UIView()
@@ -31,19 +30,28 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
         customizeNavBar()
     }
    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        title = ""
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        title = "Invoices" //TODO: Localization
+    }
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
     
     func customizeNavBar(){
-        //1A708F
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 18)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
-        navigationController?.navigationBar.barTintColor = UIColor (hex: 0x3D3D3D)
+        navigationController?.navigationBar.barTintColor = Utility.getDefaultGrayColor()
         navigationController?.navigationBar.translucent = false
     }
     
     func setupPullToRefresh(){
-        pullToRefresh.attributedTitle = NSAttributedString(string: NSLocalizedString("Updating posts", comment: ""))
+        pullToRefresh.attributedTitle = NSAttributedString(string: NSLocalizedString("Updating invoices", comment: ""))
         pullToRefresh.addTarget(self, action: "updateInvoices:", forControlEvents: UIControlEvents.ValueChanged)
         invoicesTableView.addSubview(pullToRefresh)
     }

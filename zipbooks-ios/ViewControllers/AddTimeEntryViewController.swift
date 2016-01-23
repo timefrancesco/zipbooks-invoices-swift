@@ -18,6 +18,11 @@ enum TimeEntryTableRows:Int{
     case DATE = 4
 }
 
+enum TableKind{
+    case PROJECT
+    case TASK
+}
+
 class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegate, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableview: UITableView!
     
@@ -34,6 +39,7 @@ class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegat
     var tasks = [Task]()
     var selectedTask:Task?
     var currentEntry = TimeEntryPost()
+    var tableKind:TableKind = .PROJECT
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +74,7 @@ class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegat
                 let projectStr = projects.map {$0.name! as String}
                 destination.populateSource(projectStr)
                 destination.listSelectedDelegate = self
+                destination.setViewTitle("Projects")
             }
         }
         else if segue.identifier == "SelectTaskSegue" {
@@ -75,19 +82,22 @@ class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegat
                 let taskStr = tasks.map {$0.name! as String}
                 destination.populateSource(taskStr)
                 destination.listSelectedDelegate = self
+                destination.setViewTitle("Tasks")
             }
         }
     }
     
     func selectedRow(indexpathRow:Int, value:String){
-        if projects[indexpathRow].name == value{
+        if tableKind == .PROJECT && projects[indexpathRow].name == value{
             selectedProject = projects[indexpathRow]
+            selectedTask = nil
             tasks = DBservice.sharedInstance.getTasksForProject((selectedProject?.id)!)
             tableview.reloadData()
         }
         
-        if tasks.count > indexpathRow && tasks[indexpathRow].name == value{
+        if tableKind == .TASK && tasks.count > indexpathRow && tasks[indexpathRow].name == value{
             selectedTask = tasks[indexpathRow]
+            selectedProject = selectedTask?.project
             currentEntry.taskId = (selectedTask?.id)!
             tableview.reloadData()
         }
@@ -142,7 +152,7 @@ class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegat
             break;
         case TimeEntryTableRows.TASK.rawValue :
             cell.accessoryType = .DisclosureIndicator
-            if selectedProject == nil{
+            if selectedTask == nil{
                 cell.updateData(TimeEntryTableRows.TASK.rawValue, entryType: .TIME, data: "")
             }
             else{
@@ -173,12 +183,14 @@ class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegat
             datePicker.hidden = true
             dateToolbar.hidden = true
             performSegueWithIdentifier("SelectProjectSegue", sender: nil)
+            tableKind = .PROJECT
             break;
         case TimeEntryTableRows.TASK.rawValue:
             dismissKeyboard()
             datePicker.hidden = true
             dateToolbar.hidden = true
             performSegueWithIdentifier("SelectTaskSegue", sender: nil)
+            tableKind = .TASK
             break;
         case TimeEntryTableRows.DATE.rawValue:
             dismissKeyboard()

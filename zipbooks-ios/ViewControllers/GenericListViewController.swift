@@ -21,7 +21,10 @@ class GenericListViewController: UIViewController, UITableViewDataSource, UITabl
         listTableView.delegate = self
         listTableView.dataSource = self
         listTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "genericCell")
-
+        listTableView.tableFooterView = UIView()
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 18)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -29,8 +32,16 @@ class GenericListViewController: UIViewController, UITableViewDataSource, UITabl
         listTableView.reloadData()
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
     func populateSource(value:[String]){
         source = value
+    }
+    
+    func setViewTitle(val:String){
+        title = val
     }
     
     //MARK: TableView Delegate Functions
@@ -42,6 +53,8 @@ class GenericListViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("genericCell", forIndexPath: indexPath) 
         cell.textLabel?.text = source[indexPath.item]
+        cell.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 15)
+        cell.textLabel?.textColor = Utility.getDefaultGrayColor()
         return cell
     }
     

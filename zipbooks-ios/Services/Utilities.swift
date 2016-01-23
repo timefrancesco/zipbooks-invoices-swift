@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 class Utility {
 
     class func setToken(token:String) throws {
@@ -40,5 +42,9 @@ class Utility {
         
         let total = rateN! * quantityN!
         return String(format:"%.2f",total)
+    }
+    
+    class func getDefaultGrayColor() -> UIColor {
+        return UIColor(hex:0x3D3D3D)
     }
 }

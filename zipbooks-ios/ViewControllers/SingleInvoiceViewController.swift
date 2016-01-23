@@ -35,6 +35,8 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
         invoiceTableView.registerNib(UINib(nibName: "InvoiceSubTotalTC", bundle: nil), forCellReuseIdentifier: "SubTotalCell")
         invoiceTableView.registerNib(UINib(nibName: "InvoiceTotalTC", bundle: nil), forCellReuseIdentifier: "TotalCell")
         
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 18)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -43,6 +45,9 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
         title = currentInvoice.number
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
     
     
     //MARK: TableView Delegate Functions
@@ -191,7 +196,7 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
         
         switch(indexPath.section){
         case InvoiceSection.DETAILS.rawValue:
-            num = 60
+            num = 50
             break
         case InvoiceSection.ITEMS.rawValue:
             num = 50

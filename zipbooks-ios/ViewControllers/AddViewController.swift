@@ -22,7 +22,6 @@ class AddViewController: UIViewController {
         super.viewDidLoad()
         customizeNavBar()
         addTypeSelector.selectedSegmentIndex = 0
-        title = "Add"
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -30,12 +29,18 @@ class AddViewController: UIViewController {
         errorLbl.hidden = true
         saveBtn.enabled = true
         activityIndicator.hidden = true
+        title = "Add"
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        title = ""
     }
     
     func customizeNavBar(){
         //1A708F
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue-Light", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
-        navigationController?.navigationBar.barTintColor = UIColor (hex: 0x3D3D3D)
+        navigationController?.navigationBar.barTintColor = Utility.getDefaultGrayColor() 
         navigationController?.navigationBar.translucent = false
     }
     
