@@ -29,12 +29,7 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         invoiceTableView.delegate = self
         invoiceTableView.dataSource = self
-        invoiceTableView.registerNib(UINib(nibName: "InvoiceOneLineTC", bundle: nil), forCellReuseIdentifier: "OneLineCell")
-        invoiceTableView.registerNib(UINib(nibName: "InvoiceItemTC", bundle: nil), forCellReuseIdentifier: "ItemCell")
-        invoiceTableView.registerNib(UINib(nibName: "InvoiceTextViewTC", bundle: nil), forCellReuseIdentifier: "TextCell")
-        invoiceTableView.registerNib(UINib(nibName: "InvoiceSubTotalTC", bundle: nil), forCellReuseIdentifier: "SubTotalCell")
-        invoiceTableView.registerNib(UINib(nibName: "InvoiceTotalTC", bundle: nil), forCellReuseIdentifier: "TotalCell")
-        
+        invoiceTableView.tableFooterView = UIView()
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 18)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
@@ -100,44 +95,44 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
         
         switch(indexPath.section){
         case InvoiceSection.DETAILS.rawValue:
-            let currentCell = tableView.dequeueReusableCellWithIdentifier("OneLineCell", forIndexPath: indexPath) as! InvoiceTableCellOneLineTC
+            let currentCell = tableView.dequeueReusableCellWithIdentifier("CustomerCellSB", forIndexPath: indexPath) as! InvoiceTableCellOneLineTC
              currentCell.updateData(DBservice.sharedInstance.getCustomerNameFromId(currentInvoice.customer_id))
             cell = currentCell
             break
             
         case InvoiceSection.ITEMS.rawValue:
-            let currentCell = tableView.dequeueReusableCellWithIdentifier("ItemCell", forIndexPath: indexPath) as! InvoiceItemTC
+            let currentCell = tableView.dequeueReusableCellWithIdentifier("ItemCellSB", forIndexPath: indexPath) as! InvoiceItemTC
             currentCell.updateData(items[indexPath.row])
             cell = currentCell
             break
             
         case InvoiceSection.EXPENSES.rawValue:
-            let currentCell = tableView.dequeueReusableCellWithIdentifier("ItemCell", forIndexPath: indexPath) as! InvoiceItemTC
+            let currentCell = tableView.dequeueReusableCellWithIdentifier("ItemCellSB", forIndexPath: indexPath) as! InvoiceItemTC
             currentCell.updateData(expenses[indexPath.row])
             cell = currentCell
             break
             
         case InvoiceSection.TERMS.rawValue:
            // cell = UITableViewCell()
-            let currentCell = tableView.dequeueReusableCellWithIdentifier("TextCell", forIndexPath: indexPath) as! InvoiceTextViewTC
+            let currentCell = tableView.dequeueReusableCellWithIdentifier("TextCellSB", forIndexPath: indexPath) as! InvoiceTextViewTC
             currentCell.updateData(currentInvoice.terms!)
             cell = currentCell
             break
             
         case InvoiceSection.NOTES.rawValue:
-            let currentCell = tableView.dequeueReusableCellWithIdentifier("TextCell", forIndexPath: indexPath) as! InvoiceTextViewTC
+            let currentCell = tableView.dequeueReusableCellWithIdentifier("TextCellSB", forIndexPath: indexPath) as! InvoiceTextViewTC
             currentCell.updateData(currentInvoice.notes!)
             cell = currentCell
             break
             
         case InvoiceSection.SUBTOTAL.rawValue:
-            let currentCell = tableView.dequeueReusableCellWithIdentifier("SubTotalCell", forIndexPath: indexPath) as! InvoiceSubTotalTC
+            let currentCell = tableView.dequeueReusableCellWithIdentifier("SubTotalCellSB", forIndexPath: indexPath) as! InvoiceSubTotalTC
             currentCell.updateData(currentInvoice.total!, description: "Subtotal") //TODO: check taxes here
             cell = currentCell
             break
             
         case InvoiceSection.TOTAL.rawValue:
-            let currentCell = tableView.dequeueReusableCellWithIdentifier("TotalCell", forIndexPath: indexPath) as! InvoiceTotalTC
+            let currentCell = tableView.dequeueReusableCellWithIdentifier("TotalCellSB", forIndexPath: indexPath) as! InvoiceTotalTC
             currentCell.updateData(currentInvoice.total!) 
             cell = currentCell
 
