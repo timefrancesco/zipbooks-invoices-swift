@@ -503,7 +503,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.timelabs.zipbooks-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f2813340-e1d1-44d6-b7b5-e0e6f9646fd7";
+				PROVISIONING_PROFILE = "518e98d5-c079-439a-bb6d-de75371a4c89";
 				SWIFT_OBJC_BRIDGING_HEADER = "zipbooks-ios/zipbooks-ios-Bridging-Header.h";
 			};
 			name = Release;
