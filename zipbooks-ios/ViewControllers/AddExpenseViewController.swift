@@ -46,9 +46,11 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         customers = DBservice.sharedInstance.getCustomersAll()
         currentExpense.date = NSDate().toString()
     }
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "DisplayCustomersSegue" {
@@ -79,6 +81,21 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
     
     func dismissKeyboard(){
         UIApplication.sharedApplication().sendAction("resignFirstResponder", to:nil, from:nil, forEvent:nil)
+    }
+    
+    func adjustInsetForKeyboard(){
+        let categoryCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.CATEGORY.rawValue, inSection: 0)) as! AddTableCell
+        let notesCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.NOTES.rawValue, inSection: 0)) as! AddTableCell
+        if categoryCell.valueTextField.isFirstResponder() || notesCell.valueTextField.isFirstResponder(){
+             tableview.setContentOffset(CGPoint(x: 0, y: 100), animated: true)
+ 
+        }
+    }
+    
+    func restoreInsetForKeyboard(){
+        if tableview.contentOffset.y != 0{
+            tableview.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        }
     }
     
     func generateApiData() -> ExpensePost{

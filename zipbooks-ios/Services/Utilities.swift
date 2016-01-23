@@ -10,8 +10,11 @@ import Foundation
 import UIKit
 import SystemConfiguration
 
+let IPHONE_6_SCREEN_WIDTH = 750
+
 class Utility {
 
+    
     class func setToken(token:String) throws {
         NSUserDefaults.standardUserDefaults().setObject(token, forKey: "token")
     }
@@ -47,6 +50,10 @@ class Utility {
     
     class func getDefaultGrayColor() -> UIColor {
         return UIColor(hex:0x3D3D3D)
+    }
+    
+    class func getScreenWidth()->Int{
+        return Int(UIScreen.mainScreen().bounds.width)
     }
 }
 

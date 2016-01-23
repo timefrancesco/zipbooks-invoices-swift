@@ -30,11 +30,20 @@ class AddViewController: UIViewController {
         saveBtn.enabled = true
         activityIndicator.hidden = true
         title = "Add"
+        
+        if Utility.getScreenWidth() < IPHONE_6_SCREEN_WIDTH {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "OnKeyboardAppear:", name: UIKeyboardWillShowNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "OnKeyboardDisappear:", name: UIKeyboardWillHideNotification, object: nil)
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         title = ""
+        if Utility.getScreenWidth() < IPHONE_6_SCREEN_WIDTH {
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+        }
     }
     
     func customizeNavBar(){
@@ -74,6 +83,38 @@ class AddViewController: UIViewController {
     func handleNoConnection(){
         errorLbl.hidden = false
         errorLbl.text = "Not Connected"
+    }
+    
+    
+    func OnKeyboardAppear(notify:NSNotification) {
+        if let dicUserInfo = notify.userInfo {
+            let recKeyboardFrame:CGRect = ((dicUserInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue())!
+            print(recKeyboardFrame)
+            if addTypeSelector.selectedSegmentIndex == 1 {
+                 let expVC = childViewControllers[0] as! AddExpenseViewController
+                expVC.adjustInsetForKeyboard()
+            }
+            else{
+                let timeEntryVC = childViewControllers[1] as! AddTimeEntryViewController
+                timeEntryVC.adjustInsetForKeyboard()
+            }
+        }
+    }
+    
+    func OnKeyboardDisappear(notify:NSNotification) {
+        if let dicUserInfo = notify.userInfo {
+            let recKeyboardFrame:CGRect = ((dicUserInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue())!
+            print(recKeyboardFrame)
+            if addTypeSelector.selectedSegmentIndex == 1 {
+                let expVC = childViewControllers[0] as! AddExpenseViewController
+                expVC.restoreInsetForKeyboard()
+            }
+            else{
+                let timeEntryVC = childViewControllers[1] as! AddTimeEntryViewController
+                timeEntryVC.restoreInsetForKeyboard()
+            }
+            
+        }
     }
     
     @IBAction func onCancelBtnTouchUpInside(sender: AnyObject) {
