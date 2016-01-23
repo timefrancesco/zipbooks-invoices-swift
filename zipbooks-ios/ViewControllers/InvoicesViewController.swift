@@ -25,9 +25,13 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
         invoicesTableView.tableFooterView = UIView()
         invoicesTableView.registerNib(UINib(nibName: "InvoiceTableCell", bundle: nil), forCellReuseIdentifier: "InvoiceCell")
         setupPullToRefresh()
-        //updateInvoices(nil)
-        startupUpdate()
-        updateAdditionalData()
+        if Reachability.isConnectedToNetwork(){
+            startupUpdate()
+            updateAdditionalData()
+        }
+        else {
+            loadFromDB()
+        }
         customizeNavBar()
     }
    
@@ -58,6 +62,12 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func updateInvoices(sender:AnyObject?){
+        
+        if !Reachability.isConnectedToNetwork(){
+            pullToRefresh.endRefreshing()
+            return
+        }
+        
         APIservice.sharedInstance.getInvoices(){ (resultInvoices:[Invoice]?) in
             APIservice.sharedInstance.getCustomers(){ (resultCustomer:[Customer]?) in //nested since I need the customer name (invoice only has customerID)
                 
@@ -69,6 +79,10 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.pullToRefresh.endRefreshing()
             }
         }
+    }
+    
+    func loadFromDB(){
+        invoices = DBservice.sharedInstance.getArray(returnType: Invoice.self)
     }
     
     func startupUpdate(){

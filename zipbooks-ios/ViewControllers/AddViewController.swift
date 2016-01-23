@@ -38,7 +38,6 @@ class AddViewController: UIViewController {
     }
     
     func customizeNavBar(){
-        //1A708F
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue-Light", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
         navigationController?.navigationBar.barTintColor = Utility.getDefaultGrayColor() 
         navigationController?.navigationBar.translucent = false
@@ -54,7 +53,12 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func onSaveBtnTouchUpInside(sender: AnyObject) {
-        self.errorLbl.hidden = true
+        if !Reachability.isConnectedToNetwork(){
+            handleNoConnection()
+            return
+        }
+        
+        errorLbl.hidden = true
         saveBtn.enabled = false
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
@@ -65,6 +69,11 @@ class AddViewController: UIViewController {
         else{
             saveTimeEntry()
         }
+    }
+    
+    func handleNoConnection(){
+        errorLbl.hidden = false
+        errorLbl.text = "Not Connected"
     }
     
     @IBAction func onCancelBtnTouchUpInside(sender: AnyObject) {
