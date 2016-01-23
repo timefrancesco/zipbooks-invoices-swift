@@ -1,6 +1,9 @@
 # zipbooks-invoices-swift
 A simple iOS client for ZipBooks (www.zipbooks.com)
 
+Build Status:  
+[![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=56a2e8ced0680401006c5b9a&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/56a2e8ced0680401006c5b9a/build/latest)
+
 Just remember to do a `pod install` before running it.  
 
 It let you list and visualize your invoices, add a time entry or add an expense.  
