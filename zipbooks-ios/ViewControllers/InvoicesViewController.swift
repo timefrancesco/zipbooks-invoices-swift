@@ -72,7 +72,7 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
             APIservice.sharedInstance.getCustomers(){ (resultCustomer:[Customer]?) in //nested since I need the customer name (invoice only has customerID)
                 
                 DBservice.sharedInstance.saveArray(resultInvoices!)
-                self.invoices = DBservice.sharedInstance.getArray(returnType: Invoice.self)
+                self.invoices = DBservice.sharedInstance.getInvoicesAll()
                 self.invoicesTableView.reloadData()
                 
                 DBservice.sharedInstance.saveArray(resultCustomer!)
@@ -82,7 +82,7 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func loadFromDB(){
-        invoices = DBservice.sharedInstance.getArray(returnType: Invoice.self)
+        invoices = DBservice.sharedInstance.getInvoicesAll()
     }
     
     func startupUpdate(){
