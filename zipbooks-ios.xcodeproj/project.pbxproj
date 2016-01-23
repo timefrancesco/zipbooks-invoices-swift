@@ -90,6 +90,7 @@
 		AFE3FE541C4ED60B00C57534 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddExpenseViewController.swift; path = ViewControllers/AddExpenseViewController.swift; sourceTree = "<group>"; };
 		AFE3FE561C4ED63000C57534 /* AddTimeEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTimeEntryViewController.swift; path = ViewControllers/AddTimeEntryViewController.swift; sourceTree = "<group>"; };
 		AFE3FE581C4F10C500C57534 /* GenericListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenericListViewController.swift; path = ViewControllers/GenericListViewController.swift; sourceTree = "<group>"; };
+		AFEFDEF51C5328EE004EBCB5 /* zipbooks-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "zipbooks-ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		BB4AA5E61DB4E2409D4F317D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5F755511FB27CAF6F60FAB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +158,7 @@
 				AFBF52C01C434FDF00865594 /* Assets.xcassets */,
 				AFBF52C21C434FDF00865594 /* LaunchScreen.storyboard */,
 				AFBF52C51C434FDF00865594 /* Info.plist */,
+				AFEFDEF51C5328EE004EBCB5 /* zipbooks-ios-Bridging-Header.h */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -497,10 +499,13 @@
 			baseConfigurationReference = CE5F755511FB27CAF6F60FAB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "zipbooks-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.timelabs.zipbooks-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "zipbooks-ios/zipbooks-ios-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -509,10 +514,12 @@
 			baseConfigurationReference = 1BE071A4DB55DC1B0FC4255C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "zipbooks-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.timelabs.zipbooks-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "zipbooks-ios/zipbooks-ios-Bridging-Header.h";
 			};
 			name = Release;
 		};
