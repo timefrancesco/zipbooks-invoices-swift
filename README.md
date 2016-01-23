@@ -5,3 +5,7 @@ Just remember to do a `pod install` before running it.
 
 It let you list and visualize your invoices, add a time entry or add an expense.  
 The official Zipbooks app will be ready soon, so I would suggest you wait for that unless you are a developer.
+
+Screenshots:  
+
+![Zipbooks1](/screenshots/zipbooks1.jpg?raw=true)  ![Zipbooks3](/screenshots/zipbooks3.jpg?raw=true)  ![Zipbooks4](/screenshots/zipbooks4.jpg?raw=true)
