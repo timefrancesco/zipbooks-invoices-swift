@@ -12,3 +12,5 @@ The official Zipbooks app will be ready soon, so I would suggest you wait for th
 Screenshots:  
 
 ![Zipbooks1](/screenshots/zipbooks1.jpg?raw=true)  ![Zipbooks3](/screenshots/zipbooks3.jpg?raw=true)  ![Zipbooks4](/screenshots/zipbooks4.jpg?raw=true)
+
+Icons by [Icons8](www.icons8.com)
