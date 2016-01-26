@@ -32,6 +32,8 @@
 		AF7C96381C4B912600FAA81C /* InvoiceSubTotalTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C96371C4B912600FAA81C /* InvoiceSubTotalTC.swift */; };
 		AF7C963A1C4B914300FAA81C /* InvoiceTextViewTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C96391C4B914300FAA81C /* InvoiceTextViewTC.swift */; };
 		AF7C963C1C4B961D00FAA81C /* InvoiceTotalTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C963B1C4B961D00FAA81C /* InvoiceTotalTC.swift */; };
+		AFA1A3F01C5821FC00280C93 /* InsertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA1A3EF1C5821FC00280C93 /* InsertViewController.swift */; };
+		AFA1A3F21C58229E00280C93 /* InsertNewCustomerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA1A3F11C58229E00280C93 /* InsertNewCustomerVC.swift */; };
 		AFBF52BA1C434FDF00865594 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBF52B91C434FDF00865594 /* AppDelegate.swift */; };
 		AFBF52BF1C434FDF00865594 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBF52BD1C434FDF00865594 /* Main.storyboard */; };
 		AFBF52C11C434FDF00865594 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFBF52C01C434FDF00865594 /* Assets.xcassets */; };
@@ -69,6 +71,8 @@
 		AF7C96371C4B912600FAA81C /* InvoiceSubTotalTC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvoiceSubTotalTC.swift; path = ViewControllers/InvoiceSubTotalTC.swift; sourceTree = "<group>"; };
 		AF7C96391C4B914300FAA81C /* InvoiceTextViewTC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvoiceTextViewTC.swift; path = ViewControllers/InvoiceTextViewTC.swift; sourceTree = "<group>"; };
 		AF7C963B1C4B961D00FAA81C /* InvoiceTotalTC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvoiceTotalTC.swift; path = ViewControllers/InvoiceTotalTC.swift; sourceTree = "<group>"; };
+		AFA1A3EF1C5821FC00280C93 /* InsertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InsertViewController.swift; path = ViewControllers/InsertViewController.swift; sourceTree = "<group>"; };
+		AFA1A3F11C58229E00280C93 /* InsertNewCustomerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InsertNewCustomerVC.swift; path = ViewControllers/InsertNewCustomerVC.swift; sourceTree = "<group>"; };
 		AFBF52B61C434FDF00865594 /* zipbooks-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zipbooks-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFBF52B91C434FDF00865594 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFBF52BE1C434FDF00865594 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 				AFE3FE541C4ED60B00C57534 /* AddExpenseViewController.swift */,
 				AFE3FE561C4ED63000C57534 /* AddTimeEntryViewController.swift */,
 				AFE3FE581C4F10C500C57534 /* GenericListViewController.swift */,
+				AFA1A3EF1C5821FC00280C93 /* InsertViewController.swift */,
+				AFA1A3F11C58229E00280C93 /* InsertNewCustomerVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -343,6 +349,7 @@
 				AF5484DF1C518DDE0080EE67 /* AddTableCell.swift in Sources */,
 				AF7C96301C4B82EF00FAA81C /* LoginViewController.swift in Sources */,
 				AFE3FE551C4ED60B00C57534 /* AddExpenseViewController.swift in Sources */,
+				AFA1A3F21C58229E00280C93 /* InsertNewCustomerVC.swift in Sources */,
 				AF13F8D71C486A1100F7F833 /* SingleInvoiceViewController.swift in Sources */,
 				AF13F8BD1C44B17C00F7F833 /* InvoicesViewController.swift in Sources */,
 				AF7C96361C4B885400FAA81C /* InvoiceItemTC.swift in Sources */,
@@ -352,6 +359,7 @@
 				AF7C96341C4B830A00FAA81C /* Utilities.swift in Sources */,
 				AF13F8CD1C44F46F00F7F833 /* InvoiceTableCell.swift in Sources */,
 				AF13F8C71C44BC6600F7F833 /* Task.swift in Sources */,
+				AFA1A3F01C5821FC00280C93 /* InsertViewController.swift in Sources */,
 				AF13F8BF1C44B4FB00F7F833 /* Customer.swift in Sources */,
 				AFE3FE531C4ECBAA00C57534 /* AddViewController.swift in Sources */,
 				AFE3FE591C4F10C500C57534 /* GenericListViewController.swift in Sources */,

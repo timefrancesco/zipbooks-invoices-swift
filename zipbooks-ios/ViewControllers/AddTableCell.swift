@@ -12,6 +12,7 @@ import UIKit
 enum EntryType:Int{
     case EXPENSE = 0
     case TIME = 1
+    case CUSTOMER
 }
 
 class AddTableCell: UITableViewCell, UITextFieldDelegate {
@@ -24,9 +25,59 @@ class AddTableCell: UITableViewCell, UITextFieldDelegate {
         if entryType == .EXPENSE{
             updateExpenseData(ExpenseTableRows(rawValue: type)!, data:data)
         }
-        else{
+        else if entryType == .TIME{
             updateTimeEntryData(TimeEntryTableRows(rawValue: type)!, data:data)
-        }        
+        }
+        else if entryType == .CUSTOMER{
+            updateCustomerData(CustomerTableRows(rawValue: type)!, data:data)
+        }
+    }
+    
+    func updateCustomerData(type: CustomerTableRows, data:String?=""){
+        valueTextField.hidden = false
+        valueLbl.hidden = true
+        valueTextField.text = data
+        
+        switch(type){
+        case CustomerTableRows.NAME :
+            descriptionLbl.text = "Name:"
+            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            break
+        case CustomerTableRows.EMAIL :
+            descriptionLbl.text = "Email:"
+            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            break
+        case CustomerTableRows.PHONE :
+            descriptionLbl.text = "Phone:"
+            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            break
+        case CustomerTableRows.ADDRESS_1 :
+            descriptionLbl.text = "Address 1:"
+            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            break
+        case CustomerTableRows.ADDRESS_2 :
+            descriptionLbl.text = "Address 2:"
+            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            break
+        case CustomerTableRows.CITY :
+            descriptionLbl.text = "City:"
+            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            break
+        case CustomerTableRows.STATE :
+            descriptionLbl.text = "State:"
+            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            break
+        case CustomerTableRows.POSTAL_CODE :
+            descriptionLbl.text = "Postal Code:"
+            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            break
+        case CustomerTableRows.COUNTRY :
+            descriptionLbl.text = "Country:"
+            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            break
+        default:
+            break
+        }
     }
     
     func updateTimeEntryData(type: TimeEntryTableRows, data:String?=""){

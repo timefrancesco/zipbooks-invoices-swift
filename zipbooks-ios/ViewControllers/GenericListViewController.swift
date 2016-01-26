@@ -66,9 +66,5 @@ class GenericListViewController: UIViewController, UITableViewDataSource, UITabl
         listSelectedDelegate?.selectedRow(indexPath.row, value:source[indexPath.row])
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         navigationController?.popViewControllerAnimated(true)
-    }
-    
-    
-
-    
+    }    
 }

@@ -28,11 +28,7 @@ class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegat
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateToolbar: UIToolbar!
-    @IBOutlet weak var taskBtn: UIButton!
-    @IBOutlet weak var projectBtn: UIButton!
-    @IBOutlet weak var dateTextField: UITextField!
-    @IBOutlet weak var notesTextField: UITextField!
-    @IBOutlet weak var hoursTextField: UITextField!
+    
     
     var projects = [Project]()
     var selectedProject:Project?

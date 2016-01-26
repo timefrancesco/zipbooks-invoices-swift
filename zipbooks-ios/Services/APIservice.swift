@@ -111,18 +111,18 @@ class APIservice {
     //MARK: Post Functions
     
     func setExpense(expense: ExpensePost, callback: (data: Expense?) -> Void ){
-        sendPostRequest(Expense.self, endpoint: EXPENSES_ENDPOINT, method: Alamofire.Method.POST, parameters: Mapper().toJSON(expense)){ (result: Expense?) in
+        sendPostRequest(EXPENSES_ENDPOINT, method: Alamofire.Method.POST, parameters: Mapper().toJSON(expense)){ (result: Expense?) in
             callback(data: result)
         }
     }
     
     func setTimeEntry(expense: TimeEntryPost, callback: (data: TimeEntry?) -> Void ){
-        sendPostRequest(TimeEntry.self, endpoint: TIME_ENTRIES_ENDPOINT, method: Alamofire.Method.POST, parameters: Mapper().toJSON(expense)){ (result: TimeEntry?) in
+        sendPostRequest(TIME_ENTRIES_ENDPOINT, method: Alamofire.Method.POST, parameters: Mapper().toJSON(expense)){ (result: TimeEntry?) in
             callback(data: result)
         }
     }
     
-    func sendPostRequest<T: Mappable>(obj: T.Type, endpoint:String, method:Alamofire.Method, parameters: [String : AnyObject], callback: (result: T?) -> Void ) {
+    func sendPostRequest<T: Mappable>( endpoint:String, method:Alamofire.Method, parameters: [String : AnyObject], callback: (result: T?) -> Void ) {
         Alamofire.request(method, endpoint, headers:authHeaders, parameters: parameters, encoding: .JSON).responseObject { (response: Response<T, NSError>) in
             guard response.result.error == nil
                 else {

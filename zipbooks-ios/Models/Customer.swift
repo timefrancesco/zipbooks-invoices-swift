@@ -66,3 +66,37 @@ class Customer: Object,Mappable {
 		state <- map["state"]
 	}
 }
+
+class CustomerPost: Object,Mappable {
+    
+    dynamic var name: String?
+    dynamic var email: String?
+    dynamic var phone: String?
+    dynamic var address_1: String?
+    dynamic var address_2: String?
+    dynamic var city: String?
+    dynamic var state: String?
+    dynamic var postal_code: String?
+    dynamic var country: String?
+    
+    
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    
+    //MARK: Mappable
+    func mapping(map: Map) {
+        name <- map["name"]
+        email <- map["email"]
+        phone <- map["phone"]
+        address_1 <- map["address_1"]
+        address_2 <- map["address_2"]
+        city <- map["city"]
+        state <- map["state"]
+        postal_code <- map["postal_code"]
+        country <- map["country"]
+        
+    }
+
+
+}
