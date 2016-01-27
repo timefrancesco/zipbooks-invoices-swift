@@ -689,7 +689,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2cL-ff-rzp">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="DbR-SC-1yz">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="OnCancelBtnTouchUpInside:" destination="EA5-IZ-VON" id="NEc-9A-n2d"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="M6C-W2-Kxl">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onSaveButtonTouchUpInside:" destination="EA5-IZ-VON" id="GE8-0f-eIU"/>
                             </connections>

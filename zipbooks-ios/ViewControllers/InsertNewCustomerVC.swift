@@ -42,6 +42,44 @@ class InsertNewCustomer: UIViewController,UITableViewDelegate, UITableViewDataSo
         
     }
     
+    func generateApiData() -> CustomerPost{
+        for var i = 0; i < CustomerTableRows.END.rawValue; i++ {
+            let cell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as! AddTableCell
+            switch (i) {
+            case CustomerTableRows.NAME.rawValue:
+                selectedCustomer.name = cell.valueTextField.text
+                break
+            case CustomerTableRows.EMAIL.rawValue:
+                selectedCustomer.email = cell.valueTextField.text
+                break
+            case CustomerTableRows.PHONE.rawValue:
+                selectedCustomer.phone = cell.valueTextField.text
+                break
+            case CustomerTableRows.ADDRESS_1.rawValue:
+                selectedCustomer.address_1 = cell.valueTextField.text
+                break
+            case CustomerTableRows.ADDRESS_2.rawValue:
+                selectedCustomer.address_2 = cell.valueTextField.text
+                break
+            case CustomerTableRows.CITY.rawValue:
+                selectedCustomer.city = cell.valueTextField.text
+                break
+            case CustomerTableRows.STATE.rawValue:
+                selectedCustomer.state = cell.valueTextField.text
+                break
+            case CustomerTableRows.POSTAL_CODE.rawValue:
+                selectedCustomer.postal_code = cell.valueTextField.text
+                break
+            case CustomerTableRows.COUNTRY.rawValue:
+                selectedCustomer.country = cell.valueTextField.text
+                break
+            default:
+                break
+            }
+        }
+        return selectedCustomer
+    }
+    
     
     //MARK: TableView Delegate Functions
     

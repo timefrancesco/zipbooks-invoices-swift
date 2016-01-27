@@ -122,6 +122,12 @@ class APIservice {
         }
     }
     
+    func saveNewCustomer(customer: CustomerPost, callback: (data: Customer?) -> Void ){
+        sendPostRequest(CUSTOMERS_ENDPOINT, method: Alamofire.Method.POST, parameters: Mapper().toJSON(customer)){ (result: Customer?) in
+            callback(data: result)
+        }
+    }
+    
     func sendPostRequest<T: Mappable>( endpoint:String, method:Alamofire.Method, parameters: [String : AnyObject], callback: (result: T?) -> Void ) {
         Alamofire.request(method, endpoint, headers:authHeaders, parameters: parameters, encoding: .JSON).responseObject { (response: Response<T, NSError>) in
             guard response.result.error == nil

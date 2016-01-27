@@ -88,7 +88,6 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
         let notesCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.NOTES.rawValue, inSection: 0)) as! AddTableCell
         if categoryCell.valueTextField.isFirstResponder() || notesCell.valueTextField.isFirstResponder(){
              tableview.setContentOffset(CGPoint(x: 0, y: 100), animated: true)
- 
         }
     }
     

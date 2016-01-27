@@ -68,7 +68,7 @@ class AddTableCell: UITableViewCell, UITextFieldDelegate {
             descriptionImg.image = (UIImage(named: "ProjectIcon"))
             break
         case CustomerTableRows.POSTAL_CODE :
-            descriptionLbl.text = "Postal Code:"
+            descriptionLbl.text = "Postal C:"
             descriptionImg.image = (UIImage(named: "ProjectIcon"))
             break
         case CustomerTableRows.COUNTRY :
