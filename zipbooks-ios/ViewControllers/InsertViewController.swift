@@ -33,6 +33,20 @@ class InsertViewController: UIViewController {
             title = "New Customer"
         }
         
+        if Utility.getScreenWidth() < IPHONE_6_SCREEN_WIDTH {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "OnKeyboardAppear:", name: UIKeyboardWillShowNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "OnKeyboardDisappear:", name: UIKeyboardWillHideNotification, object: nil)
+        }
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        title = ""
+        if Utility.getScreenWidth() < IPHONE_6_SCREEN_WIDTH {
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+        }
     }
     
     func customizeNavBar(){
@@ -45,6 +59,24 @@ class InsertViewController: UIViewController {
         return .LightContent
     }
    
+    func OnKeyboardAppear(notify:NSNotification) {
+        if let dicUserInfo = notify.userInfo {
+            let recKeyboardFrame:CGRect = ((dicUserInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue())!
+            adjustKeyboard(true, frame:recKeyboardFrame)
+        }
+    }
+    
+    func OnKeyboardDisappear(notify:NSNotification) {
+       adjustKeyboard(false)
+    }
+    
+    func adjustKeyboard(show:Bool, frame:CGRect?=nil){
+        if insertType == InsertType.CUSTOMER{
+           let vc = childViewControllers[0] as! InsertNewCustomer
+            show == true ? vc.adjustInsetForKeyboard(frame!) : vc.restoreInsetForKeyboard()
+        }
+    }
+    
     @IBAction func OnCancelBtnTouchUpInside(sender: AnyObject) {
         navigationController?.dismissViewControllerAnimated(true, completion:nil)
     }
@@ -55,7 +87,6 @@ class InsertViewController: UIViewController {
             let data = addCustomerVC.generateApiData()
             saveNewCustomer(data)
         }
-        
     }
     
     func saveNewCustomer(data:CustomerPost){

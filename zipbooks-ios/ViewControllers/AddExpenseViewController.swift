@@ -84,7 +84,7 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
         UIApplication.sharedApplication().sendAction("resignFirstResponder", to:nil, from:nil, forEvent:nil)
     }
     
-    func adjustInsetForKeyboard(){
+    func adjustInsetForKeyboard(frame: CGRect ){
         let categoryCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.CATEGORY.rawValue, inSection: 0)) as! AddTableCell
         let notesCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.NOTES.rawValue, inSection: 0)) as! AddTableCell
         if categoryCell.valueTextField.isFirstResponder() || notesCell.valueTextField.isFirstResponder(){

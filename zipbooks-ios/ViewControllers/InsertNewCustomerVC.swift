@@ -42,6 +42,25 @@ class InsertNewCustomer: UIViewController,UITableViewDelegate, UITableViewDataSo
         tableview.reloadData()
     }
     
+    func dismissKeyboard(){
+        UIApplication.sharedApplication().sendAction("resignFirstResponder", to:nil, from:nil, forEvent:nil)
+    }
+    
+    func adjustInsetForKeyboard(frame: CGRect ){
+        let stateCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: CustomerTableRows.STATE.rawValue, inSection: 0)) as! AddTableCell
+        let pcodeCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: CustomerTableRows.POSTAL_CODE.rawValue, inSection: 0)) as! AddTableCell
+        let countryCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: CustomerTableRows.COUNTRY.rawValue, inSection: 0)) as! AddTableCell
+        if stateCell.valueTextField.isFirstResponder() || pcodeCell.valueTextField.isFirstResponder() || countryCell.valueTextField.isFirstResponder(){
+            tableview.setContentOffset(CGPoint(x: 0, y: 150), animated: true)
+        }
+    }
+    
+    func restoreInsetForKeyboard(){
+        if tableview.contentOffset.y != 0{
+            tableview.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        }
+    }
+    
     func generateApiData() -> CustomerPost{
         for var i = 0; i < CustomerTableRows.END.rawValue; i++ {
             let cell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as! AddTableCell

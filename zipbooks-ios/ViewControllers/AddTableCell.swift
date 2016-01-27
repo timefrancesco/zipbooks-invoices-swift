@@ -46,47 +46,47 @@ class AddTableCell: UITableViewCell, UITextFieldDelegate {
         case CustomerTableRows.NAME :
             descriptionLbl.text = "Name:"
             valueTextField.placeholder = "Mandatory"
-            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            descriptionImg.image = (UIImage(named: "CustomerIcon"))
             break
         case CustomerTableRows.EMAIL :
             descriptionLbl.text = "Email:"
             valueTextField.placeholder = "Mandatory"
-            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            descriptionImg.image = (UIImage(named: "EmailIcon"))
             break
         case CustomerTableRows.PHONE :
             descriptionLbl.text = "Phone:"
             valueTextField.placeholder = "Optional"
-            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            descriptionImg.image = (UIImage(named: "PhoneIcon"))
             break
         case CustomerTableRows.ADDRESS_1 :
             descriptionLbl.text = "Address 1:"
             valueTextField.placeholder = "Optional"
-            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            descriptionImg.image = (UIImage(named: "AddressIcon"))
             break
         case CustomerTableRows.ADDRESS_2 :
             descriptionLbl.text = "Address 2:"
             valueTextField.placeholder = "Optional"
-            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            descriptionImg.image = (UIImage(named: "AddressIcon"))
             break
         case CustomerTableRows.CITY :
             descriptionLbl.text = "City:"
             valueTextField.placeholder = "Optional"
-            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            descriptionImg.image = (UIImage(named: "AddressIcon"))
             break
         case CustomerTableRows.STATE :
             descriptionLbl.text = "State:"
             valueTextField.placeholder = "Optional"
-            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            descriptionImg.image = (UIImage(named: "AddressIcon"))
             break
         case CustomerTableRows.POSTAL_CODE :
             descriptionLbl.text = "Postal C:"
             valueTextField.placeholder = "Optional"
-            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            descriptionImg.image = (UIImage(named: "AddressIcon"))
             break
         case CustomerTableRows.COUNTRY :
             descriptionLbl.text = "Country:"
             valueTextField.placeholder = "Optional"
-            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            descriptionImg.image = (UIImage(named: "CountryIcon"))
             break
         default:
             break

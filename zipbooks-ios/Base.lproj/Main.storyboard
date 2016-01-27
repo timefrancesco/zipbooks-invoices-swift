@@ -674,7 +674,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvo-HI-YRf">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <connections>
                                     <segue destination="4S3-is-XKs" kind="embed" id="cSY-P6-PTY"/>
                                 </connections>
@@ -684,7 +684,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="lvo-HI-YRf" secondAttribute="trailing" id="O0h-sG-x62"/>
                             <constraint firstItem="XUN-cC-QCa" firstAttribute="top" secondItem="lvo-HI-YRf" secondAttribute="bottom" id="ZCQ-Qb-7tF"/>
-                            <constraint firstItem="lvo-HI-YRf" firstAttribute="top" secondItem="O3f-p6-rTc" secondAttribute="bottom" constant="-44" id="bu3-Oo-jX0"/>
+                            <constraint firstItem="lvo-HI-YRf" firstAttribute="top" secondItem="O3f-p6-rTc" secondAttribute="bottom" id="bu3-Oo-jX0"/>
                             <constraint firstItem="lvo-HI-YRf" firstAttribute="leading" secondItem="zzP-Zb-6BX" secondAttribute="leading" id="jdz-SP-p0T"/>
                         </constraints>
                     </view>
@@ -809,11 +809,11 @@
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="4S3-is-XKs" customClass="InsertNewCustomer" customModule="zipbooks_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="deV-3V-q1d">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zP5-hV-ZwK">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="GaM-Xr-kXk">

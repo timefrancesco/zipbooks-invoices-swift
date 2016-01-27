@@ -92,28 +92,23 @@ class AddViewController: UIViewController {
             print(recKeyboardFrame)
             if addTypeSelector.selectedSegmentIndex == 1 {
                  let expVC = childViewControllers[0] as! AddExpenseViewController
-                expVC.adjustInsetForKeyboard()
+                expVC.adjustInsetForKeyboard(recKeyboardFrame)
             }
             else{
                 let timeEntryVC = childViewControllers[1] as! AddTimeEntryViewController
-                timeEntryVC.adjustInsetForKeyboard()
+                timeEntryVC.adjustInsetForKeyboard(recKeyboardFrame)
             }
         }
     }
     
     func OnKeyboardDisappear(notify:NSNotification) {
-        if let dicUserInfo = notify.userInfo {
-            let recKeyboardFrame:CGRect = ((dicUserInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue())!
-            print(recKeyboardFrame)
-            if addTypeSelector.selectedSegmentIndex == 1 {
-                let expVC = childViewControllers[0] as! AddExpenseViewController
-                expVC.restoreInsetForKeyboard()
-            }
-            else{
-                let timeEntryVC = childViewControllers[1] as! AddTimeEntryViewController
-                timeEntryVC.restoreInsetForKeyboard()
-            }
-            
+        if addTypeSelector.selectedSegmentIndex == 1 {
+            let expVC = childViewControllers[0] as! AddExpenseViewController
+            expVC.restoreInsetForKeyboard()
+        }
+        else{
+            let timeEntryVC = childViewControllers[1] as! AddTimeEntryViewController
+            timeEntryVC.restoreInsetForKeyboard()
         }
     }
     

@@ -33,6 +33,13 @@ class DBservice{
         })
     }
     
+    func clearDB(){
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+        }
+    }
+    
     //MARK: Read functions
     
     func getInvoicesAll() -> [Invoice]{

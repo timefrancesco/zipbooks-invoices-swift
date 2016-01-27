@@ -71,6 +71,7 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
         APIservice.sharedInstance.getInvoices(){ (resultInvoices:[Invoice]?) in
             APIservice.sharedInstance.getCustomers(){ (resultCustomer:[Customer]?) in //nested since I need the customer name (invoice only has customerID)
                 
+                DBservice.sharedInstance.clearDB() //to clear deleted invoices from the website, there is no way to only get new invoices
                 DBservice.sharedInstance.saveArray(resultInvoices!)
                 self.invoices = DBservice.sharedInstance.getInvoicesAll()
                 self.invoicesTableView.reloadData()

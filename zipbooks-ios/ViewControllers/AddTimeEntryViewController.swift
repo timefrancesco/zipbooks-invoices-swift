@@ -101,7 +101,7 @@ class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegat
         }
     }
     
-    func adjustInsetForKeyboard(){
+    func adjustInsetForKeyboard(frame: CGRect){
         //let categoryCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.CATEGORY.rawValue, inSection: 0)) as! AddTableCell
         let notesCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: TimeEntryTableRows.NOTES.rawValue, inSection: 0)) as! AddTableCell
         if /*categoryCell.valueTextField.isFirstResponder() ||*/ notesCell.valueTextField.isFirstResponder(){
