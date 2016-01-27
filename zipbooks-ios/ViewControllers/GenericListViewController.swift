@@ -15,6 +15,7 @@ class GenericListViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var listTableView: UITableView!
     var source = [String]()
     var listSelectedDelegate: GenericTableSelectionDelegate?
+    var insertType:InsertType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,15 @@ class GenericListViewController: UIViewController, UITableViewDataSource, UITabl
     
     func setViewTitle(val:String){
         title = val
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "InsertSegue" {
+            if let destination = segue.destinationViewController as? UINavigationController {
+                let insVC = destination.viewControllers[0] as! InsertViewController
+                insVC.insertType = insertType
+            }
+        }
     }
     
     //MARK: TableView Delegate Functions

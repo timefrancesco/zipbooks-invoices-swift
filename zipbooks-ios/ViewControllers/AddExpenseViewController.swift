@@ -59,6 +59,7 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
                 destination.populateSource(customersStr)
                 destination.listSelectedDelegate = self
                 destination.setViewTitle("Customers")
+                destination.insertType = InsertType.CUSTOMER
             }
         }
     }

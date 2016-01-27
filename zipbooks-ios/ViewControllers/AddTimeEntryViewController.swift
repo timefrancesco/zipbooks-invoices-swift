@@ -71,6 +71,7 @@ class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegat
                 destination.populateSource(projectStr)
                 destination.listSelectedDelegate = self
                 destination.setViewTitle("Projects")
+                destination.insertType = InsertType.PROJECT
             }
         }
         else if segue.identifier == "SelectTaskSegue" {
@@ -79,6 +80,7 @@ class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegat
                 destination.populateSource(taskStr)
                 destination.listSelectedDelegate = self
                 destination.setViewTitle("Tasks")
+                destination.insertType = InsertType.TASK
             }
         }
     }

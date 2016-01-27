@@ -34,50 +34,65 @@ class AddTableCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func updateCustomerData(type: CustomerTableRows, data:String?=""){
-        valueTextField.hidden = false
+        if data != ""{
+            valueTextField.text = data
+        }
         valueLbl.hidden = true
-        valueTextField.text = data
+        valueTextField.hidden = false
+        valueTextField.returnKeyType = .Done
+        valueTextField.keyboardType = .Default
         
         switch(type){
         case CustomerTableRows.NAME :
             descriptionLbl.text = "Name:"
+            valueTextField.placeholder = "Mandatory"
             descriptionImg.image = (UIImage(named: "ProjectIcon"))
             break
         case CustomerTableRows.EMAIL :
             descriptionLbl.text = "Email:"
+            valueTextField.placeholder = "Mandatory"
             descriptionImg.image = (UIImage(named: "ProjectIcon"))
             break
         case CustomerTableRows.PHONE :
             descriptionLbl.text = "Phone:"
+            valueTextField.placeholder = "Optional"
             descriptionImg.image = (UIImage(named: "ProjectIcon"))
             break
         case CustomerTableRows.ADDRESS_1 :
             descriptionLbl.text = "Address 1:"
+            valueTextField.placeholder = "Optional"
             descriptionImg.image = (UIImage(named: "ProjectIcon"))
             break
         case CustomerTableRows.ADDRESS_2 :
             descriptionLbl.text = "Address 2:"
+            valueTextField.placeholder = "Optional"
             descriptionImg.image = (UIImage(named: "ProjectIcon"))
             break
         case CustomerTableRows.CITY :
             descriptionLbl.text = "City:"
+            valueTextField.placeholder = "Optional"
             descriptionImg.image = (UIImage(named: "ProjectIcon"))
             break
         case CustomerTableRows.STATE :
             descriptionLbl.text = "State:"
+            valueTextField.placeholder = "Optional"
             descriptionImg.image = (UIImage(named: "ProjectIcon"))
             break
         case CustomerTableRows.POSTAL_CODE :
             descriptionLbl.text = "Postal C:"
+            valueTextField.placeholder = "Optional"
             descriptionImg.image = (UIImage(named: "ProjectIcon"))
             break
         case CustomerTableRows.COUNTRY :
             descriptionLbl.text = "Country:"
+            valueTextField.placeholder = "Optional"
             descriptionImg.image = (UIImage(named: "ProjectIcon"))
             break
         default:
             break
         }
+        
+        
     }
     
     func updateTimeEntryData(type: TimeEntryTableRows, data:String?=""){

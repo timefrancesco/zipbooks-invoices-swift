@@ -39,7 +39,7 @@ class InsertNewCustomer: UIViewController,UITableViewDelegate, UITableViewDataSo
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        tableview.reloadData()
     }
     
     func generateApiData() -> CustomerPost{
