@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -111,7 +112,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="kqq-fz-de2" kind="show" identifier="showInvoice" id="1J0-o2-HbR"/>
+                                            <segue destination="kqq-fz-de2" kind="show" identifier="showInvoice" id="1J0-o2-HbR">
+                                                <segue key="commit" inheritsFrom="parent" id="JUq-Px-yrG"/>
+                                                <segue key="preview" inheritsFrom="commit" id="6Xx-8t-C1A"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -848,6 +852,7 @@
         <image name="Add-Time-Expense" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kX0-N7-J7U"/>
+        <segue reference="1J0-o2-HbR"/>
+        <segue reference="rZ4-jH-4df"/>
     </inferredMetricsTieBreakers>
 </document>

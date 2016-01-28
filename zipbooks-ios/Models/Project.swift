@@ -62,6 +62,28 @@ class Project: Object,Mappable {
 		archived_at <- map["archived_at"]
 		billing_method <- map["billing_method"]
 	}
+}
+
+class ProjectPost: Object,Mappable {
+    dynamic var customer_id: Int = 0
+    dynamic var name: String?
+    dynamic var billing_method: String = "project_rate" //can be flat_amount,project_rate,task_rate,staff_rate
+    dynamic var hourly_rate: Double = 0 //The project's hourly rate. Required if billing_method = 'project_rate'.
+    dynamic var flat_amount:  Double = 0 //The project flat amount. Required if billing_method = 'flat_amount'.
+    dynamic var project_description: String?
     
+    // MARK: Mappable
     
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        customer_id <- map["customer_id"]
+        name <- map["name"]
+        billing_method <- map["billing_method"]
+        hourly_rate <- map["hourly_rate"]
+        flat_amount <- map["flat_amount"]
+        project_description <- map["description"]
+    }
 }

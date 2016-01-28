@@ -56,3 +56,23 @@ class Task: Object,Mappable {
 		billable <- map["billable"]
 	}
 }
+
+class TaskPost: Object,Mappable {
+    dynamic var project_id: Int = 0
+    dynamic var name: String?
+    dynamic var hourly_rate: Double = 0
+    dynamic var billable:  Bool = true
+    
+    // MARK: Mappable
+    
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        project_id <- map["project_id"]
+        name <- map["name"]
+        hourly_rate <- map["hourly_rate"]
+        billable <- map["billable"]
+    }
+}

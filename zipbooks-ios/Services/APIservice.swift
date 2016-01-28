@@ -128,6 +128,18 @@ class APIservice {
         }
     }
     
+    func saveNewProject(project: ProjectPost, callback: (data: Project?) -> Void ){
+        sendPostRequest(PROJECTS_ENDPOINT, method: Alamofire.Method.POST, parameters: Mapper().toJSON(project)){ (result: Project?) in
+            callback(data: result)
+        }
+    }
+    
+    func saveNewTask(task: TaskPost, callback: (data: Task?) -> Void ){
+        sendPostRequest(TASKS_ENDPOINT, method: Alamofire.Method.POST, parameters: Mapper().toJSON(task)){ (result: Task?) in
+            callback(data: result)
+        }
+    }
+    
     func sendPostRequest<T: Mappable>( endpoint:String, method:Alamofire.Method, parameters: [String : AnyObject], callback: (result: T?) -> Void ) {
         Alamofire.request(method, endpoint, headers:authHeaders, parameters: parameters, encoding: .JSON).responseObject { (response: Response<T, NSError>) in
             guard response.result.error == nil
