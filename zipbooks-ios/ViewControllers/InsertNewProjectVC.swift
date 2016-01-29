@@ -17,9 +17,10 @@ enum ProjectTableRows:Int{
     case END
 }
 
-class InsertNewProjectVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class InsertNewProjectVC: UIViewController,UITableViewDelegate, UITableViewDataSource, GenericTableSelectionDelegate {
     @IBOutlet weak var tableview: UITableView!
     var project = ProjectPost()
+    var customers = [Customer]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,24 @@ class InsertNewProjectVC: UIViewController,UITableViewDelegate, UITableViewDataS
         return project
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowCustomerFromModalSegue" {
+            if let destination = segue.destinationViewController as? GenericListViewController {
+                customers = DBservice.sharedInstance.getCustomersAll()
+                let customersStr = customers.map {$0.name! as String}
+                destination.populateSource(customersStr)
+                destination.listSelectedDelegate = self
+                destination.setViewTitle("Customers")
+                destination.insertType = InsertType.CUSTOMER
+            }
+        }
+    }
+    
+    func selectedRow(indexpathRow:Int, value:String){
+        project.customer_id = customers[indexpathRow].id
+        tableview.reloadData()
+    }
+    
     
     //MARK: TableView Delegate Functions
     
@@ -99,5 +118,10 @@ class InsertNewProjectVC: UIViewController,UITableViewDelegate, UITableViewDataS
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        if indexPath.row == ProjectTableRows.CUSTOMER.rawValue {
+            performSegueWithIdentifier("ShowCustomerFromModalSegue", sender: nil)
+        }
+        
     }
 }

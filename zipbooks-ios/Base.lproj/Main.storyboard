@@ -647,7 +647,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3g-yQ-4R9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1384" y="2849.5"/>
+            <point key="canvasLocation" x="1584" y="2801.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zed-Zk-7gN">
@@ -823,12 +823,16 @@
         <scene sceneID="uZ3-uv-Ghd">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="4S3-is-XKs" customClass="InsertNewCustomer" customModule="zipbooks_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bYV-CJ-n25"/>
+                        <viewControllerLayoutGuide type="bottom" id="0yE-Xa-AKk"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="deV-3V-q1d">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zP5-hV-ZwK">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="GaM-Xr-kXk">
@@ -862,6 +866,10 @@
         <scene sceneID="ROK-co-bac">
             <objects>
                 <viewController id="Xtc-wF-K1J" customClass="InsertNewProjectVC" customModule="zipbooks_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Icp-ub-lgb"/>
+                        <viewControllerLayoutGuide type="bottom" id="i91-Jn-DGE"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EiQ-Ha-dIW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -869,6 +877,19 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IzM-bA-ZjT">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="uW7-aC-KfG">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uW7-aC-KfG" id="qDw-l9-oox">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Cib-4w-icB" kind="show" identifier="ShowCustomerFromModalSegue" id="htb-Y4-8pt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -893,6 +914,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1J0-o2-HbR"/>
-        <segue reference="rZ4-jH-4df"/>
+        <segue reference="htb-Y4-8pt"/>
     </inferredMetricsTieBreakers>
 </document>
