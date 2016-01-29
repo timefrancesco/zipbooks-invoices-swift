@@ -95,10 +95,30 @@ class InsertViewController: UIViewController {
             let data = addCustomerVC.generateApiData()
             saveNewCustomer(data)
         }
+        else if insertType == InsertType.PROJECT{
+            let addProjectVC = childViewControllers[1] as! InsertNewProjectVC
+            let data = addProjectVC.generateApiData()
+            saveNewProject(data)
+        }
     }
     
     func saveNewCustomer(data:CustomerPost){
         APIservice.sharedInstance.saveNewCustomer(data){ (data:Customer?) in
+            if data == nil {
+                //self.errorLbl.text = "Error saving customer, please check your internet"
+                //self.errorLbl.hidden = false
+            }
+            else {
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+            //self.saveBtn.enabled = true
+            //self.activityIndicator.hidden = true
+            //self.activityIndicator.stopAnimating()
+        }
+    }
+    
+    func saveNewProject(data:ProjectPost){
+        APIservice.sharedInstance.saveNewProject(data){ (data:Project?) in
             if data == nil {
                 //self.errorLbl.text = "Error saving customer, please check your internet"
                 //self.errorLbl.hidden = false
