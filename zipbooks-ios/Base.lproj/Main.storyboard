@@ -683,12 +683,22 @@
                                     <segue destination="4S3-is-XKs" kind="embed" id="cSY-P6-PTY"/>
                                 </connections>
                             </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c41-Dq-3fL">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <connections>
+                                    <segue destination="Xtc-wF-K1J" kind="embed" id="Jo6-n0-9Fo"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="c41-Dq-3fL" firstAttribute="top" secondItem="O3f-p6-rTc" secondAttribute="bottom" id="4aR-UT-0dO"/>
                             <constraint firstAttribute="trailing" secondItem="lvo-HI-YRf" secondAttribute="trailing" id="O0h-sG-x62"/>
+                            <constraint firstAttribute="trailing" secondItem="c41-Dq-3fL" secondAttribute="trailing" id="XcQ-kI-eVt"/>
                             <constraint firstItem="XUN-cC-QCa" firstAttribute="top" secondItem="lvo-HI-YRf" secondAttribute="bottom" id="ZCQ-Qb-7tF"/>
                             <constraint firstItem="lvo-HI-YRf" firstAttribute="top" secondItem="O3f-p6-rTc" secondAttribute="bottom" id="bu3-Oo-jX0"/>
+                            <constraint firstItem="XUN-cC-QCa" firstAttribute="top" secondItem="c41-Dq-3fL" secondAttribute="bottom" id="e6z-50-Tb3"/>
+                            <constraint firstItem="c41-Dq-3fL" firstAttribute="leading" secondItem="zzP-Zb-6BX" secondAttribute="leading" id="iPu-hD-IKs"/>
                             <constraint firstItem="lvo-HI-YRf" firstAttribute="leading" secondItem="zzP-Zb-6BX" secondAttribute="leading" id="jdz-SP-p0T"/>
                         </constraints>
                     </view>
@@ -708,6 +718,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addCustomerContainer" destination="lvo-HI-YRf" id="3b6-ch-mjU"/>
+                        <outlet property="addProjectContainer" destination="c41-Dq-3fL" id="exP-Jx-LxS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRL-vO-Qfl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -846,6 +857,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b6L-Af-3oP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2455" y="3291"/>
+        </scene>
+        <!--Insert New ProjectVC-->
+        <scene sceneID="ROK-co-bac">
+            <objects>
+                <viewController id="Xtc-wF-K1J" customClass="InsertNewProjectVC" customModule="zipbooks_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EiQ-Ha-dIW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IzM-bA-ZjT">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="IzM-bA-ZjT" secondAttribute="bottom" id="B2D-Lu-rm6"/>
+                            <constraint firstItem="IzM-bA-ZjT" firstAttribute="top" secondItem="EiQ-Ha-dIW" secondAttribute="top" id="pvA-is-HGJ"/>
+                            <constraint firstAttribute="trailing" secondItem="IzM-bA-ZjT" secondAttribute="trailing" id="q2H-sw-guh"/>
+                            <constraint firstItem="IzM-bA-ZjT" firstAttribute="leading" secondItem="EiQ-Ha-dIW" secondAttribute="leading" id="zPn-h6-wFE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableview" destination="IzM-bA-ZjT" id="mOo-1Y-pZ8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Gt-n4-YaC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2455" y="3903"/>
         </scene>
     </scenes>
     <resources>

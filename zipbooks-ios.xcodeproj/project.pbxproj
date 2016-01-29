@@ -34,6 +34,7 @@
 		AF7C963C1C4B961D00FAA81C /* InvoiceTotalTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C963B1C4B961D00FAA81C /* InvoiceTotalTC.swift */; };
 		AFA1A3F01C5821FC00280C93 /* InsertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA1A3EF1C5821FC00280C93 /* InsertViewController.swift */; };
 		AFA1A3F21C58229E00280C93 /* InsertNewCustomerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA1A3F11C58229E00280C93 /* InsertNewCustomerVC.swift */; };
+		AFA1A3F41C5AFE5E00280C93 /* InsertNewProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA1A3F31C5AFE5E00280C93 /* InsertNewProjectVC.swift */; };
 		AFBF52BA1C434FDF00865594 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBF52B91C434FDF00865594 /* AppDelegate.swift */; };
 		AFBF52BF1C434FDF00865594 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFBF52BD1C434FDF00865594 /* Main.storyboard */; };
 		AFBF52C11C434FDF00865594 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFBF52C01C434FDF00865594 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		AF7C963B1C4B961D00FAA81C /* InvoiceTotalTC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvoiceTotalTC.swift; path = ViewControllers/InvoiceTotalTC.swift; sourceTree = "<group>"; };
 		AFA1A3EF1C5821FC00280C93 /* InsertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InsertViewController.swift; path = ViewControllers/InsertViewController.swift; sourceTree = "<group>"; };
 		AFA1A3F11C58229E00280C93 /* InsertNewCustomerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InsertNewCustomerVC.swift; path = ViewControllers/InsertNewCustomerVC.swift; sourceTree = "<group>"; };
+		AFA1A3F31C5AFE5E00280C93 /* InsertNewProjectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InsertNewProjectVC.swift; path = ViewControllers/InsertNewProjectVC.swift; sourceTree = "<group>"; };
 		AFBF52B61C434FDF00865594 /* zipbooks-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zipbooks-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFBF52B91C434FDF00865594 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFBF52BE1C434FDF00865594 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				AFE3FE581C4F10C500C57534 /* GenericListViewController.swift */,
 				AFA1A3EF1C5821FC00280C93 /* InsertViewController.swift */,
 				AFA1A3F11C58229E00280C93 /* InsertNewCustomerVC.swift */,
+				AFA1A3F31C5AFE5E00280C93 /* InsertNewProjectVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 			files = (
 				AFE3FE571C4ED63000C57534 /* AddTimeEntryViewController.swift in Sources */,
 				AF5484DF1C518DDE0080EE67 /* AddTableCell.swift in Sources */,
+				AFA1A3F41C5AFE5E00280C93 /* InsertNewProjectVC.swift in Sources */,
 				AF7C96301C4B82EF00FAA81C /* LoginViewController.swift in Sources */,
 				AFE3FE551C4ED60B00C57534 /* AddExpenseViewController.swift in Sources */,
 				AFA1A3F21C58229E00280C93 /* InsertNewCustomerVC.swift in Sources */,

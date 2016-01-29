@@ -57,6 +57,16 @@ extension UIColor {
     }
 }
 
+extension String {
+    func toDouble() -> Double {
+        if let myNumber = NSNumberFormatter().numberFromString(self) {
+            return myNumber.doubleValue
+        } else {
+            return 0
+        }
+    }
+}
+
 extension UINavigationController {
     
     public override func childViewControllerForStatusBarHidden() -> UIViewController? {

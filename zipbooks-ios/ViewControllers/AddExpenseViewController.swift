@@ -109,12 +109,8 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
         currentExpense.note = notesCell.valueTextField.text
      
         let amountCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.AMOUNT.rawValue, inSection: 0)) as! AddTableCell
-        let amount = amountCell.valueTextField.text
-        if let myNumber = NSNumberFormatter().numberFromString(amount!) {
-            currentExpense.amount = myNumber.doubleValue
-        } else {
-            currentExpense.amount = 0
-        }
+        currentExpense.amount = (amountCell.valueTextField.text?.toDouble())!
+        
         return currentExpense
     }
     

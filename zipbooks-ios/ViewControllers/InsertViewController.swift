@@ -18,6 +18,7 @@ enum InsertType{
 class InsertViewController: UIViewController {
 
     @IBOutlet weak var addCustomerContainer: UIView!
+    @IBOutlet weak var addProjectContainer: UIView!
     var insertType:InsertType?
     
     override func viewDidLoad() {
@@ -30,7 +31,14 @@ class InsertViewController: UIViewController {
         
         if insertType == InsertType.CUSTOMER{
             addCustomerContainer.hidden = false
+            addProjectContainer.hidden = true
             title = "New Customer"
+        }
+        
+        if insertType == InsertType.PROJECT{
+            addCustomerContainer.hidden = true
+            addProjectContainer.hidden = false
+            title = "New Project"
         }
         
         if Utility.getScreenWidth() < IPHONE_6_SCREEN_WIDTH {

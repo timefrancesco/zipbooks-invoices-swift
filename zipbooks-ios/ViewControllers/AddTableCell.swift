@@ -13,6 +13,7 @@ enum EntryType:Int{
     case EXPENSE = 0
     case TIME = 1
     case CUSTOMER
+    case PROJECT
 }
 
 class AddTableCell: UITableViewCell, UITextFieldDelegate {
@@ -30,6 +31,49 @@ class AddTableCell: UITableViewCell, UITextFieldDelegate {
         }
         else if entryType == .CUSTOMER{
             updateCustomerData(CustomerTableRows(rawValue: type)!, data:data)
+        }
+        else if entryType == .PROJECT{
+            updateProjectData(ProjectTableRows(rawValue: type)!, data:data)
+        }
+    }
+    
+    func updateProjectData(type: ProjectTableRows, data:String?=""){
+        switch(type){
+        case .CUSTOMER:
+            valueTextField.hidden = true
+            valueLbl.hidden = false
+            valueLbl.text = data
+            descriptionLbl.text = "Customer:"
+            descriptionImg.image = (UIImage(named: "CustomerIcon"))
+            break
+        case .NAME:
+            valueTextField.hidden = false
+            valueLbl.hidden = true
+            descriptionLbl.text = data
+            descriptionLbl.text = "Name:"
+            valueTextField.placeholder = "Mandatory"
+            descriptionImg.image = (UIImage(named: "ProjectIcon"))
+            break
+        case .DESCRIPTION:
+            valueTextField.hidden = false
+            valueLbl.hidden = true
+            descriptionLbl.text = "Description:"
+            valueTextField.keyboardType = .Default
+            valueTextField.placeholder = "Optional"
+            valueTextField.returnKeyType = .Done
+            descriptionImg.image = (UIImage(named: "NotesIcon"))
+            break
+        case .HOURLY_RATE:
+            valueTextField.hidden = false
+            valueLbl.hidden = true
+            descriptionLbl.text = "Hourly Rate:"
+            valueTextField.keyboardType = .DecimalPad
+            valueTextField.placeholder = "Mandatory"
+            valueTextField.returnKeyType = .Done
+            descriptionImg.image = (UIImage(named: "AmountIcon"))
+            break
+        default:
+            break
         }
     }
     
@@ -136,7 +180,7 @@ class AddTableCell: UITableViewCell, UITextFieldDelegate {
             valueTextField.hidden = false
             valueLbl.hidden = true
             descriptionLbl.text = "Hours:"
-            valueTextField.keyboardType = .NumbersAndPunctuation
+            valueTextField.keyboardType = .DecimalPad
             valueTextField.placeholder = "Mandatory"
             valueTextField.returnKeyType = .Done
             descriptionImg.image = (UIImage(named: "HoursIcon"))
@@ -179,7 +223,7 @@ class AddTableCell: UITableViewCell, UITextFieldDelegate {
             valueLbl.hidden = true
             descriptionLbl.text = "Amount:"
             valueTextField.placeholder = "Mandatory"
-            valueTextField.keyboardType = .NumbersAndPunctuation
+            valueTextField.keyboardType = .DecimalPad
             valueTextField.returnKeyType = .Done
             descriptionImg.image = (UIImage(named: "AmountIcon"))
             break
