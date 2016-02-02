@@ -16,4 +16,13 @@ Screenshots:
 
 ![Zipbooks1](/screenshots/zipbooks1.jpg?raw=true)  ![Zipbooks3](/screenshots/zipbooks3.jpg?raw=true)  ![Zipbooks4](/screenshots/zipbooks4.jpg?raw=true)
 
+List of libraries I used:
+
+[Alamofire](https://github.com/Alamofire/Alamofire)   
+[ObjectMapper](https://github.com/Hearst-DD/ObjectMapper) 
+[AlamofireObjectMapper](https://github.com/tristanhimmelman/AlamofireObjectMapper)  
+[RealmSwift](https://realm.io)     
+
+and the awesome [BuddyBuild](http://www.buddybuild.com) 
+
 Icons by [Icons8](www.icons8.com)
