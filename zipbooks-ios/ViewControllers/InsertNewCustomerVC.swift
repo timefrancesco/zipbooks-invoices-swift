@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 
 enum CustomerTableRows:Int{
-    case NAME = 0
-    case EMAIL
-    case PHONE
-    case ADDRESS_1
-    case ADDRESS_2
-    case CITY
-    case STATE
-    case POSTAL_CODE
-    case COUNTRY
-    case END
+    case name = 0
+    case email
+    case phone
+    case address_1
+    case address_2
+    case city
+    case state
+    case postal_CODE
+    case country
+    case end
 }
 
 class InsertNewCustomer: UIViewController,UITableViewDelegate, UITableViewDataSource {
@@ -34,23 +34,23 @@ class InsertNewCustomer: UIViewController,UITableViewDelegate, UITableViewDataSo
         tableview.dataSource = self
         tableview.tableFooterView = UIView()
         
-        tableview.registerNib(UINib(nibName: "AddTableCell", bundle: nil), forCellReuseIdentifier: "TextFieldCell")
+        tableview.register(UINib(nibName: "AddTableCell", bundle: nil), forCellReuseIdentifier: "TextFieldCell")
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableview.reloadData()
     }
     
     func dismissKeyboard(){
-        UIApplication.sharedApplication().sendAction("resignFirstResponder", to:nil, from:nil, forEvent:nil)
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
     }
     
-    func adjustInsetForKeyboard(frame: CGRect ){
-        let stateCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: CustomerTableRows.STATE.rawValue, inSection: 0)) as! AddTableCell
-        let pcodeCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: CustomerTableRows.POSTAL_CODE.rawValue, inSection: 0)) as! AddTableCell
-        let countryCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: CustomerTableRows.COUNTRY.rawValue, inSection: 0)) as! AddTableCell
-        if stateCell.valueTextField.isFirstResponder() || pcodeCell.valueTextField.isFirstResponder() || countryCell.valueTextField.isFirstResponder(){
+    func adjustInsetForKeyboard(_ frame: CGRect ){
+        let stateCell = tableview.cellForRow(at: IndexPath(row: CustomerTableRows.state.rawValue, section: 0)) as! AddTableCell
+        let pcodeCell = tableview.cellForRow(at: IndexPath(row: CustomerTableRows.postal_CODE.rawValue, section: 0)) as! AddTableCell
+        let countryCell = tableview.cellForRow(at: IndexPath(row: CustomerTableRows.country.rawValue, section: 0)) as! AddTableCell
+        if stateCell.valueTextField.isFirstResponder || pcodeCell.valueTextField.isFirstResponder || countryCell.valueTextField.isFirstResponder{
             tableview.setContentOffset(CGPoint(x: 0, y: 150), animated: true)
         }
     }
@@ -62,34 +62,34 @@ class InsertNewCustomer: UIViewController,UITableViewDelegate, UITableViewDataSo
     }
     
     func generateApiData() -> CustomerPost{
-        for var i = 0; i < CustomerTableRows.END.rawValue; i++ {
-            let cell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as! AddTableCell
+        for i in 0 ..< CustomerTableRows.end.rawValue {
+            let cell = tableview.cellForRow(at: IndexPath(row: i, section: 0)) as! AddTableCell
             switch (i) {
-            case CustomerTableRows.NAME.rawValue:
+            case CustomerTableRows.name.rawValue:
                 selectedCustomer.name = cell.valueTextField.text
                 break
-            case CustomerTableRows.EMAIL.rawValue:
+            case CustomerTableRows.email.rawValue:
                 selectedCustomer.email = cell.valueTextField.text
                 break
-            case CustomerTableRows.PHONE.rawValue:
+            case CustomerTableRows.phone.rawValue:
                 selectedCustomer.phone = cell.valueTextField.text
                 break
-            case CustomerTableRows.ADDRESS_1.rawValue:
+            case CustomerTableRows.address_1.rawValue:
                 selectedCustomer.address_1 = cell.valueTextField.text
                 break
-            case CustomerTableRows.ADDRESS_2.rawValue:
+            case CustomerTableRows.address_2.rawValue:
                 selectedCustomer.address_2 = cell.valueTextField.text
                 break
-            case CustomerTableRows.CITY.rawValue:
+            case CustomerTableRows.city.rawValue:
                 selectedCustomer.city = cell.valueTextField.text
                 break
-            case CustomerTableRows.STATE.rawValue:
+            case CustomerTableRows.state.rawValue:
                 selectedCustomer.state = cell.valueTextField.text
                 break
-            case CustomerTableRows.POSTAL_CODE.rawValue:
+            case CustomerTableRows.postal_CODE.rawValue:
                 selectedCustomer.postal_code = cell.valueTextField.text
                 break
-            case CustomerTableRows.COUNTRY.rawValue:
+            case CustomerTableRows.country.rawValue:
                 selectedCustomer.country = cell.valueTextField.text
                 break
             default:
@@ -102,41 +102,41 @@ class InsertNewCustomer: UIViewController,UITableViewDelegate, UITableViewDataSo
     
     //MARK: TableView Delegate Functions
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell", forIndexPath: indexPath) as! AddTableCell
-        cell.accessoryType = .None
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath) as! AddTableCell
+        cell.accessoryType = .none
         
         switch(indexPath.row){
-        case CustomerTableRows.NAME.rawValue :
-            cell.updateData(indexPath.row, entryType: .CUSTOMER, data: selectedCustomer.name)
+        case CustomerTableRows.name.rawValue :
+            cell.updateData(indexPath.row, entryType: .customer, data: selectedCustomer.name)
             break
-        case CustomerTableRows.EMAIL.rawValue :
-            cell.updateData(indexPath.row, entryType: .CUSTOMER, data: selectedCustomer.email)
+        case CustomerTableRows.email.rawValue :
+            cell.updateData(indexPath.row, entryType: .customer, data: selectedCustomer.email)
             break
-        case CustomerTableRows.PHONE.rawValue :
-            cell.updateData(indexPath.row, entryType: .CUSTOMER, data: selectedCustomer.phone)
+        case CustomerTableRows.phone.rawValue :
+            cell.updateData(indexPath.row, entryType: .customer, data: selectedCustomer.phone)
             break
-        case CustomerTableRows.ADDRESS_1.rawValue :
-            cell.updateData(indexPath.row, entryType: .CUSTOMER, data: selectedCustomer.address_1)
+        case CustomerTableRows.address_1.rawValue :
+            cell.updateData(indexPath.row, entryType: .customer, data: selectedCustomer.address_1)
             break
-        case CustomerTableRows.ADDRESS_2.rawValue :
-            cell.updateData(indexPath.row, entryType: .CUSTOMER, data: selectedCustomer.address_2)
+        case CustomerTableRows.address_2.rawValue :
+            cell.updateData(indexPath.row, entryType: .customer, data: selectedCustomer.address_2)
             break
-        case CustomerTableRows.CITY.rawValue :
-            cell.updateData(indexPath.row, entryType: .CUSTOMER, data: selectedCustomer.city)
+        case CustomerTableRows.city.rawValue :
+            cell.updateData(indexPath.row, entryType: .customer, data: selectedCustomer.city)
             break
-        case CustomerTableRows.STATE.rawValue :
-            cell.updateData(indexPath.row, entryType: .CUSTOMER, data: selectedCustomer.state)
+        case CustomerTableRows.state.rawValue :
+            cell.updateData(indexPath.row, entryType: .customer, data: selectedCustomer.state)
             break
-        case CustomerTableRows.POSTAL_CODE.rawValue :
-            cell.updateData(indexPath.row, entryType: .CUSTOMER, data: selectedCustomer.postal_code)
+        case CustomerTableRows.postal_CODE.rawValue :
+            cell.updateData(indexPath.row, entryType: .customer, data: selectedCustomer.postal_code)
             break
-        case CustomerTableRows.COUNTRY.rawValue :
-            cell.updateData(indexPath.row, entryType: .CUSTOMER, data: selectedCustomer.country)
+        case CustomerTableRows.country.rawValue :
+            cell.updateData(indexPath.row, entryType: .customer, data: selectedCustomer.country)
             break
         default:
             break
@@ -145,11 +145,11 @@ class InsertNewCustomer: UIViewController,UITableViewDelegate, UITableViewDataSo
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CustomerTableRows.END.rawValue
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return CustomerTableRows.end.rawValue
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

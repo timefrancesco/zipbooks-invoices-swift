@@ -38,7 +38,7 @@ class Project: Object,Mappable {
 
 	// MARK: Mappable
 
-	required convenience init?(_ map: Map) {
+	required convenience init?(map: Map) {
 		self.init()
 	}
 
@@ -74,7 +74,7 @@ class ProjectPost: Object,Mappable {
     
     // MARK: Mappable
     
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
     

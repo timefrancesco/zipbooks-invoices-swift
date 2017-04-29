@@ -11,16 +11,16 @@ import Foundation
 import UIKit
 
 protocol GenericTableSelectionDelegate{
-    func selectedRow(indexpathRow:Int, value:String)
+    func selectedRow(_ indexpathRow:Int, value:String)
 }
 
 enum ExpenseTableRows:Int{
-    case CUSTOMER = 0
-    case DATE = 1
-    case AMOUNT = 2
-    case NAME = 3
-    case CATEGORY = 4
-    case NOTES = 5
+    case customer = 0
+    case date = 1
+    case amount = 2
+    case name = 3
+    case category = 4
+    case notes = 5
 }
 
 class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate, UITableViewDelegate, UITableViewDataSource {
@@ -39,55 +39,55 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
         tableview.delegate = self
         tableview.dataSource = self
         tableview.tableFooterView = UIView()
-        datePicker.hidden = true
-        dateToolbar.hidden = true
+        datePicker.isHidden = true
+        dateToolbar.isHidden = true
         
-        tableview.registerNib(UINib(nibName: "AddTableCell", bundle: nil), forCellReuseIdentifier: "TextFieldCell")
+        tableview.register(UINib(nibName: "AddTableCell", bundle: nil), forCellReuseIdentifier: "TextFieldCell")
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         customers = DBservice.sharedInstance.getCustomersAll()
-        currentExpense.date = NSDate().toString()
+        currentExpense.date = Date().toString()
     }
 
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DisplayCustomersSegue" {
-            if let destination = segue.destinationViewController as? GenericListViewController {
+            if let destination = segue.destination as? GenericListViewController {
                 let customersStr = customers.map {$0.name! as String}
                 destination.populateSource(customersStr)
                 destination.listSelectedDelegate = self
                 destination.setViewTitle("Customers")
-                destination.insertType = InsertType.CUSTOMER
+                destination.insertType = InsertType.customer
             }
         }
     }
     
-    @IBAction func onDateChanged(sender: AnyObject) {
+    @IBAction func onDateChanged(_ sender: AnyObject) {
         currentExpense.date = datePicker.date.toString()
         tableview.reloadData()
     }
     
-    func selectedRow(indexpathRow:Int, value:String){
+    func selectedRow(_ indexpathRow:Int, value:String){
         selectedCustomer = customers[indexpathRow]
         currentExpense.customer_id = (selectedCustomer?.id)!
         tableview.reloadData()
     }
     
-    @IBAction func onDoneDateSelected(sender: AnyObject) {
-        datePicker.hidden = true
-        dateToolbar.hidden = true
+    @IBAction func onDoneDateSelected(_ sender: AnyObject) {
+        datePicker.isHidden = true
+        dateToolbar.isHidden = true
     }
     
     func dismissKeyboard(){
-        UIApplication.sharedApplication().sendAction("resignFirstResponder", to:nil, from:nil, forEvent:nil)
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
     }
     
-    func adjustInsetForKeyboard(frame: CGRect ){
-        let categoryCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.CATEGORY.rawValue, inSection: 0)) as! AddTableCell
-        let notesCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.NOTES.rawValue, inSection: 0)) as! AddTableCell
-        if categoryCell.valueTextField.isFirstResponder() || notesCell.valueTextField.isFirstResponder(){
+    func adjustInsetForKeyboard(_ frame: CGRect ){
+        let categoryCell = tableview.cellForRow(at: IndexPath(row: ExpenseTableRows.category.rawValue, section: 0)) as! AddTableCell
+        let notesCell = tableview.cellForRow(at: IndexPath(row: ExpenseTableRows.notes.rawValue, section: 0)) as! AddTableCell
+        if categoryCell.valueTextField.isFirstResponder || notesCell.valueTextField.isFirstResponder{
              tableview.setContentOffset(CGPoint(x: 0, y: 100), animated: true)
         }
     }
@@ -99,16 +99,16 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
     }
     
     func generateApiData() -> ExpensePost{
-        let nameCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.NAME.rawValue, inSection: 0)) as! AddTableCell
+        let nameCell = tableview.cellForRow(at: IndexPath(row: ExpenseTableRows.name.rawValue, section: 0)) as! AddTableCell
         currentExpense.name = nameCell.valueTextField.text
         
-        let categoryCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.CATEGORY.rawValue, inSection: 0)) as! AddTableCell
+        let categoryCell = tableview.cellForRow(at: IndexPath(row: ExpenseTableRows.category.rawValue, section: 0)) as! AddTableCell
         currentExpense.category = categoryCell.valueTextField.text
         
-        let notesCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.NOTES.rawValue, inSection: 0)) as! AddTableCell
+        let notesCell = tableview.cellForRow(at: IndexPath(row: ExpenseTableRows.notes.rawValue, section: 0)) as! AddTableCell
         currentExpense.note = notesCell.valueTextField.text
      
-        let amountCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.AMOUNT.rawValue, inSection: 0)) as! AddTableCell
+        let amountCell = tableview.cellForRow(at: IndexPath(row: ExpenseTableRows.amount.rawValue, section: 0)) as! AddTableCell
         currentExpense.amount = (amountCell.valueTextField.text?.toDouble())!
         
         return currentExpense
@@ -116,56 +116,56 @@ class AddExpenseViewController: UIViewController, GenericTableSelectionDelegate,
     
     //MARK: TableView Delegate Functions
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell", forIndexPath: indexPath) as! AddTableCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath) as! AddTableCell
         
         switch(indexPath.row){
-        case ExpenseTableRows.CUSTOMER.rawValue :
-             cell.accessoryType = .DisclosureIndicator
+        case ExpenseTableRows.customer.rawValue :
+             cell.accessoryType = .disclosureIndicator
              if selectedCustomer == nil{
-                cell.updateData(ExpenseTableRows.CUSTOMER.rawValue, entryType: .EXPENSE, data: "")
+                cell.updateData(ExpenseTableRows.customer.rawValue, entryType: .expense, data: "")
              }
              else{
-                cell.updateData(ExpenseTableRows.CUSTOMER.rawValue, entryType: .EXPENSE, data: selectedCustomer?.name)
+                cell.updateData(ExpenseTableRows.customer.rawValue, entryType: .expense, data: selectedCustomer?.name)
              }
             break;
-        case ExpenseTableRows.DATE.rawValue:
-            cell.accessoryType = .None
-            cell.updateData(ExpenseTableRows.DATE.rawValue,  entryType: .EXPENSE, data: currentExpense.date)
+        case ExpenseTableRows.date.rawValue:
+            cell.accessoryType = .none
+            cell.updateData(ExpenseTableRows.date.rawValue,  entryType: .expense, data: currentExpense.date)
             break;
         default:
-            cell.accessoryType = .None
-            cell.updateData(indexPath.row, entryType: .EXPENSE )
+            cell.accessoryType = .none
+            cell.updateData(indexPath.row, entryType: .expense )
             break
         }
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        tableView.deselectRow(at: indexPath, animated: true)
         switch(indexPath.row){
-        case ExpenseTableRows.CUSTOMER.rawValue:
+        case ExpenseTableRows.customer.rawValue:
             dismissKeyboard()
-            datePicker.hidden = true
-            dateToolbar.hidden = true
-            performSegueWithIdentifier("DisplayCustomersSegue", sender: nil)
+            datePicker.isHidden = true
+            dateToolbar.isHidden = true
+            performSegue(withIdentifier: "DisplayCustomersSegue", sender: nil)
             break;
-        case ExpenseTableRows.DATE.rawValue:
+        case ExpenseTableRows.date.rawValue:
             dismissKeyboard()
-            datePicker.hidden = false
-            dateToolbar.hidden = false
+            datePicker.isHidden = false
+            dateToolbar.isHidden = false
             break;
         default:
-            datePicker.hidden = true
-            dateToolbar.hidden = true
+            datePicker.isHidden = true
+            dateToolbar.isHidden = true
             break;
         }
     }

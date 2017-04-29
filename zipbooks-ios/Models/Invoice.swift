@@ -45,7 +45,7 @@ class Invoice: Object,Mappable {
     }
     
 	// MARK: Mappable
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
 
@@ -89,7 +89,7 @@ class Action: Object,Mappable {
     dynamic var invoice_id: Int = 0
     
     // MARK: Mappable
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
     
@@ -119,7 +119,7 @@ class Item: Object,Mappable {
     dynamic var invoice_id: Int = 0
     
     // MARK: Mappable
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
     
@@ -145,7 +145,7 @@ class Payment: Object,Mappable {
     dynamic var payment:String = ""
     
     // MARK: Mappable
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
     
@@ -163,7 +163,7 @@ class Taxes: Object,Mappable {
     dynamic var firstTax: FirstTax?
     
     // MARK: Mappable
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
     
@@ -180,7 +180,7 @@ class FirstTax: Object,Mappable  {
     dynamic var name: String?
     
     // MARK: Mappable
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
     
@@ -199,7 +199,7 @@ class SecondTax: Object,Mappable  {
     dynamic var name: String?
     
     // MARK: Mappable
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
     

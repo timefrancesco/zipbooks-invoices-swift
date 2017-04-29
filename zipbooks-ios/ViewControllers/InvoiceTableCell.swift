@@ -18,7 +18,7 @@ class InvoiceTableCell: UITableViewCell {
     
     @IBOutlet weak var statusLbl: UILabel!
     
-    func updateData(invoice:Invoice){
+    func updateData(_ invoice:Invoice){
         customerName.text = DBservice.sharedInstance.getCustomerNameFromId(invoice.customer_id)
         invoiceAmount.text = "$" + invoice.total!
         invoiceDate.text = invoice.date

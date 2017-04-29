@@ -24,52 +24,52 @@ class AddViewController: UIViewController {
         addTypeSelector.selectedSegmentIndex = 0
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        errorLbl.hidden = true
-        saveBtn.enabled = true
-        activityIndicator.hidden = true
+        errorLbl.isHidden = true
+        saveBtn.isEnabled = true
+        activityIndicator.isHidden = true
         title = "Add"
         
         if Utility.getScreenWidth() < IPHONE_6_SCREEN_WIDTH {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "OnKeyboardAppear:", name: UIKeyboardWillShowNotification, object: nil)
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "OnKeyboardDisappear:", name: UIKeyboardWillHideNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(AddViewController.OnKeyboardAppear(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(AddViewController.OnKeyboardDisappear(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         title = ""
         if Utility.getScreenWidth() < IPHONE_6_SCREEN_WIDTH {
-            NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-            NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+            NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+            NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         }
     }
     
     func customizeNavBar(){
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 18)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 18)!, NSForegroundColorAttributeName : UIColor.white]
         navigationController?.navigationBar.barTintColor = Utility.getDefaultGrayColor() 
-        navigationController?.navigationBar.translucent = false
+        navigationController?.navigationBar.isTranslucent = false
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
-    @IBAction func typeSelectorChanged(sender: AnyObject) {
-        timeEntryContainer.hidden = addTypeSelector.selectedSegmentIndex == 1
-        expenseContainer.hidden = addTypeSelector.selectedSegmentIndex == 0
+    @IBAction func typeSelectorChanged(_ sender: AnyObject) {
+        timeEntryContainer.isHidden = addTypeSelector.selectedSegmentIndex == 1
+        expenseContainer.isHidden = addTypeSelector.selectedSegmentIndex == 0
     }
     
-    @IBAction func onSaveBtnTouchUpInside(sender: AnyObject) {
-        if !Reachability.isConnectedToNetwork(){
+    @IBAction func onSaveBtnTouchUpInside(_ sender: AnyObject) {
+        if !Connectivity.sharedInstance.isConnected(){
             handleNoConnection()
             return
         }
         
-        errorLbl.hidden = true
-        saveBtn.enabled = false
-        activityIndicator.hidden = false
+        errorLbl.isHidden = true
+        saveBtn.isEnabled = false
+        activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         
         if addTypeSelector.selectedSegmentIndex == 1 {
@@ -81,14 +81,14 @@ class AddViewController: UIViewController {
     }
     
     func handleNoConnection(){
-        errorLbl.hidden = false
+        errorLbl.isHidden = false
         errorLbl.text = "Not Connected"
     }
     
     
-    func OnKeyboardAppear(notify:NSNotification) {
+    func OnKeyboardAppear(_ notify:Notification) {
         if let dicUserInfo = notify.userInfo {
-            let recKeyboardFrame:CGRect = ((dicUserInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue())!
+            let recKeyboardFrame:CGRect = ((dicUserInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue)!
             print(recKeyboardFrame)
             if addTypeSelector.selectedSegmentIndex == 1 {
                  let expVC = childViewControllers[0] as! AddExpenseViewController
@@ -101,7 +101,7 @@ class AddViewController: UIViewController {
         }
     }
     
-    func OnKeyboardDisappear(notify:NSNotification) {
+    func OnKeyboardDisappear(_ notify:Notification) {
         if addTypeSelector.selectedSegmentIndex == 1 {
             let expVC = childViewControllers[0] as! AddExpenseViewController
             expVC.restoreInsetForKeyboard()
@@ -112,8 +112,8 @@ class AddViewController: UIViewController {
         }
     }
     
-    @IBAction func onCancelBtnTouchUpInside(sender: AnyObject) {
-        navigationController?.dismissViewControllerAnimated(true, completion:nil)
+    @IBAction func onCancelBtnTouchUpInside(_ sender: AnyObject) {
+        navigationController?.dismiss(animated: true, completion:nil)
     }
 
     func saveExpense(){
@@ -124,21 +124,21 @@ class AddViewController: UIViewController {
             APIservice.sharedInstance.setExpense(expense){ (data:Expense?) in
                 if data == nil {
                     self.errorLbl.text = "Error saving expense, please check your internet"
-                    self.errorLbl.hidden = false
+                    self.errorLbl.isHidden = false
                 }
                 else {
-                    self.dismissViewControllerAnimated(true, completion: nil)
+                    self.dismiss(animated: true, completion: nil)
                 }
-                self.saveBtn.enabled = true
-                self.activityIndicator.hidden = true
+                self.saveBtn.isEnabled = true
+                self.activityIndicator.isHidden = true
                 self.activityIndicator.stopAnimating()
             }
         }
         else {
             errorLbl.text = "Wrong input"
-            errorLbl.hidden = false
-            saveBtn.enabled = true
-            activityIndicator.hidden = true
+            errorLbl.isHidden = false
+            saveBtn.isEnabled = true
+            activityIndicator.isHidden = true
         }
     }
     
@@ -150,32 +150,32 @@ class AddViewController: UIViewController {
             APIservice.sharedInstance.setTimeEntry(timeEntry){ (data:TimeEntry?) in
                 if data == nil {
                     self.errorLbl.text = "Error saving timeEntry, please check your internet"
-                    self.errorLbl.hidden = false
+                    self.errorLbl.isHidden = false
                 }
                 else {
-                    self.dismissViewControllerAnimated(true, completion: nil)
+                    self.dismiss(animated: true, completion: nil)
                 }
-                self.saveBtn.enabled = true
-                self.activityIndicator.hidden = true
+                self.saveBtn.isEnabled = true
+                self.activityIndicator.isHidden = true
                 self.activityIndicator.stopAnimating()
             }
         }
         else {
             errorLbl.text = "Wrong input"
-            errorLbl.hidden = false
-            saveBtn.enabled = true
-            activityIndicator.hidden = true
+            errorLbl.isHidden = false
+            saveBtn.isEnabled = true
+            activityIndicator.isHidden = true
         }
     }
     
-    func checkTimeEntry(data:TimeEntryPost) -> Bool {
+    func checkTimeEntry(_ data:TimeEntryPost) -> Bool {
         if data.taskId == 0 || data.date == "" || data.duration == 0 || data.date == nil{
             return false
         }
         return true
     }
     
-    func checkExpense(data:ExpensePost) -> Bool {
+    func checkExpense(_ data:ExpensePost) -> Bool {
         if data.customer_id == 0 || data.date == "" || data.amount == 0 || data.date == nil{
             return false
         }

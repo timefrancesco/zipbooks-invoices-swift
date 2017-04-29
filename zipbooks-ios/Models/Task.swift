@@ -34,7 +34,7 @@ class Task: Object,Mappable {
     }
 
 	// MARK: Mappable
-	required convenience init?(_ map: Map) {
+	required convenience init?(map: Map) {
 		self.init()
 	}
 
@@ -65,7 +65,7 @@ class TaskPost: Object,Mappable {
     
     // MARK: Mappable
     
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
     

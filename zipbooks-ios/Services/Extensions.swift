@@ -14,37 +14,38 @@ import ObjectMapper
 // Based on Swift 1.2, ObjectMapper 0.15, RealmSwift 0.94.1
 // Author: Timo Wälisch <timo@waelisch.de>
 
-class ArrayTransform<T:RealmSwift.Object where T:Mappable> : TransformType {
+class ArrayTransform<T:RealmSwift.Object> : TransformType where T:Mappable {
     typealias Object = List<T>
     typealias JSON = Array<AnyObject>
     
-    let mapper = Mapper<T>()
-    
-    func transformFromJSON(value: AnyObject?) -> List<T>? {
-        let result = List<T>()
-        if let tempArr = value as! Array<AnyObject>? {
-            for entry in tempArr {
-                let mapper = Mapper<T>()
-                let model : T = mapper.map(entry)!
-                result.append(model)
+    func transformFromJSON(_ value: Any?) -> List<T>? {
+        let realmList = List<T>()
+        
+        if let jsonArray = value as? Array<Any> {
+            for item in jsonArray {
+                if let realmModel = Mapper<T>().map(JSONObject: item) {
+                    realmList.append(realmModel)
+                }
             }
         }
-        return result
+        
+        return realmList
     }
     
-    // transformToJson was replaced with a solution by @zendobk from https://gist.github.com/zendobk/80b16eb74524a1674871
-    // to avoid confusing future visitors of this gist. Thanks to @marksbren for pointing this out (see comments of this gist)
-    func transformToJSON(value: Object?) -> JSON? {
-        var results = [AnyObject]()
-        if let value = value {
-            for obj in value {
-                let json = mapper.toJSON(obj)
-                results.append(json)
-            }
+    func transformToJSON(_ value: List<T>?) -> Array<AnyObject>? {
+        
+        guard let realmList = value, realmList.count > 0 else { return nil }
+        
+        var resultArray = Array<T>()
+        
+        for entry in realmList {
+            resultArray.append(entry)
         }
-        return results
+        
+        return resultArray
     }
 }
+
 
 extension UIColor {
     convenience init(hex: UInt) {
@@ -59,7 +60,7 @@ extension UIColor {
 
 extension String {
     func toDouble() -> Double {
-        if let myNumber = NSNumberFormatter().numberFromString(self) {
+        if let myNumber = NumberFormatter().number(from: self) {
             return myNumber.doubleValue
         } else {
             return 0
@@ -69,21 +70,21 @@ extension String {
 
 extension UINavigationController {
     
-    public override func childViewControllerForStatusBarHidden() -> UIViewController? {
+    open override var childViewControllerForStatusBarHidden : UIViewController? {
         return self.topViewController
     }
     
-    public override func childViewControllerForStatusBarStyle() -> UIViewController? {
+    open override var childViewControllerForStatusBarStyle : UIViewController? {
         return self.topViewController
     }
 }
 
-extension NSDate {
+extension Date {
 
     func toString() -> String {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.stringFromDate(self)
+        return dateFormatter.string(from: self)
     }
 }

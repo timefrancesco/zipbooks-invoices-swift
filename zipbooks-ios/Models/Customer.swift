@@ -38,7 +38,7 @@ class Customer: Object,Mappable {
         return "id"
     }
     
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
 
@@ -80,7 +80,7 @@ class CustomerPost: Object,Mappable {
     dynamic var country: String?
     
     
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
     

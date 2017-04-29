@@ -11,16 +11,16 @@ import Foundation
 import UIKit
 
 enum TimeEntryTableRows:Int{
-    case PROJECT = 0
-    case TASK = 1
-    case HOURS = 2
-    case NOTES = 3
-    case DATE = 4
+    case project = 0
+    case task = 1
+    case hours = 2
+    case notes = 3
+    case date = 4
 }
 
 enum TableKind{
-    case PROJECT
-    case TASK
+    case project
+    case task
 }
 
 class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegate, UITableViewDelegate, UITableViewDataSource {
@@ -35,65 +35,65 @@ class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegat
     var tasks = [Task]()
     var selectedTask:Task?
     var currentEntry = TimeEntryPost()
-    var tableKind:TableKind = .PROJECT
+    var tableKind:TableKind = .project
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableview.delegate = self
         tableview.dataSource = self
         tableview.tableFooterView = UIView()
-        datePicker.hidden = true
-        dateToolbar.hidden = true
+        datePicker.isHidden = true
+        dateToolbar.isHidden = true
         
-        tableview.registerNib(UINib(nibName: "AddTableCell", bundle: nil), forCellReuseIdentifier: "TextFieldCell")
+        tableview.register(UINib(nibName: "AddTableCell", bundle: nil), forCellReuseIdentifier: "TextFieldCell")
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         projects = DBservice.sharedInstance.getProjectsAll()
         if (selectedProject == nil){
             tasks = DBservice.sharedInstance.getTasksAll()
         }
-        currentEntry.date = NSDate().toString()
+        currentEntry.date = Date().toString()
     }
     
     
-    @IBAction func onSelectProjectTouchUpInside(sender: AnyObject) {
+    @IBAction func onSelectProjectTouchUpInside(_ sender: AnyObject) {
     }
     
     
-    @IBAction func onSelectTaskTouchUpInside(sender: AnyObject) {
+    @IBAction func onSelectTaskTouchUpInside(_ sender: AnyObject) {
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SelectProjectSegue" {
-            if let destination = segue.destinationViewController as? GenericListViewController {
+            if let destination = segue.destination as? GenericListViewController {
                 let projectStr = projects.map {$0.name! as String}
                 destination.populateSource(projectStr)
                 destination.listSelectedDelegate = self
                 destination.setViewTitle("Projects")
-                destination.insertType = InsertType.PROJECT
+                destination.insertType = InsertType.project
             }
         }
         else if segue.identifier == "SelectTaskSegue" {
-            if let destination = segue.destinationViewController as? GenericListViewController {
+            if let destination = segue.destination as? GenericListViewController {
                 let taskStr = tasks.map {$0.name! as String}
                 destination.populateSource(taskStr)
                 destination.listSelectedDelegate = self
                 destination.setViewTitle("Tasks")
-                destination.insertType = InsertType.TASK
+                destination.insertType = InsertType.task
             }
         }
     }
     
-    func selectedRow(indexpathRow:Int, value:String){
-        if tableKind == .PROJECT && projects[indexpathRow].name == value{
+    func selectedRow(_ indexpathRow:Int, value:String){
+        if tableKind == .project && projects[indexpathRow].name == value{
             selectedProject = projects[indexpathRow]
             selectedTask = nil
             tasks = DBservice.sharedInstance.getTasksForProject((selectedProject?.id)!)
             tableview.reloadData()
         }
         
-        if tableKind == .TASK && tasks.count > indexpathRow && tasks[indexpathRow].name == value{
+        if tableKind == .task && tasks.count > indexpathRow && tasks[indexpathRow].name == value{
             selectedTask = tasks[indexpathRow]
             selectedProject = selectedTask?.project
             currentEntry.taskId = (selectedTask?.id)!
@@ -101,10 +101,10 @@ class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegat
         }
     }
     
-    func adjustInsetForKeyboard(frame: CGRect){
+    func adjustInsetForKeyboard(_ frame: CGRect){
         //let categoryCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: ExpenseTableRows.CATEGORY.rawValue, inSection: 0)) as! AddTableCell
-        let notesCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: TimeEntryTableRows.NOTES.rawValue, inSection: 0)) as! AddTableCell
-        if /*categoryCell.valueTextField.isFirstResponder() ||*/ notesCell.valueTextField.isFirstResponder(){
+        let notesCell = tableview.cellForRow(at: IndexPath(row: TimeEntryTableRows.notes.rawValue, section: 0)) as! AddTableCell
+        if /*categoryCell.valueTextField.isFirstResponder() ||*/ notesCell.valueTextField.isFirstResponder{
             tableview.setContentOffset(CGPoint(x: 0, y: 100), animated: true)
             
         }
@@ -117,12 +117,12 @@ class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegat
     }
     
     func generateApiData() -> TimeEntryPost{
-        let nameCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: TimeEntryTableRows.NOTES.rawValue, inSection: 0)) as! AddTableCell
+        let nameCell = tableview.cellForRow(at: IndexPath(row: TimeEntryTableRows.notes.rawValue, section: 0)) as! AddTableCell
         currentEntry.note = nameCell.valueTextField.text
         
-        let amountCell = tableview.cellForRowAtIndexPath(NSIndexPath(forRow: TimeEntryTableRows.HOURS.rawValue, inSection: 0)) as! AddTableCell
+        let amountCell = tableview.cellForRow(at: IndexPath(row: TimeEntryTableRows.hours.rawValue, section: 0)) as! AddTableCell
         let amount = amountCell.valueTextField.text
-        if let myNumber = NSNumberFormatter().numberFromString(amount!) {
+        if let myNumber = NumberFormatter().number(from: amount!) {
             currentEntry.duration = Int (myNumber.doubleValue * 3600)
         } else {
             currentEntry.duration = 0
@@ -131,88 +131,88 @@ class AddTimeEntryViewController: UIViewController, GenericTableSelectionDelegat
     }
     
     func dismissKeyboard(){
-        UIApplication.sharedApplication().sendAction("resignFirstResponder", to:nil, from:nil, forEvent:nil)
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
     }
     
-    @IBAction func onDoneDateSelected(sender: AnyObject) {
-        datePicker.hidden = true
-        dateToolbar.hidden = true
+    @IBAction func onDoneDateSelected(_ sender: AnyObject) {
+        datePicker.isHidden = true
+        dateToolbar.isHidden = true
     }
     
-    @IBAction func onDateChanged(sender: AnyObject) {
+    @IBAction func onDateChanged(_ sender: AnyObject) {
         currentEntry.date = datePicker.date.toString()
         tableview.reloadData()
     }
     
     //MARK: TableView Delegate Functions
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell", forIndexPath: indexPath) as! AddTableCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath) as! AddTableCell
         
         switch(indexPath.row){
-        case TimeEntryTableRows.PROJECT.rawValue :
-            cell.accessoryType = .DisclosureIndicator
+        case TimeEntryTableRows.project.rawValue :
+            cell.accessoryType = .disclosureIndicator
             if selectedProject == nil{
-                cell.updateData(TimeEntryTableRows.PROJECT.rawValue, entryType: .TIME, data: "")
+                cell.updateData(TimeEntryTableRows.project.rawValue, entryType: .time, data: "")
             }
             else{
-                cell.updateData(TimeEntryTableRows.PROJECT.rawValue, entryType: .TIME, data: selectedProject?.name)
+                cell.updateData(TimeEntryTableRows.project.rawValue, entryType: .time, data: selectedProject?.name)
             }
             break;
-        case TimeEntryTableRows.TASK.rawValue :
-            cell.accessoryType = .DisclosureIndicator
+        case TimeEntryTableRows.task.rawValue :
+            cell.accessoryType = .disclosureIndicator
             if selectedTask == nil{
-                cell.updateData(TimeEntryTableRows.TASK.rawValue, entryType: .TIME, data: "")
+                cell.updateData(TimeEntryTableRows.task.rawValue, entryType: .time, data: "")
             }
             else{
-                cell.updateData(TimeEntryTableRows.TASK.rawValue, entryType: .TIME, data: selectedTask?.name)
+                cell.updateData(TimeEntryTableRows.task.rawValue, entryType: .time, data: selectedTask?.name)
             }
             break;
-        case TimeEntryTableRows.DATE.rawValue:
-            cell.accessoryType = .None
-            cell.updateData(TimeEntryTableRows.DATE.rawValue, entryType: .TIME, data: currentEntry.date)
+        case TimeEntryTableRows.date.rawValue:
+            cell.accessoryType = .none
+            cell.updateData(TimeEntryTableRows.date.rawValue, entryType: .time, data: currentEntry.date)
             break;
         default:
-            cell.accessoryType = .None
-            cell.updateData(indexPath.row, entryType: .TIME)
+            cell.accessoryType = .none
+            cell.updateData(indexPath.row, entryType: .time)
             break
         }
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        tableView.deselectRow(at: indexPath, animated: true)
         switch(indexPath.row){
-        case TimeEntryTableRows.PROJECT.rawValue:
+        case TimeEntryTableRows.project.rawValue:
             dismissKeyboard()
-            datePicker.hidden = true
-            dateToolbar.hidden = true
-            performSegueWithIdentifier("SelectProjectSegue", sender: nil)
-            tableKind = .PROJECT
+            datePicker.isHidden = true
+            dateToolbar.isHidden = true
+            performSegue(withIdentifier: "SelectProjectSegue", sender: nil)
+            tableKind = .project
             break;
-        case TimeEntryTableRows.TASK.rawValue:
+        case TimeEntryTableRows.task.rawValue:
             dismissKeyboard()
-            datePicker.hidden = true
-            dateToolbar.hidden = true
-            performSegueWithIdentifier("SelectTaskSegue", sender: nil)
-            tableKind = .TASK
+            datePicker.isHidden = true
+            dateToolbar.isHidden = true
+            performSegue(withIdentifier: "SelectTaskSegue", sender: nil)
+            tableKind = .task
             break;
-        case TimeEntryTableRows.DATE.rawValue:
+        case TimeEntryTableRows.date.rawValue:
             dismissKeyboard()
-            datePicker.hidden = false
-            dateToolbar.hidden = false
+            datePicker.isHidden = false
+            dateToolbar.isHidden = false
             break;
         default:
-            datePicker.hidden = true
-            dateToolbar.hidden = true
+            datePicker.isHidden = true
+            dateToolbar.isHidden = true
             break;
         }
     }

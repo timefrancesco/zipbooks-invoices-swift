@@ -14,7 +14,7 @@ import ObjectMapper
 class APIservice {
 
     static let sharedInstance = APIservice() //singleton lazy initialization, apple supports it sice swift 1.2
-    private init() {} //This prevents others from using the default '()' initializer for this class.
+    fileprivate init() {} //This prevents others from using the default '()' initializer for this class.
    
     static var ZIPBOOK = "https://api.zipbooks.com/v1"
     
@@ -30,20 +30,19 @@ class APIservice {
         "Authorization": "bearer " + Utility.getToken(),
     ]
     
-    func login(email:String, password:String, callback: (result: Bool) -> Void ){
+    func login(_ email:String, password:String, callback: @escaping (_ result: Bool) -> Void ){
         
         let body = [
             "email": email,
             "password": password
         ]
-        
-        Alamofire.request(.POST, LOGIN_ENDPOINT, parameters:body).responseObject { (response:  Response<AuthObject, NSError>) in
 
+        Alamofire.request(LOGIN_ENDPOINT, method: HTTPMethod.post, parameters: body, encoding: JSONEncoding(), headers: nil).responseObject{ (response: DataResponse<AuthObject>) in
             guard response.result.error == nil
                 else {
                     // got an error in getting the data, need to handle it
-                    print("error in API login -> " + String(response.result.error!))
-                    callback(result: false)
+                    print("error in API login -> " + String(describing: response.result.error!))
+                    callback(false)
                     return
                 }
             //handling the data
@@ -51,96 +50,92 @@ class APIservice {
                 let data = response.result.value! as AuthObject
                 
                 if data.token == "" || data.user?.email == nil || data.user?.name == nil {
-                    callback (result: false)
+                    callback (false)
                 }
                 else{
                     try Utility.setToken(data.token)
                     try Utility.setUserEmail((data.user?.email)!)
                     try Utility.setUserName((data.user?.name)!)
                 
-                    callback (result: true)
+                    callback (true)
                 }
             }
             catch  {
-                 callback (result: false)
+                 callback (false)
             }
         }
        
     }
    
-    func getInvoices(callback: (data: [Invoice]?) -> Void ){
-        sendRequestArray(Invoice.self, endpoint: INVOICES_ENDPOINT, method: Alamofire.Method.GET){ (result:[Invoice]?) in
-            callback(data: result)
-        }
-        
-        /*sendRequestObject(Invoice.self, endpoint: INVOICES_ENDPOINT, method: Alamofire.Method.GET){ (result:Invoice?) in
-            
-        }*/
-    }
-    
-    func getCustomers(callback: (data: [Customer]?) -> Void ){
-        sendRequestArray(Customer.self, endpoint: CUSTOMERS_ENDPOINT, method: Alamofire.Method.GET){ (result:[Customer]?) in
-            callback(data: result)
+    func getInvoices(_ callback: @escaping (_ data: [Invoice]?) -> Void ){
+        sendRequestArray(remoteEndpoint: INVOICES_ENDPOINT, method: HTTPMethod.get){ (result:[Invoice]?) in
+            callback(result)
         }
     }
     
-    func getProjects(callback: (data: [Project]?) -> Void ){
-        sendRequestArray(Project.self, endpoint: PROJECTS_ENDPOINT, method: Alamofire.Method.GET){ (result:[Project]?) in
-            callback(data: result)
+    func getCustomers(_ callback: @escaping (_ data: [Customer]?) -> Void ){
+        sendRequestArray(remoteEndpoint: CUSTOMERS_ENDPOINT, method: HTTPMethod.get){ (result:[Customer]?) in
+            callback(result)
         }
     }
     
-    func getTasks(callback: (data: [Task]?) -> Void ){
-        sendRequestArray(Task.self, endpoint: TASKS_ENDPOINT, method: Alamofire.Method.GET){ (result:[Task]?) in
-            callback(data: result)
+    func getProjects(_ callback: @escaping (_ data: [Project]?) -> Void ){
+        sendRequestArray(remoteEndpoint: PROJECTS_ENDPOINT, method: HTTPMethod.get){ (result:[Project]?) in
+            callback(result)
         }
     }
     
-    func getExpenses(callback: (data: [Expense]?) -> Void ){
-        sendRequestArray(Expense.self, endpoint: EXPENSES_ENDPOINT, method: Alamofire.Method.GET){ (result:[Expense]?) in
-            callback(data: result)
+    func getTasks(_ callback: @escaping (_ data: [Task]?) -> Void ){
+        sendRequestArray(remoteEndpoint: TASKS_ENDPOINT, method: HTTPMethod.get){ (result:[Task]?) in
+         callback(result)
         }
     }
     
-    func getTimeEntries(callback: (data: [TimeEntry]?) -> Void ){
-        sendRequestArray(TimeEntry.self, endpoint: TIME_ENTRIES_ENDPOINT, method: Alamofire.Method.GET){ (result:[TimeEntry]?) in
-            callback(data: result)
+    func getExpenses(_ callback: @escaping (_ data: [Expense]?) -> Void ){
+        sendRequestArray(remoteEndpoint: EXPENSES_ENDPOINT, method: HTTPMethod.get){ (result:[Expense]?) in
+             callback(result)
+        }
+    }
+    
+    func getTimeEntries(_ callback: @escaping (_ data: [TimeEntry]?) -> Void ){
+        sendRequestArray(remoteEndpoint: TIME_ENTRIES_ENDPOINT, method: HTTPMethod.get){ (result:[TimeEntry]?) in
+            callback(result)
         }
     }
     
     //MARK: Post Functions
     
-    func setExpense(expense: ExpensePost, callback: (data: Expense?) -> Void ){
-        sendPostRequest(EXPENSES_ENDPOINT, method: Alamofire.Method.POST, parameters: Mapper().toJSON(expense)){ (result: Expense?) in
-            callback(data: result)
+    func setExpense(_ expense: ExpensePost, callback: @escaping (_ data: Expense?) -> Void ){
+         sendRequestObject(remoteEndpoint: EXPENSES_ENDPOINT, method: HTTPMethod.post, parameters: Mapper().toJSON(expense)){ (result: Expense?) in
+            callback(result)
         }
     }
     
-    func setTimeEntry(expense: TimeEntryPost, callback: (data: TimeEntry?) -> Void ){
-        sendPostRequest(TIME_ENTRIES_ENDPOINT, method: Alamofire.Method.POST, parameters: Mapper().toJSON(expense)){ (result: TimeEntry?) in
-            callback(data: result)
+    func setTimeEntry(_ expense: TimeEntryPost, callback: @escaping (_ data: TimeEntry?) -> Void ){
+         sendRequestObject(remoteEndpoint: TIME_ENTRIES_ENDPOINT, method: HTTPMethod.post, parameters: Mapper().toJSON(expense)){ (result: TimeEntry?) in
+            callback(result)
         }
     }
     
-    func saveNewCustomer(customer: CustomerPost, callback: (data: Customer?) -> Void ){
-        sendPostRequest(CUSTOMERS_ENDPOINT, method: Alamofire.Method.POST, parameters: Mapper().toJSON(customer)){ (result: Customer?) in
-            callback(data: result)
+    func saveNewCustomer(_ customer: CustomerPost, callback: @escaping (_ data: Customer?) -> Void ){
+        sendRequestObject(remoteEndpoint: CUSTOMERS_ENDPOINT, method: HTTPMethod.post, parameters: Mapper().toJSON(customer)){ (result: Customer?) in
+            callback(result)
         }
     }
     
-    func saveNewProject(project: ProjectPost, callback: (data: Project?) -> Void ){
-        sendPostRequest(PROJECTS_ENDPOINT, method: Alamofire.Method.POST, parameters: Mapper().toJSON(project)){ (result: Project?) in
-            callback(data: result)
+    func saveNewProject(_ project: ProjectPost, callback: @escaping (_ data: Project?) -> Void ){
+        sendRequestObject(remoteEndpoint: PROJECTS_ENDPOINT, method: HTTPMethod.post, parameters: Mapper().toJSON(project)){ (result: Project?) in
+            callback(result)
         }
     }
     
-    func saveNewTask(task: TaskPost, callback: (data: Task?) -> Void ){
-        sendPostRequest(TASKS_ENDPOINT, method: Alamofire.Method.POST, parameters: Mapper().toJSON(task)){ (result: Task?) in
-            callback(data: result)
+    func saveNewTask(_ task: TaskPost, callback: @escaping (_ data: Task?) -> Void ){
+        sendRequestObject(remoteEndpoint: TASKS_ENDPOINT, method: HTTPMethod.post, parameters: Mapper().toJSON(task)){ (result: Task?) in
+            callback(result)
         }
     }
     
-    func sendPostRequest<T: Mappable>( endpoint:String, method:Alamofire.Method, parameters: [String : AnyObject], callback: (result: T?) -> Void ) {
+    /*func sendPostRequest<T: Mappable>( _ endpoint:String, method:Alamofire.Method, parameters: [String : AnyObject], callback: @escaping (_ result: T?) -> Void ) {
         Alamofire.request(method, endpoint, headers:authHeaders, parameters: parameters, encoding: .JSON).responseObject { (response: Response<T, NSError>) in
             guard response.result.error == nil
                 else {
@@ -151,31 +146,32 @@ class APIservice {
             }
             callback (result: response.result.value!)
         }
-    }
+    }*/
     
-    func sendRequestObject<T: Mappable>(obj: T.Type, endpoint:String, method:Alamofire.Method, callback: (result: T?) -> Void ) {
-        Alamofire.request(method, endpoint, headers:authHeaders).responseObject { (response: Response<T, NSError>) in
+    func sendRequestObject<T: Mappable>(remoteEndpoint endpoint:String, method:HTTPMethod, parameters: [String: Any]? = nil,  callback: @escaping (_ result: T?) -> Void ) {
+        Alamofire.request(endpoint, method: method, parameters: parameters, encoding: JSONEncoding(), headers: authHeaders).responseObject{ (response: DataResponse<T>) in
+                
             guard response.result.error == nil
                 else {
                     // got an error in getting the data, need to handle it
-                    print("error in API object request -> " + String(response.result.error!))
-                    callback(result: nil)
+                    print("error in API object request -> " + String(describing: response.result.error!))
+                    callback(nil)
                     return
             }
-            callback (result: response.result.value!)
+            callback (response.result.value!)
         }
     }
 
-    func sendRequestArray<T: Mappable>(obj: T.Type, endpoint:String, method:Alamofire.Method, callback: (result: [T]?) -> Void ) {
-        Alamofire.request(method, endpoint, headers:authHeaders).responseArray { (response: Response<[T], NSError>) in
+    func sendRequestArray<T: Mappable>(remoteEndpoint endpoint:String, method:HTTPMethod, parameters: [String: Any]? = nil,  callback: @escaping (_ result: [T]?) -> Void ) {
+        Alamofire.request(endpoint, method: method, parameters: parameters, encoding: JSONEncoding(), headers: authHeaders).responseArray { (response: DataResponse<[T]>) in
             guard response.result.error == nil
                 else {
                     // got an error in getting the data, need to handle it
-                    print("error in API array request -> " + String(response.result.error!))
-                    callback(result: nil)
+                    print("error in API array request -> " + String(describing: response.result.error!))
+                    callback(nil)
                     return
             }
-            callback (result: response.result.value!)
+            callback (response.result.value!)
         }
     }
     

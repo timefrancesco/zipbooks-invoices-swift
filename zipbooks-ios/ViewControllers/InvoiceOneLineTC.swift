@@ -12,7 +12,7 @@ import UIKit
 class InvoiceTableCellOneLineTC: UITableViewCell {
     @IBOutlet weak var lineValue: UILabel!
     
-    func updateData(value:String){
+    func updateData(_ value:String){
        lineValue.text = value
     }
 }

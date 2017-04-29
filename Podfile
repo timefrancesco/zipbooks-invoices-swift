@@ -1,11 +1,11 @@
-source 'https://github.com/CocoaPods/Specs.git'
-
-platform :ios, '8.0'
-
-pod 'Alamofire', '~> 3.0'
-pod 'ObjectMapper', '~> 1.0'
-pod 'AlamofireObjectMapper', '~> 2.1'
-pod 'RealmSwift', '~> 0.96'
-pod 'BuddyBuildSDK'
-
+platform :ios, '10.0'
 use_frameworks!
+
+target 'zipbooks-ios' do
+    pod 'Alamofire'
+    pod 'ObjectMapper'
+    pod 'AlamofireObjectMapper'
+    pod 'RealmSwift'
+    pod 'BuddyBuildSDK'
+    pod 'ReachabilitySwift'
+end

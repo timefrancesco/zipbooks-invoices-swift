@@ -12,7 +12,7 @@ import UIKit
 class InvoiceTotalTC: UITableViewCell {
     @IBOutlet weak var totalLbl: UILabel!
     
-    func updateData( value:String){
+    func updateData( _ value:String){
         totalLbl.text = "$" + value //TODO: currency
     }
 }

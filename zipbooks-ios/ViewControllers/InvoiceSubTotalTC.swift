@@ -13,7 +13,7 @@ class InvoiceSubTotalTC: UITableViewCell {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var subtotalLbl: UILabel!
     
-    func updateData( value:String, description:String){
+    func updateData( _ value:String, description:String){
         descriptionLbl.text = description
         subtotalLbl.text = "$" + value //TODO: currency
     }

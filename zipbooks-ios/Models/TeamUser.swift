@@ -46,7 +46,7 @@ class TeamUser: Object,Mappable {
     }
     
 	// MARK: Mappable
-	required convenience init?(_ map: Map) {
+	required convenience init?(map: Map) {
 		self.init()
 	}
 
@@ -87,7 +87,7 @@ class Pivot: Object,Mappable {
     dynamic var project_id: Int = 0
     
     // MARK: Mappable
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
     

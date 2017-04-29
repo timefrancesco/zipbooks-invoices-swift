@@ -21,33 +21,33 @@ class GenericListViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewDidLoad()
         listTableView.delegate = self
         listTableView.dataSource = self
-        listTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "genericCell")
+        listTableView.register(UITableViewCell.self, forCellReuseIdentifier: "genericCell")
         listTableView.tableFooterView = UIView()
         
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 18)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
-        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 18)!, NSForegroundColorAttributeName : UIColor.white]
+        navigationController?.navigationBar.tintColor = UIColor.white
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         listTableView.reloadData()
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
-    func populateSource(value:[String]){
+    func populateSource(_ value:[String]){
         source = value
     }
     
-    func setViewTitle(val:String){
+    func setViewTitle(_ val:String){
         title = val
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "InsertSegue" {
-            if let destination = segue.destinationViewController as? UINavigationController {
+            if let destination = segue.destination as? UINavigationController {
                 let insVC = destination.viewControllers[0] as! InsertViewController
                 insVC.insertType = insertType
             }
@@ -56,25 +56,25 @@ class GenericListViewController: UIViewController, UITableViewDataSource, UITabl
     
     //MARK: TableView Delegate Functions
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier("genericCell", forIndexPath: indexPath) 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "genericCell", for: indexPath) 
         cell.textLabel?.text = source[indexPath.item]
         cell.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 15)
         cell.textLabel?.textColor = Utility.getDefaultGrayColor()
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return source.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         listSelectedDelegate?.selectedRow(indexPath.row, value:source[indexPath.row])
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        navigationController?.popViewControllerAnimated(true)
+        tableView.deselectRow(at: indexPath, animated: true)
+        navigationController?.popViewController(animated: true)
     }    
 }

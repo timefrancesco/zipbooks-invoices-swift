@@ -13,18 +13,18 @@ import RealmSwift
 class DBservice{
     
     static let sharedInstance = DBservice() //singleton lazy initialization, apple supports it sice swift 1.2
-    private init() {} //This prevents others from using the default '()' initializer for this class.
+    fileprivate init() {} //This prevents others from using the default '()' initializer for this class.
     
     //MARK: Save functions
     
-    func saveObject(data: Object){
+    func saveObject(_ data: Object){
         let realm = try! Realm()
         try! realm.write({ () -> Void in
             realm.add(data, update: true)
         })
     }
     
-    func saveArray(data: [Object]){
+    func saveArray(_ data: [Object]){
         let realm = try! Realm()
         try! realm.write({ () -> Void in
             for val in data{
@@ -46,7 +46,7 @@ class DBservice{
         return getArray(returnType: Invoice.self)
     }
     
-    func getInvoicesForCompany(companyName:String) -> [Invoice]{
+    func getInvoicesForCompany(_ companyName:String) -> [Invoice]{
         let customerId = getCustomerIdFromName(companyName)
         return getArray(filter: "customer_id = " + String(customerId), returnType: Invoice.self)
     }
@@ -59,7 +59,7 @@ class DBservice{
         return getArray(returnType: Task.self)
     }
     
-    func getTasksForProject(projectID:Int) -> [Task] {
+    func getTasksForProject(_ projectID:Int) -> [Task] {
         return getArray(filter: "project_id = " + String(projectID), returnType: Task.self )
     }
     
@@ -67,22 +67,22 @@ class DBservice{
         return getArray(returnType: Customer.self)
     }
     
-    func getCustomerIdFromName(customerName:String) -> Int {
+    func getCustomerIdFromName(_ customerName:String) -> Int {
         return getArray(filter: "name = " + customerName, returnType: Customer.self)[0].id
     }
     
-    func getCustomerNameFromId(customerID:Int) -> String {
+    func getCustomerNameFromId(_ customerID:Int) -> String {
         let name =  getArray(filter: "id = " + String(customerID), returnType: Customer.self)[0].name!
         print(name)
          return name
     }
     
-    func getObject<T: Object>(primaryKey:Object, returnType: T.Type)-> T {
+    func getObject<T: Object>(_ primaryKey:Object, returnType: T.Type)-> T {
         let realm = try! Realm()
-        return  realm.objectForPrimaryKey(returnType, key: primaryKey)!
+        return  realm.object(ofType: returnType, forPrimaryKey: primaryKey)!
     }
     
-    func getArray<T: Object>(sorting:String = "", filter:String = "", returnType: T.Type)-> [T] {
+    func getArray<T: Object>(_ sorting:String = "", filter:String = "", returnType: T.Type)-> [T] {
         let realm = try! Realm()
         
         if sorting == "" && filter == "" {
@@ -92,9 +92,9 @@ class DBservice{
             return Array(realm.objects(returnType).filter(filter))
         }
         else if sorting != "" && filter == "" {
-           return Array(realm.objects(returnType).sorted(sorting))
+           return Array(realm.objects(returnType).sorted(byKeyPath: sorting))
         }
-        return Array(realm.objects(returnType).sorted(sorting).filter(filter))
+        return Array(realm.objects(returnType).sorted(byKeyPath: sorting).filter(filter))
     }
    
 }

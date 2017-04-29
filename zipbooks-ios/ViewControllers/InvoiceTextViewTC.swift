@@ -12,7 +12,7 @@ import UIKit
 class InvoiceTextViewTC: UITableViewCell {
     
     @IBOutlet weak var textTview: UITextView!
-    func updateData( text:String){
+    func updateData( _ text:String){
         textTview.text = text
     }
 }

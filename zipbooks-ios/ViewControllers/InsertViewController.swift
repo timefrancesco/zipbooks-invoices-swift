@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 enum InsertType{
-    case CUSTOMER
-    case PROJECT
-    case TASK
+    case customer
+    case project
+    case task
 }
 
 class InsertViewController: UIViewController {
@@ -26,90 +26,90 @@ class InsertViewController: UIViewController {
         customizeNavBar()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if insertType == InsertType.CUSTOMER{
-            addCustomerContainer.hidden = false
-            addProjectContainer.hidden = true
+        if insertType == InsertType.customer{
+            addCustomerContainer.isHidden = false
+            addProjectContainer.isHidden = true
             title = "New Customer"
         }
         
-        if insertType == InsertType.PROJECT{
-            addCustomerContainer.hidden = true
-            addProjectContainer.hidden = false
+        if insertType == InsertType.project{
+            addCustomerContainer.isHidden = true
+            addProjectContainer.isHidden = false
             title = "New Project"
         }
         
         if Utility.getScreenWidth() < IPHONE_6_SCREEN_WIDTH {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "OnKeyboardAppear:", name: UIKeyboardWillShowNotification, object: nil)
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "OnKeyboardDisappear:", name: UIKeyboardWillHideNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(InsertViewController.OnKeyboardAppear(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(InsertViewController.OnKeyboardDisappear(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         }
         
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         title = ""
         if Utility.getScreenWidth() < IPHONE_6_SCREEN_WIDTH {
-            NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-            NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+            NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+            NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         }
     }
     
     func customizeNavBar(){
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 18)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 18)!, NSForegroundColorAttributeName : UIColor.white]
         navigationController?.navigationBar.barTintColor = Utility.getDefaultGrayColor()
-        navigationController?.navigationBar.translucent = false
+        navigationController?.navigationBar.isTranslucent = false
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
    
-    func OnKeyboardAppear(notify:NSNotification) {
+    func OnKeyboardAppear(_ notify:Notification) {
         if let dicUserInfo = notify.userInfo {
-            let recKeyboardFrame:CGRect = ((dicUserInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue())!
+            let recKeyboardFrame:CGRect = ((dicUserInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue)!
             adjustKeyboard(true, frame:recKeyboardFrame)
         }
     }
     
-    func OnKeyboardDisappear(notify:NSNotification) {
+    func OnKeyboardDisappear(_ notify:Notification) {
        adjustKeyboard(false)
     }
     
-    func adjustKeyboard(show:Bool, frame:CGRect?=nil){
-        if insertType == InsertType.CUSTOMER{
+    func adjustKeyboard(_ show:Bool, frame:CGRect?=nil){
+        if insertType == InsertType.customer{
            let vc = childViewControllers[0] as! InsertNewCustomer
             show == true ? vc.adjustInsetForKeyboard(frame!) : vc.restoreInsetForKeyboard()
         }
     }
     
-    @IBAction func OnCancelBtnTouchUpInside(sender: AnyObject) {
-        navigationController?.dismissViewControllerAnimated(true, completion:nil)
+    @IBAction func OnCancelBtnTouchUpInside(_ sender: AnyObject) {
+        navigationController?.dismiss(animated: true, completion:nil)
     }
     
-    @IBAction func onSaveButtonTouchUpInside(sender: AnyObject) {
-        if insertType == InsertType.CUSTOMER{
+    @IBAction func onSaveButtonTouchUpInside(_ sender: AnyObject) {
+        if insertType == InsertType.customer{
             let addCustomerVC = childViewControllers[0] as! InsertNewCustomer
             let data = addCustomerVC.generateApiData()
             saveNewCustomer(data)
         }
-        else if insertType == InsertType.PROJECT{
+        else if insertType == InsertType.project{
             let addProjectVC = childViewControllers[1] as! InsertNewProjectVC
             let data = addProjectVC.generateApiData()
             saveNewProject(data)
         }
     }
     
-    func saveNewCustomer(data:CustomerPost){
+    func saveNewCustomer(_ data:CustomerPost){
         APIservice.sharedInstance.saveNewCustomer(data){ (data:Customer?) in
             if data == nil {
                 //self.errorLbl.text = "Error saving customer, please check your internet"
                 //self.errorLbl.hidden = false
             }
             else {
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             }
             //self.saveBtn.enabled = true
             //self.activityIndicator.hidden = true
@@ -117,14 +117,14 @@ class InsertViewController: UIViewController {
         }
     }
     
-    func saveNewProject(data:ProjectPost){
+    func saveNewProject(_ data:ProjectPost){
         APIservice.sharedInstance.saveNewProject(data){ (data:Project?) in
             if data == nil {
                 //self.errorLbl.text = "Error saving customer, please check your internet"
                 //self.errorLbl.hidden = false
             }
             else {
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             }
             //self.saveBtn.enabled = true
             //self.activityIndicator.hidden = true

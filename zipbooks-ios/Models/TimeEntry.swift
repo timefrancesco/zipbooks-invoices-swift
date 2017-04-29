@@ -34,7 +34,7 @@ class TimeEntry: Object,Mappable {
 
 	// MARK: Mappable
 
-	required convenience init?(_ map: Map) {
+	required convenience init?(map: Map) {
 		self.init()
 	}
 
@@ -63,7 +63,7 @@ class TimeEntryPost: Object,Mappable {
     dynamic var note: String?
     
     // MARK: Mappable
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
     

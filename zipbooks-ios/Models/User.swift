@@ -16,13 +16,9 @@ class User : Object, Mappable {
     dynamic var email:String = ""
     dynamic var name:String  = ""
     
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
-    
-    /*override static func primaryKey() -> String? {
-        return "intID"
-    }*/
     
     func mapping(map: Map) {
         email <- map["email"]
@@ -38,13 +34,9 @@ class AuthObject : Object, Mappable {
     dynamic var token:String = ""
     dynamic var user:User?
     
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
-    
-    /*override static func primaryKey() -> String? {
-    return "intID"
-    }*/
     
     func mapping(map: Map) {
     token <- map["token"]

@@ -16,15 +16,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         navigationController?.setNavigationBarHidden(true, animated: false)
         usernameTextField.delegate = self
         passwordTextField.delegate = self
-        activityView.hidden = true
+        activityView.isHidden = true
         
-        let str = NSAttributedString(string: "email", attributes: [NSForegroundColorAttributeName:UIColor.lightGrayColor()])
+        let str = NSAttributedString(string: "email", attributes: [NSForegroundColorAttributeName:UIColor.lightGray])
         usernameTextField.attributedPlaceholder = str
         
-        let str2 = NSAttributedString(string: "password", attributes: [NSForegroundColorAttributeName:UIColor.lightGrayColor()])
+        let str2 = NSAttributedString(string: "password", attributes: [NSForegroundColorAttributeName:UIColor.lightGray])
         passwordTextField.attributedPlaceholder = str2
     }
 
@@ -37,45 +38,45 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         setupViews()
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
     func login() {
        activityView.startAnimating()
-        activityView.hidden = false
+        activityView.isHidden = false
         
         APIservice.sharedInstance.login(usernameTextField.text!,password:passwordTextField.text!){ (result:Bool) in
             if result{
                 APIservice.sharedInstance.generateHeaderAfterAuth()
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainAuth")
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainAuth")
 
             }
             else {
                 self.activityView.stopAnimating()
-                self.activityView.hidden = true
+                self.activityView.isHidden = true
             }
         }
     }
     
     func setupViews(){
-        let usernameBottomLine = UIView(frame: CGRectMake(usernameTextField.frame.origin.x, usernameTextField.frame.origin.y + usernameTextField.frame.height, usernameTextField.frame.size.width, 0.5))
-        usernameBottomLine.backgroundColor = UIColor.whiteColor()
-        usernameBottomLine.opaque = true
+        let usernameBottomLine = UIView(frame: CGRect(x: usernameTextField.frame.origin.x, y: usernameTextField.frame.origin.y + usernameTextField.frame.height, width: usernameTextField.frame.size.width, height: 0.5))
+        usernameBottomLine.backgroundColor = UIColor.white
+        usernameBottomLine.isOpaque = true
         
         
-        let passwordBottomLine = UIView(frame: CGRectMake(passwordTextField.frame.origin.x, passwordTextField.frame.origin.y + passwordTextField.frame.height, passwordTextField.frame.size.width, 0.5))
-        passwordBottomLine.backgroundColor = UIColor.whiteColor()
-        passwordBottomLine.opaque = true
+        let passwordBottomLine = UIView(frame: CGRect(x: passwordTextField.frame.origin.x, y: passwordTextField.frame.origin.y + passwordTextField.frame.height, width: passwordTextField.frame.size.width, height: 0.5))
+        passwordBottomLine.backgroundColor = UIColor.white
+        passwordBottomLine.isOpaque = true
         
         view.addSubview(usernameBottomLine)
         view.addSubview(passwordBottomLine)
     }
 
     //delegate method
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if (usernameTextField.isFirstResponder()){
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if (usernameTextField.isFirstResponder){
             passwordTextField.becomeFirstResponder()
         }
         else{

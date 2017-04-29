@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RealmSwift
+import ReachabilitySwift
 
 class InvoicesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
@@ -23,9 +24,9 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
         invoicesTableView.delegate = self
         invoicesTableView.dataSource = self
         invoicesTableView.tableFooterView = UIView()
-        invoicesTableView.registerNib(UINib(nibName: "InvoiceTableCell", bundle: nil), forCellReuseIdentifier: "InvoiceCell")
+        invoicesTableView.register(UINib(nibName: "InvoiceTableCell", bundle: nil), forCellReuseIdentifier: "InvoiceCell")
         setupPullToRefresh()
-        if Reachability.isConnectedToNetwork(){
+        if Connectivity.sharedInstance.isConnected(){
             startupUpdate()
             updateAdditionalData()
         }
@@ -35,35 +36,35 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
         customizeNavBar()
     }
    
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         title = ""
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = "Invoices" //TODO: Localization
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
     func customizeNavBar(){
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 18)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 18)!, NSForegroundColorAttributeName : UIColor.white]
         navigationController?.navigationBar.barTintColor = Utility.getDefaultGrayColor()
-        navigationController?.navigationBar.translucent = false
+        navigationController?.navigationBar.isTranslucent = false
     }
     
     func setupPullToRefresh(){
         pullToRefresh.attributedTitle = NSAttributedString(string: NSLocalizedString("Updating invoices", comment: ""))
-        pullToRefresh.addTarget(self, action: "updateInvoices:", forControlEvents: UIControlEvents.ValueChanged)
+        pullToRefresh.addTarget(self, action: #selector(InvoicesViewController.updateInvoices(_:)), for: UIControlEvents.valueChanged)
         invoicesTableView.addSubview(pullToRefresh)
     }
     
-    func updateInvoices(sender:AnyObject?){
+    func updateInvoices(_ sender:AnyObject?){
         
-        if !Reachability.isConnectedToNetwork(){
+        if !Connectivity.sharedInstance.isConnected(){
             pullToRefresh.endRefreshing()
             return
         }
@@ -113,29 +114,29 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     //MARK: TableView Delegate Functions
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier("InvoiceCell", forIndexPath: indexPath) as! InvoiceTableCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InvoiceCell", for: indexPath) as! InvoiceTableCell
         let invoice = invoices[indexPath.row]
         cell.updateData(invoice)
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return invoices.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        self.performSegueWithIdentifier("showInvoice", sender: self)
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        self.performSegue(withIdentifier: "showInvoice", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showInvoice" {
-            if let destination = segue.destinationViewController as? SingleInvoiceViewController {
+            if let destination = segue.destination as? SingleInvoiceViewController {
                 if let indx = invoicesTableView.indexPathForSelectedRow?.row {
                     destination.currentInvoice = invoices[indx]
                 }

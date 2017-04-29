@@ -15,7 +15,7 @@ class InvoiceItemTC: UITableViewCell {
     @IBOutlet weak var taskLbl: UILabel!
     @IBOutlet weak var quantityLbl: UILabel!
     
-    func updateData(value:Item){
+    func updateData(_ value:Item){
         totalPriceLbl.text = "$" + Utility.calculateTotal(value.quantity, rate: value.rate!)
         notesLbl.text = value.notes
         taskLbl.text = value.name

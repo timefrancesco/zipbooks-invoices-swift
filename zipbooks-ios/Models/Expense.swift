@@ -41,7 +41,7 @@ class Expense: Object,Mappable {
     }
     
 	// MARK: Mappable
-	required convenience init?(_ map: Map) {
+	required convenience init?(map: Map) {
 		self.init()
 	}
 
@@ -81,7 +81,7 @@ class ExpensePost: Object,Mappable {
     dynamic var note: String?
         
     // MARK: Mappable
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
     
