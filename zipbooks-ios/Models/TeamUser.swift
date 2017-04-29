@@ -12,34 +12,34 @@ import ObjectMapper
 import Foundation
 
 class TeamUser: Object,Mappable {
-    var id: Int = 0
-    var email: String?
-    var first_name: String?
-	var second_login_at: String?
-	var last_name: String?
-	var plural: String?
-	var onboard_credit_cards: String?
-	var settings: String?
-	var singular: String?
-	var provider_id: String?
-	var updated_at: String?
-	var account_id: Int?
-	var onboard_hours: String?
-	var archived_at: String?
-	var onboard_finished: String?
-	var created_at: String?
-	var pivot: Pivot?
-	var onboard_expenses: String?
-	var provider: String?
-	var onboard_tasks: String?
-	var onboard_account: String?
-	var avatar: String?
-	var deleted_at: String?
-	var hourly_rate: String?
-	var onboard_invoices: String?
-	var onboard_projects: String?
-	var onboard_customers: String?
-	var onboard_users: String?
+    dynamic var id: Int = 0
+    dynamic var email: String?
+    dynamic var first_name: String?
+	dynamic var second_login_at: String?
+	dynamic var last_name: String?
+	dynamic var plural: String?
+	dynamic var onboard_credit_cards: String?
+	dynamic var settings: String?
+	dynamic var singular: String?
+	dynamic var provider_id: String?
+	dynamic var updated_at: String?
+	dynamic var account_id: Int = 0
+	dynamic var onboard_hours: String?
+	dynamic var archived_at: String?
+	dynamic var onboard_finished: String?
+	dynamic var created_at: String?
+	dynamic var pivot: Pivot?
+	dynamic var onboard_expenses: String?
+	dynamic var provider: String?
+	dynamic var onboard_tasks: String?
+	dynamic var onboard_account: String?
+	dynamic var avatar: String?
+	dynamic var deleted_at: String?
+	dynamic var hourly_rate: String?
+	dynamic var onboard_invoices: String?
+	dynamic var onboard_projects: String?
+	dynamic var onboard_customers: String?
+	dynamic var onboard_users: String?
 
     override static func primaryKey() -> String? {
         return "id"

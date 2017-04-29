@@ -9,6 +9,7 @@
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var errorLabel: UILabel!
 
     @IBOutlet weak var activityView: UIActivityIndicatorView!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -45,6 +46,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func login() {
        activityView.startAnimating()
         activityView.isHidden = false
+        errorLabel.isHidden = true
         
         APIservice.sharedInstance.login(usernameTextField.text!,password:passwordTextField.text!){ (result:Bool) in
             if result{
@@ -56,6 +58,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             else {
                 self.activityView.stopAnimating()
                 self.activityView.isHidden = true
+                self.displayLoginError()
             }
         }
     }
@@ -85,6 +88,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         return true
+    }
+    
+    func displayLoginError() {
+        errorLabel.isHidden = false
     }
 }
 

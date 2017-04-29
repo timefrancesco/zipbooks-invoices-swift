@@ -28,7 +28,6 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
         setupPullToRefresh()
         if Connectivity.sharedInstance.isConnected(){
             startupUpdate()
-            updateAdditionalData()
         }
         else {
             loadFromDB()
@@ -52,7 +51,7 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func customizeNavBar(){
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 18)!, NSForegroundColorAttributeName : UIColor.white]
-        navigationController?.navigationBar.barTintColor = Utility.getDefaultGrayColor()
+        navigationController?.navigationBar.barTintColor = Utility.getMainColor()
         navigationController?.navigationBar.isTranslucent = false
     }
     
@@ -71,13 +70,21 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         APIservice.sharedInstance.getInvoices(){ (resultInvoices:[Invoice]?) in
             APIservice.sharedInstance.getCustomers(){ (resultCustomer:[Customer]?) in //nested since I need the customer name (invoice only has customerID)
-                
+
                 DBservice.sharedInstance.clearDB() //to clear deleted invoices from the website, there is no way to only get new invoices
-                DBservice.sharedInstance.saveArray(resultInvoices!)
+                self.updateAdditionalData()
+                if let invoices = resultInvoices {
+                    DBservice.sharedInstance.saveArray(invoices)
+                } else {
+                    //TODO: Display no invoices screen
+                }
+                
+                if let customers = resultCustomer {
+                    DBservice.sharedInstance.saveArray(customers)
+                }
+                
                 self.invoices = DBservice.sharedInstance.getInvoicesAll()
                 self.invoicesTableView.reloadData()
-                
-                DBservice.sharedInstance.saveArray(resultCustomer!)
                 self.pullToRefresh.endRefreshing()
             }
         }
@@ -94,20 +101,34 @@ class InvoicesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func updateAdditionalData(){
+        var displayErrorMessage = false
+        
         APIservice.sharedInstance.getProjects(){ (result:[Project]?) in
-            DBservice.sharedInstance.saveArray(result!)
+            if let result = result {
+                DBservice.sharedInstance.saveArray(result)
+            } else { displayErrorMessage = true }
         }
         
         APIservice.sharedInstance.getExpenses(){ (result:[Expense]?) in
-            DBservice.sharedInstance.saveArray(result!)
+            if let result = result {
+                DBservice.sharedInstance.saveArray(result)
+            } else { displayErrorMessage = true }
         }
         
         APIservice.sharedInstance.getTasks(){ (result:[Task]?) in
-            DBservice.sharedInstance.saveArray(result!)
+            if let result = result {
+                DBservice.sharedInstance.saveArray(result)
+            } else { displayErrorMessage = true }
         }
         
         APIservice.sharedInstance.getTimeEntries(){ (result:[TimeEntry]?) in
-            DBservice.sharedInstance.saveArray(result!)
+            if let result = result {
+                DBservice.sharedInstance.saveArray(result)
+            } else { displayErrorMessage = true }
+        }
+        
+        if displayErrorMessage {
+            print ("ERRROR")
         }
     }
     

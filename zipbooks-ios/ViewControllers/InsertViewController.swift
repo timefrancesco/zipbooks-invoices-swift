@@ -59,7 +59,7 @@ class InsertViewController: UIViewController {
     
     func customizeNavBar(){
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 18)!, NSForegroundColorAttributeName : UIColor.white]
-        navigationController?.navigationBar.barTintColor = Utility.getDefaultGrayColor()
+        navigationController?.navigationBar.barTintColor = Utility.getMainColor()
         navigationController?.navigationBar.isTranslucent = false
     }
     

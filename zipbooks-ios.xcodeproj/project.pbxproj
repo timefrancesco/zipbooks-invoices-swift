@@ -527,7 +527,7 @@
 				PROVISIONING_PROFILE = "57e6299b-888d-451a-abbc-d3cd86cea575";
 				PROVISIONING_PROFILE_SPECIFIER = "Debug Wildcard";
 				SWIFT_OBJC_BRIDGING_HEADER = "zipbooks-ios/zipbooks-ios-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;

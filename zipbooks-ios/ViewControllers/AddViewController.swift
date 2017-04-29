@@ -48,7 +48,7 @@ class AddViewController: UIViewController {
     
     func customizeNavBar(){
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 18)!, NSForegroundColorAttributeName : UIColor.white]
-        navigationController?.navigationBar.barTintColor = Utility.getDefaultGrayColor() 
+        navigationController?.navigationBar.barTintColor = Utility.getMainColor() 
         navigationController?.navigationBar.isTranslucent = false
     }
     
@@ -122,8 +122,8 @@ class AddViewController: UIViewController {
         let expense = expVC.generateApiData()
         if checkExpense(expense) {
             APIservice.sharedInstance.setExpense(expense){ (data:Expense?) in
-                if data == nil {
-                    self.errorLbl.text = "Error saving expense, please check your internet"
+                if data == nil || data?.id == 0 {
+                    self.errorLbl.text = "Error saving expense"
                     self.errorLbl.isHidden = false
                 }
                 else {
@@ -149,7 +149,7 @@ class AddViewController: UIViewController {
         if checkTimeEntry(timeEntry) {
             APIservice.sharedInstance.setTimeEntry(timeEntry){ (data:TimeEntry?) in
                 if data == nil {
-                    self.errorLbl.text = "Error saving timeEntry, please check your internet"
+                    self.errorLbl.text = "Error saving timeEntry"
                     self.errorLbl.isHidden = false
                 }
                 else {

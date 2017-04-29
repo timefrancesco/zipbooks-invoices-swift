@@ -167,7 +167,7 @@ class APIservice {
             guard response.result.error == nil
                 else {
                     // got an error in getting the data, need to handle it
-                    print("error in API array request -> " + String(describing: response.result.error!))
+                    print("error in API array request for " + endpoint + "-> " + String(describing: response.result.error!))
                     callback(nil)
                     return
             }

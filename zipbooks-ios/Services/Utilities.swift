@@ -57,6 +57,10 @@ class Utility {
     class func getScreenWidth()->Int{
         return Int(UIScreen.main.bounds.width)
     }
+    
+    class func getMainColor() -> UIColor {
+        return UIColor(hex:0x005192)
+    }
 }
 /*
 open class Reachability {
