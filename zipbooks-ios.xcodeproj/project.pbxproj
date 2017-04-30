@@ -22,7 +22,9 @@
 		AF13F8CF1C45CAFA00F7F833 /* DBservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8CE1C45CAFA00F7F833 /* DBservice.swift */; };
 		AF13F8D11C46E91E00F7F833 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8D01C46E91E00F7F833 /* Extensions.swift */; };
 		AF13F8D71C486A1100F7F833 /* SingleInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13F8D61C486A1100F7F833 /* SingleInvoiceViewController.swift */; };
-		AF3ED7AB1C83CE5800EE0848 /* FPweatherKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3ED7AA1C83CE5800EE0848 /* FPweatherKit.framework */; };
+		AF2C0FF41EB582250088B898 /* LaunchIcon~universal@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF2C0FF11EB582250088B898 /* LaunchIcon~universal@1x.png */; };
+		AF2C0FF51EB582250088B898 /* LaunchIcon~universal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF2C0FF21EB582250088B898 /* LaunchIcon~universal@2x.png */; };
+		AF2C0FF61EB582250088B898 /* LaunchIcon~universal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF2C0FF31EB582250088B898 /* LaunchIcon~universal@3x.png */; };
 		AF5484DF1C518DDE0080EE67 /* AddTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5484DE1C518DDE0080EE67 /* AddTableCell.swift */; };
 		AF5484E11C518E010080EE67 /* AddTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF5484E01C518E010080EE67 /* AddTableCell.xib */; };
 		AF7C962E1C4B801B00FAA81C /* InvoiceOneLineTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C962D1C4B801B00FAA81C /* InvoiceOneLineTC.swift */; };
@@ -77,7 +79,9 @@
 		AF13F8CE1C45CAFA00F7F833 /* DBservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBservice.swift; path = Services/DBservice.swift; sourceTree = "<group>"; };
 		AF13F8D01C46E91E00F7F833 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Services/Extensions.swift; sourceTree = "<group>"; };
 		AF13F8D61C486A1100F7F833 /* SingleInvoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingleInvoiceViewController.swift; path = ViewControllers/SingleInvoiceViewController.swift; sourceTree = "<group>"; };
-		AF3ED7AA1C83CE5800EE0848 /* FPweatherKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FPweatherKit.framework; path = "/Users/Xeo/Library/Developer/Xcode/DerivedData/FPweatherKit-ayupnftohantgeaykznzdpeasznh/Build/Products/Debug-iphoneos/FPweatherKit.framework"; sourceTree = "<absolute>"; };
+		AF2C0FF11EB582250088B898 /* LaunchIcon~universal@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchIcon~universal@1x.png"; sourceTree = "<group>"; };
+		AF2C0FF21EB582250088B898 /* LaunchIcon~universal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchIcon~universal@2x.png"; sourceTree = "<group>"; };
+		AF2C0FF31EB582250088B898 /* LaunchIcon~universal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchIcon~universal@3x.png"; sourceTree = "<group>"; };
 		AF5484DE1C518DDE0080EE67 /* AddTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTableCell.swift; path = ViewControllers/AddTableCell.swift; sourceTree = "<group>"; };
 		AF5484E01C518E010080EE67 /* AddTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddTableCell.xib; path = ViewControllers/AddTableCell.xib; sourceTree = "<group>"; };
 		AF7C962D1C4B801B00FAA81C /* InvoiceOneLineTC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvoiceOneLineTC.swift; path = ViewControllers/InvoiceOneLineTC.swift; sourceTree = "<group>"; };
@@ -112,7 +116,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF3ED7AB1C83CE5800EE0848 /* FPweatherKit.framework in Frameworks */,
 				2ED67A2B6EB6666A0F72B0AE /* Pods_zipbooks_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +175,9 @@
 		AF0EC09A1C4355D300E71DC0 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				AF2C0FF11EB582250088B898 /* LaunchIcon~universal@1x.png */,
+				AF2C0FF21EB582250088B898 /* LaunchIcon~universal@2x.png */,
+				AF2C0FF31EB582250088B898 /* LaunchIcon~universal@3x.png */,
 				AFBF52C01C434FDF00865594 /* Assets.xcassets */,
 				AFBF52C21C434FDF00865594 /* LaunchScreen.storyboard */,
 				AFBF52C51C434FDF00865594 /* Info.plist */,
@@ -308,8 +314,11 @@
 				AFBF52C41C434FDF00865594 /* LaunchScreen.storyboard in Resources */,
 				AF13F8CB1C44F43300F7F833 /* InvoiceTableCell.xib in Resources */,
 				AF5484E11C518E010080EE67 /* AddTableCell.xib in Resources */,
+				AF2C0FF51EB582250088B898 /* LaunchIcon~universal@2x.png in Resources */,
+				AF2C0FF61EB582250088B898 /* LaunchIcon~universal@3x.png in Resources */,
 				AFBF52C11C434FDF00865594 /* Assets.xcassets in Resources */,
 				AFBF52CC1C43510200865594 /* Podfile in Resources */,
+				AF2C0FF41EB582250088B898 /* LaunchIcon~universal@1x.png in Resources */,
 				AFBF52BF1C434FDF00865594 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -181,5 +181,4 @@ class APIservice {
             "Authorization": "bearer " + Utility.getToken()
         ]
     }
-    
 }
