@@ -22,6 +22,11 @@ enum InvoiceSection:Int{
 class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
     @IBOutlet weak var invoiceTableView: UITableView!
+    @IBOutlet weak var showPdfButton: UIButton!
+    @IBOutlet weak var addPaymentButton: UIButton!
+    @IBOutlet weak var sendInvoiceButton: UIButton!
+    @IBOutlet weak var actionsView: UIView!
+    
     var currentInvoice = Invoice()
     var expenses = [Item]()
     var items = [Item]()
@@ -42,6 +47,18 @@ class SingleInvoiceViewController: UIViewController, UITableViewDataSource, UITa
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
+    }
+    
+    @IBAction func onSendInvoiceButtonTapped(_ sender: Any) {
+        sendInvoice()
+    }
+    @IBAction func onAddPaymentButtonTapped(_ sender: Any) {
+    }
+    @IBAction func onShowPdfButtonTapped(_ sender: Any) {
+    }
+    
+    func sendInvoice() {
+        
     }
     
     

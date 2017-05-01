@@ -6,6 +6,5 @@ target 'zipbooks-ios' do
     pod 'ObjectMapper'
     pod 'AlamofireObjectMapper'
     pod 'RealmSwift'
-    pod 'BuddyBuildSDK'
     pod 'ReachabilitySwift'
 end
